@@ -8,49 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Telugu Culture Inspired Color Palette */
-    --background: 32 45% 97%;
-    --foreground: 24 65% 12%;
+    /* Lush Green Tree Theme - Nature Inspired Palette */
+    --background: 60 15% 96%;
+    --foreground: 140 20% 15%;
 
-    --card: 32 40% 95%;
-    --card-foreground: 24 65% 12%;
+    --card: 60 10% 94%;
+    --card-foreground: 140 20% 15%;
 
-    --popover: 32 40% 98%;
-    --popover-foreground: 24 65% 12%;
+    --popover: 60 10% 97%;
+    --popover-foreground: 140 20% 15%;
 
-    /* Saffron Primary - Traditional Telugu Color */
-    --primary: 24 85% 55%;
-    --primary-foreground: 32 40% 98%;
-    --primary-glow: 28 90% 65%;
+    /* Forest Green Primary - Deep Tree Canopy */
+    --primary: 140 45% 25%;
+    --primary-foreground: 60 15% 96%;
+    --primary-glow: 120 40% 35%;
 
-    /* Teal Secondary - Literature & Knowledge */
-    --secondary: 180 25% 25%;
-    --secondary-foreground: 32 40% 98%;
+    /* Soft Brown Secondary - Tree Bark & Earth */
+    --secondary: 30 25% 35%;
+    --secondary-foreground: 60 15% 96%;
 
-    /* Warm Muted Tones */
-    --muted: 32 20% 88%;
-    --muted-foreground: 24 35% 45%;
+    /* Muted Natural Tones */
+    --muted: 60 8% 88%;
+    --muted-foreground: 140 15% 45%;
 
-    /* Golden Accent */
-    --accent: 45 85% 60%;
-    --accent-foreground: 24 65% 12%;
+    /* Muted Gold Accent - Autumn Leaves */
+    --accent: 45 40% 65%;
+    --accent-foreground: 140 20% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 32 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 60 15% 96%;
 
-    --border: 32 25% 85%;
-    --input: 32 25% 90%;
-    --ring: 24 85% 55%;
+    --border: 60 12% 85%;
+    --input: 60 8% 90%;
+    --ring: 140 45% 25%;
 
-    /* Custom Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(24 85% 55%) 0%, hsl(28 90% 65%) 50%, hsl(45 85% 60%) 100%);
-    --culture-gradient: linear-gradient(180deg, hsl(32 45% 97%) 0%, hsl(32 35% 92%) 100%);
-    --literature-gradient: linear-gradient(135deg, hsl(180 25% 25%) 0%, hsl(200 35% 35%) 100%);
+    /* Custom Nature Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(140 45% 25%) 0%, hsl(120 40% 35%) 50%, hsl(45 40% 65%) 100%);
+    --nature-gradient: linear-gradient(180deg, hsl(60 15% 96%) 0%, hsl(120 20% 92%) 100%);
+    --forest-gradient: linear-gradient(135deg, hsl(140 45% 25%) 0%, hsl(160 35% 30%) 100%);
+    --bark-gradient: linear-gradient(45deg, hsl(30 25% 35%) 0%, hsl(25 30% 40%) 100%);
     
-    /* Shadows with Cultural Colors */
-    --shadow-warm: 0 10px 30px -10px hsl(24 85% 55% / 0.3);
-    --shadow-elegant: 0 4px 20px -4px hsl(180 25% 25% / 0.2);
-    --shadow-glow: 0 0 40px hsl(28 90% 65% / 0.4);
+    /* Shadows with Natural Colors */
+    --shadow-warm: 0 10px 30px -10px hsl(140 45% 25% / 0.2);
+    --shadow-elegant: 0 8px 25px -8px hsl(30 25% 35% / 0.15);
+    --shadow-glow: 0 0 40px hsl(120 40% 35% / 0.3);
+    --shadow-organic: 0 15px 40px -15px hsl(140 30% 20% / 0.25);
 
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
