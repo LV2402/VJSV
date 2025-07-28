@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Bold Cultural Coolors Palette */
-    --background: 42 85% 91%; /* Cream Beige #FDF0D5 */
-    --foreground: 201 100% 14%; /* Midnight Navy #003049 */
+    /* Tree-Inspired Coolors Palette */
+    --background: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --card: 42 85% 91%; /* Cream Beige #FDF0D5 */
-    --card-foreground: 201 100% 14%; /* Midnight Navy #003049 */
+    --card: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --card-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --popover: 42 85% 91%; /* Cream Beige #FDF0D5 */
-    --popover-foreground: 201 100% 14%; /* Midnight Navy #003049 */
+    --popover: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --popover-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Deep Maroon Primary - Brand Elements */
-    --primary: 0 100% 23%; /* Deep Maroon #780000 */
-    --primary-foreground: 42 85% 91%; /* Cream Beige #FDF0D5 */
-    --primary-glow: 351 83% 42%; /* Cultural Red #C1121F */
+    /* Deep Forest Green Primary - Headers & Navbar */
+    --primary: 144 30% 31%; /* Deep Forest Green #386641 */
+    --primary-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --primary-glow: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Cultural Red Secondary - Interactive Elements */
-    --secondary: 351 83% 42%; /* Cultural Red #C1121F */
-    --secondary-foreground: 42 85% 91%; /* Cream Beige #FDF0D5 */
+    /* Leafy Green Secondary - Buttons & Links */
+    --secondary: 95 34% 46%; /* Leafy Green #6A994E */
+    --secondary-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Elegant Muted Tones */
-    --muted: 42 65% 85%;
-    --muted-foreground: 201 80% 25%;
+    /* Natural Muted Tones */
+    --muted: 45 30% 85%;
+    --muted-foreground: 144 20% 45%;
 
-    /* Cool Blue Accent - Highlights & Icons */
-    --accent: 201 42% 57%; /* Cool Blue #669BBC */
-    --accent-foreground: 201 100% 14%; /* Midnight Navy #003049 */
+    /* Fresh Light Green Accent - Highlights & Stats */
+    --accent: 75 52% 57%; /* Fresh Light Green #A7C957 */
+    --accent-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Cultural Red for CTAs and Alerts */
-    --destructive: 351 83% 42%; /* Cultural Red #C1121F */
-    --destructive-foreground: 42 85% 91%; /* Cream Beige #FDF0D5 */
+    /* Rust Red for CTAs and Alerts */
+    --destructive: 358 44% 51%; /* Rust Red #BC4749 */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
 
-    --border: 42 60% 80%;
-    --input: 42 50% 85%;
-    --ring: 201 42% 57%; /* Cool Blue #669BBC */
+    --border: 45 30% 80%;
+    --input: 45 25% 85%;
+    --ring: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Cultural Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(0 100% 23%) 0%, hsl(351 83% 42%) 50%, hsl(201 42% 57%) 100%);
-    --cultural-gradient: linear-gradient(180deg, hsl(42 85% 91%) 0%, hsl(42 70% 88%) 100%);
-    --elegant-gradient: linear-gradient(135deg, hsl(0 100% 23%) 0%, hsl(201 100% 14%) 100%);
+    /* Tree-Inspired Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(95 34% 46%) 50%, hsl(75 52% 57%) 100%);
+    --nature-gradient: linear-gradient(180deg, hsl(45 56% 90%) 0%, hsl(45 40% 85%) 100%);
+    --forest-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(144 35% 25%) 100%);
     
-    /* Elegant Shadows */
-    --shadow-warm: 0 10px 30px -10px hsl(0 100% 23% / 0.2);
-    --shadow-elegant: 0 4px 20px -4px hsl(351 83% 42% / 0.15);
-    --shadow-glow: 0 0 40px hsl(201 42% 57% / 0.3);
+    /* Natural Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(144 30% 31% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(95 34% 46% / 0.15);
+    --shadow-glow: 0 0 40px hsl(75 52% 57% / 0.3);
 
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -77,34 +77,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode with cultural tones */
-    --background: 201 100% 14%; /* Midnight Navy */
-    --foreground: 42 85% 91%; /* Cream Beige */
+    /* Dark mode with tree tones */
+    --background: 144 30% 15%; /* Dark Forest */
+    --foreground: 45 56% 90%; /* Soft Sand */
 
-    --card: 201 100% 18%; /* Darker Navy */
-    --card-foreground: 42 85% 91%; /* Cream Beige */
+    --card: 144 30% 18%; /* Darker Forest */
+    --card-foreground: 45 56% 90%; /* Soft Sand */
 
-    --popover: 201 100% 18%; /* Darker Navy */
-    --popover-foreground: 42 85% 91%; /* Cream Beige */
+    --popover: 144 30% 18%; /* Darker Forest */
+    --popover-foreground: 45 56% 90%; /* Soft Sand */
 
-    --primary: 0 100% 23%; /* Deep Maroon */
-    --primary-foreground: 42 85% 91%; /* Cream Beige */
+    --primary: 95 34% 46%; /* Leafy Green */
+    --primary-foreground: 144 30% 31%; /* Deep Forest Green */
 
-    --secondary: 351 83% 42%; /* Cultural Red */
-    --secondary-foreground: 42 85% 91%; /* Cream Beige */
+    --secondary: 144 30% 35%; /* Lighter Forest */
+    --secondary-foreground: 45 56% 90%; /* Soft Sand */
 
-    --muted: 201 80% 20%; /* Muted Navy */
-    --muted-foreground: 42 70% 75%; /* Light Cream */
+    --muted: 144 25% 25%; /* Muted Forest */
+    --muted-foreground: 45 40% 70%; /* Light Sand */
 
-    --accent: 201 42% 57%; /* Cool Blue */
-    --accent-foreground: 201 100% 14%; /* Midnight Navy */
+    --accent: 75 52% 57%; /* Fresh Light Green */
+    --accent-foreground: 144 30% 15%; /* Dark Forest */
 
-    --destructive: 351 83% 42%; /* Cultural Red */
-    --destructive-foreground: 42 85% 91%; /* Cream Beige */
+    --destructive: 358 44% 45%; /* Darker Rust Red */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand */
 
-    --border: 201 60% 25%; /* Muted Navy */
-    --input: 201 60% 22%; /* Dark Navy Input */
-    --ring: 201 42% 57%; /* Cool Blue */
+    --border: 144 25% 25%; /* Muted Forest */
+    --input: 144 25% 22%; /* Dark Forest Input */
+    --ring: 95 34% 46%; /* Leafy Green */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

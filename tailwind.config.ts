@@ -71,8 +71,8 @@ export default {
 			},
 			backgroundImage: {
 				'hero-gradient': 'var(--hero-gradient)',
-				'cultural-gradient': 'var(--cultural-gradient)',
-				'elegant-gradient': 'var(--elegant-gradient)'
+				'nature-gradient': 'var(--nature-gradient)',
+				'forest-gradient': 'var(--forest-gradient)'
 			},
 			boxShadow: {
 				'warm': 'var(--shadow-warm)',
