@@ -8,49 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Telugu Culture Inspired Color Palette */
-    --background: 32 45% 97%;
-    --foreground: 24 65% 12%;
+    /* Tree-Inspired Coolors Palette */
+    --background: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --card: 32 40% 95%;
-    --card-foreground: 24 65% 12%;
+    --card: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --card-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --popover: 32 40% 98%;
-    --popover-foreground: 24 65% 12%;
+    --popover: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --popover-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Saffron Primary - Traditional Telugu Color */
-    --primary: 24 85% 55%;
-    --primary-foreground: 32 40% 98%;
-    --primary-glow: 28 90% 65%;
+    /* Deep Forest Green Primary - Headers & Navbar */
+    --primary: 144 30% 31%; /* Deep Forest Green #386641 */
+    --primary-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --primary-glow: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Teal Secondary - Literature & Knowledge */
-    --secondary: 180 25% 25%;
-    --secondary-foreground: 32 40% 98%;
+    /* Leafy Green Secondary - Buttons & Links */
+    --secondary: 95 34% 46%; /* Leafy Green #6A994E */
+    --secondary-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Warm Muted Tones */
-    --muted: 32 20% 88%;
-    --muted-foreground: 24 35% 45%;
+    /* Natural Muted Tones */
+    --muted: 45 30% 85%;
+    --muted-foreground: 144 20% 45%;
 
-    /* Golden Accent */
-    --accent: 45 85% 60%;
-    --accent-foreground: 24 65% 12%;
+    /* Fresh Light Green Accent - Highlights & Stats */
+    --accent: 75 52% 57%; /* Fresh Light Green #A7C957 */
+    --accent-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 32 40% 98%;
+    /* Rust Red for CTAs and Alerts */
+    --destructive: 358 44% 51%; /* Rust Red #BC4749 */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
 
-    --border: 32 25% 85%;
-    --input: 32 25% 90%;
-    --ring: 24 85% 55%;
+    --border: 45 30% 80%;
+    --input: 45 25% 85%;
+    --ring: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Custom Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(24 85% 55%) 0%, hsl(28 90% 65%) 50%, hsl(45 85% 60%) 100%);
-    --culture-gradient: linear-gradient(180deg, hsl(32 45% 97%) 0%, hsl(32 35% 92%) 100%);
-    --literature-gradient: linear-gradient(135deg, hsl(180 25% 25%) 0%, hsl(200 35% 35%) 100%);
+    /* Tree-Inspired Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(95 34% 46%) 50%, hsl(75 52% 57%) 100%);
+    --nature-gradient: linear-gradient(180deg, hsl(45 56% 90%) 0%, hsl(45 40% 85%) 100%);
+    --forest-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(144 35% 25%) 100%);
     
-    /* Shadows with Cultural Colors */
-    --shadow-warm: 0 10px 30px -10px hsl(24 85% 55% / 0.3);
-    --shadow-elegant: 0 4px 20px -4px hsl(180 25% 25% / 0.2);
-    --shadow-glow: 0 0 40px hsl(28 90% 65% / 0.4);
+    /* Natural Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(144 30% 31% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(95 34% 46% / 0.15);
+    --shadow-glow: 0 0 40px hsl(75 52% 57% / 0.3);
 
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,33 +77,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode with tree tones */
+    --background: 144 30% 15%; /* Dark Forest */
+    --foreground: 45 56% 90%; /* Soft Sand */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 144 30% 18%; /* Darker Forest */
+    --card-foreground: 45 56% 90%; /* Soft Sand */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 144 30% 18%; /* Darker Forest */
+    --popover-foreground: 45 56% 90%; /* Soft Sand */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 95 34% 46%; /* Leafy Green */
+    --primary-foreground: 144 30% 31%; /* Deep Forest Green */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 144 30% 35%; /* Lighter Forest */
+    --secondary-foreground: 45 56% 90%; /* Soft Sand */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 144 25% 25%; /* Muted Forest */
+    --muted-foreground: 45 40% 70%; /* Light Sand */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 75 52% 57%; /* Fresh Light Green */
+    --accent-foreground: 144 30% 15%; /* Dark Forest */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 358 44% 45%; /* Darker Rust Red */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 144 25% 25%; /* Muted Forest */
+    --input: 144 25% 22%; /* Dark Forest Input */
+    --ring: 95 34% 46%; /* Leafy Green */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
