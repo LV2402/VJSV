@@ -8,49 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Natural Tree-Inspired Color Palette */
-    --background: 41 38% 92%; /* Pale Sand/Beige */
-    --foreground: 145 34% 27%; /* Dark Green */
+    /* Tree-Inspired Coolors Palette */
+    --background: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --card: 45 33% 97%; /* Creamy White */
-    --card-foreground: 145 34% 27%; /* Dark Green */
+    --card: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --card-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --popover: 45 33% 97%; /* Creamy White */
-    --popover-foreground: 145 34% 27%; /* Dark Green */
+    --popover: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --popover-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    /* Dark Green Primary - Headers & Navbar */
-    --primary: 145 34% 27%; /* Dark Green */
-    --primary-foreground: 45 33% 97%; /* Creamy White */
-    --primary-glow: 95 47% 51%; /* Leaf Green */
+    /* Deep Forest Green Primary - Headers & Navbar */
+    --primary: 144 30% 31%; /* Deep Forest Green #386641 */
+    --primary-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --primary-glow: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Leaf Green Secondary - Buttons & Links */
-    --secondary: 95 47% 51%; /* Leaf Green */
-    --secondary-foreground: 145 34% 27%; /* Dark Green */
+    /* Leafy Green Secondary - Buttons & Links */
+    --secondary: 95 34% 46%; /* Leafy Green #6A994E */
+    --secondary-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
     /* Natural Muted Tones */
-    --muted: 41 25% 85%;
-    --muted-foreground: 17 26% 45%;
+    --muted: 45 30% 85%;
+    --muted-foreground: 144 20% 45%;
 
-    /* Muted Gold Accent - Highlights & Awards */
-    --accent: 48 68% 52%; /* Muted Gold */
-    --accent-foreground: 145 34% 27%; /* Dark Green */
+    /* Fresh Light Green Accent - Highlights & Stats */
+    --accent: 75 52% 57%; /* Fresh Light Green #A7C957 */
+    --accent-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 33% 97%;
+    /* Rust Red for CTAs and Alerts */
+    --destructive: 358 44% 51%; /* Rust Red #BC4749 */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
 
-    --border: 41 30% 85%;
-    --input: 41 25% 88%;
-    --ring: 95 47% 51%; /* Leaf Green */
+    --border: 45 30% 80%;
+    --input: 45 25% 85%;
+    --ring: 95 34% 46%; /* Leafy Green #6A994E */
 
-    /* Natural Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(145 34% 27%) 0%, hsl(95 47% 51%) 50%, hsl(48 68% 52%) 100%);
-    --nature-gradient: linear-gradient(180deg, hsl(41 38% 92%) 0%, hsl(41 35% 87%) 100%);
-    --forest-gradient: linear-gradient(135deg, hsl(145 34% 27%) 0%, hsl(145 40% 35%) 100%);
+    /* Tree-Inspired Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(95 34% 46%) 50%, hsl(75 52% 57%) 100%);
+    --nature-gradient: linear-gradient(180deg, hsl(45 56% 90%) 0%, hsl(45 40% 85%) 100%);
+    --forest-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(144 35% 25%) 100%);
     
     /* Natural Shadows */
-    --shadow-warm: 0 10px 30px -10px hsl(145 34% 27% / 0.2);
-    --shadow-elegant: 0 4px 20px -4px hsl(95 47% 51% / 0.15);
-    --shadow-glow: 0 0 40px hsl(48 68% 52% / 0.3);
+    --shadow-warm: 0 10px 30px -10px hsl(144 30% 31% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(95 34% 46% / 0.15);
+    --shadow-glow: 0 0 40px hsl(75 52% 57% / 0.3);
 
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,34 +77,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode with natural tones */
-    --background: 17 26% 15%; /* Dark Bark Brown */
-    --foreground: 45 33% 97%; /* Creamy White */
+    /* Dark mode with tree tones */
+    --background: 144 30% 15%; /* Dark Forest */
+    --foreground: 45 56% 90%; /* Soft Sand */
 
-    --card: 17 26% 18%; /* Darker Bark */
-    --card-foreground: 45 33% 97%; /* Creamy White */
+    --card: 144 30% 18%; /* Darker Forest */
+    --card-foreground: 45 56% 90%; /* Soft Sand */
 
-    --popover: 17 26% 18%; /* Darker Bark */
-    --popover-foreground: 45 33% 97%; /* Creamy White */
+    --popover: 144 30% 18%; /* Darker Forest */
+    --popover-foreground: 45 56% 90%; /* Soft Sand */
 
-    --primary: 95 47% 51%; /* Leaf Green */
-    --primary-foreground: 145 34% 27%; /* Dark Green */
+    --primary: 95 34% 46%; /* Leafy Green */
+    --primary-foreground: 144 30% 31%; /* Deep Forest Green */
 
-    --secondary: 145 34% 35%; /* Lighter Dark Green */
-    --secondary-foreground: 45 33% 97%; /* Creamy White */
+    --secondary: 144 30% 35%; /* Lighter Forest */
+    --secondary-foreground: 45 56% 90%; /* Soft Sand */
 
-    --muted: 17 26% 25%; /* Muted Bark */
-    --muted-foreground: 41 25% 70%; /* Light Sand */
+    --muted: 144 25% 25%; /* Muted Forest */
+    --muted-foreground: 45 40% 70%; /* Light Sand */
 
-    --accent: 48 68% 52%; /* Muted Gold */
-    --accent-foreground: 17 26% 15%; /* Dark Bark */
+    --accent: 75 52% 57%; /* Fresh Light Green */
+    --accent-foreground: 144 30% 15%; /* Dark Forest */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 33% 97%;
+    --destructive: 358 44% 45%; /* Darker Rust Red */
+    --destructive-foreground: 45 56% 90%; /* Soft Sand */
 
-    --border: 17 26% 25%; /* Muted Bark */
-    --input: 17 26% 22%; /* Dark Bark Input */
-    --ring: 95 47% 51%; /* Leaf Green */
+    --border: 144 25% 25%; /* Muted Forest */
+    --input: 144 25% 22%; /* Dark Forest Input */
+    --ring: 95 34% 46%; /* Leafy Green */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
