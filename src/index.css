@@ -8,49 +8,49 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Telugu Culture Inspired Color Palette */
-    --background: 32 45% 97%;
-    --foreground: 24 65% 12%;
+    /* Natural Tree-Inspired Color Palette */
+    --background: 41 38% 92%; /* Pale Sand/Beige */
+    --foreground: 145 34% 27%; /* Dark Green */
 
-    --card: 32 40% 95%;
-    --card-foreground: 24 65% 12%;
+    --card: 45 33% 97%; /* Creamy White */
+    --card-foreground: 145 34% 27%; /* Dark Green */
 
-    --popover: 32 40% 98%;
-    --popover-foreground: 24 65% 12%;
+    --popover: 45 33% 97%; /* Creamy White */
+    --popover-foreground: 145 34% 27%; /* Dark Green */
 
-    /* Saffron Primary - Traditional Telugu Color */
-    --primary: 24 85% 55%;
-    --primary-foreground: 32 40% 98%;
-    --primary-glow: 28 90% 65%;
+    /* Dark Green Primary - Headers & Navbar */
+    --primary: 145 34% 27%; /* Dark Green */
+    --primary-foreground: 45 33% 97%; /* Creamy White */
+    --primary-glow: 95 47% 51%; /* Leaf Green */
 
-    /* Teal Secondary - Literature & Knowledge */
-    --secondary: 180 25% 25%;
-    --secondary-foreground: 32 40% 98%;
+    /* Leaf Green Secondary - Buttons & Links */
+    --secondary: 95 47% 51%; /* Leaf Green */
+    --secondary-foreground: 145 34% 27%; /* Dark Green */
 
-    /* Warm Muted Tones */
-    --muted: 32 20% 88%;
-    --muted-foreground: 24 35% 45%;
+    /* Natural Muted Tones */
+    --muted: 41 25% 85%;
+    --muted-foreground: 17 26% 45%;
 
-    /* Golden Accent */
-    --accent: 45 85% 60%;
-    --accent-foreground: 24 65% 12%;
+    /* Muted Gold Accent - Highlights & Awards */
+    --accent: 48 68% 52%; /* Muted Gold */
+    --accent-foreground: 145 34% 27%; /* Dark Green */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 32 40% 98%;
+    --destructive-foreground: 45 33% 97%;
 
-    --border: 32 25% 85%;
-    --input: 32 25% 90%;
-    --ring: 24 85% 55%;
+    --border: 41 30% 85%;
+    --input: 41 25% 88%;
+    --ring: 95 47% 51%; /* Leaf Green */
 
-    /* Custom Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(24 85% 55%) 0%, hsl(28 90% 65%) 50%, hsl(45 85% 60%) 100%);
-    --culture-gradient: linear-gradient(180deg, hsl(32 45% 97%) 0%, hsl(32 35% 92%) 100%);
-    --literature-gradient: linear-gradient(135deg, hsl(180 25% 25%) 0%, hsl(200 35% 35%) 100%);
+    /* Natural Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(145 34% 27%) 0%, hsl(95 47% 51%) 50%, hsl(48 68% 52%) 100%);
+    --nature-gradient: linear-gradient(180deg, hsl(41 38% 92%) 0%, hsl(41 35% 87%) 100%);
+    --forest-gradient: linear-gradient(135deg, hsl(145 34% 27%) 0%, hsl(145 40% 35%) 100%);
     
-    /* Shadows with Cultural Colors */
-    --shadow-warm: 0 10px 30px -10px hsl(24 85% 55% / 0.3);
-    --shadow-elegant: 0 4px 20px -4px hsl(180 25% 25% / 0.2);
-    --shadow-glow: 0 0 40px hsl(28 90% 65% / 0.4);
+    /* Natural Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(145 34% 27% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(95 47% 51% / 0.15);
+    --shadow-glow: 0 0 40px hsl(48 68% 52% / 0.3);
 
     /* Smooth Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,33 +76,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode with natural tones */
+    --background: 17 26% 15%; /* Dark Bark Brown */
+    --foreground: 45 33% 97%; /* Creamy White */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 17 26% 18%; /* Darker Bark */
+    --card-foreground: 45 33% 97%; /* Creamy White */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 17 26% 18%; /* Darker Bark */
+    --popover-foreground: 45 33% 97%; /* Creamy White */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 95 47% 51%; /* Leaf Green */
+    --primary-foreground: 145 34% 27%; /* Dark Green */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 145 34% 35%; /* Lighter Dark Green */
+    --secondary-foreground: 45 33% 97%; /* Creamy White */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 17 26% 25%; /* Muted Bark */
+    --muted-foreground: 41 25% 70%; /* Light Sand */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 48 68% 52%; /* Muted Gold */
+    --accent-foreground: 17 26% 15%; /* Dark Bark */
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 33% 97%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 17 26% 25%; /* Muted Bark */
+    --input: 17 26% 22%; /* Dark Bark Input */
+    --ring: 95 47% 51%; /* Leaf Green */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
