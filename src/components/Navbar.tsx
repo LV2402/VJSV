@@ -17,7 +17,6 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
     { path: "/akshara", label: "Akshara" },
     { 
       label: "Events", 
@@ -95,16 +94,6 @@ const Navbar = () => {
                 </Link>
               )
             ))}
-          </div>
-
-          {/* Contact Button */}
-          <div className="hidden md:block">
-            <Button 
-              asChild 
-              className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-warm hover:shadow-glow"
-            >
-              <Link to="/contact">Contact Us</Link>
-            </Button>
           </div>
 
           {/* Mobile menu button */}

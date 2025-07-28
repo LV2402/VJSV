@@ -50,132 +50,114 @@ const highlights = [
 
 const RecentHighlights = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
-  const maxIndex = Math.max(0, highlights.length - itemsPerView);
+  const totalItems = highlights.length;
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev + 1) % totalItems);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+    setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
   };
+
+  const highlight = highlights[currentIndex];
 
   return (
     <section className="py-16 bg-culture-gradient">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center space-y-4 mb-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-10 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             Recent <span className="bg-hero-gradient bg-clip-text text-transparent">Highlights</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover our latest events, workshops, and literary achievements that showcase the vibrant spirit of Telugu literature at VJSV.
           </p>
         </div>
 
-        {/* Carousel Controls */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex space-x-2">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={prevSlide}
-              className="hover:bg-primary hover:text-primary-foreground transition-smooth"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={nextSlide}
-              className="hover:bg-primary hover:text-primary-foreground transition-smooth"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
-          
-          <div className="text-sm text-muted-foreground">
-            {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, highlights.length)} of {highlights.length}
-          </div>
-        </div>
-
-        {/* Highlights Cards */}
-        <div className="relative overflow-hidden">
-          <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+        {/* Carousel */}
+        <div className="relative flex items-center justify-center">
+          {/* Arrows */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={prevSlide}
+            className="absolute left-0 z-10 hover:bg-primary hover:text-white rounded-full"
           >
-            {highlights.map((highlight) => (
-              <div 
-                key={highlight.id} 
-                className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
-              >
-                <Card className="group hover:shadow-warm transition-smooth border-border bg-card/80 backdrop-blur-sm h-full">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <img 
-                      src={highlight.image} 
-                      alt={highlight.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                        {highlight.category}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <CardContent className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth">
-                      {highlight.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {highlight.description}
-                    </p>
-                    
-                    <div className="space-y-2 pt-2">
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-                        <span>{highlight.date}</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <MapPin className="w-4 h-4" />
-                        <span>{highlight.location}</span>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <Users className="w-4 h-4" />
-                        <span>{highlight.attendees} participants</span>
-                      </div>
-                    </div>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full mt-4 hover:bg-primary hover:text-primary-foreground transition-smooth"
-                    >
-                      Read More
-                    </Button>
-                  </CardContent>
-                </Card>
+            <ChevronLeft className="w-6 h-6" />
+          </Button>
+
+          <div className="w-full max-w-4xl transition-all duration-500 ease-in-out">
+            <Card className="rounded-2xl overflow-hidden shadow-lg bg-card/80 backdrop-blur border border-border">
+              <div className="relative">
+                <img
+                  src={highlight.image}
+                  alt={highlight.title}
+                  className="w-full h-48 object-cover" // reduced height
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                    {highlight.category}
+                  </span>
+                </div>
               </div>
-            ))}
+
+              <CardContent className="p-8 space-y-4"> {/* Increased padding */}
+                <h3 className="text-2xl font-bold text-foreground">
+                  {highlight.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {highlight.description}
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span>{highlight.date}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    <span>{highlight.location}</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                    <Users className="w-4 h-4" />
+                    <span>{highlight.attendees} participants</span>
+                  </div>
+                </div>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full mt-4 hover:bg-primary hover:text-primary-foreground transition-smooth"
+                >
+                  Read More
+                </Button>
+              </CardContent>
+            </Card>
           </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={nextSlide}
+            className="absolute right-0 z-10 hover:bg-primary hover:text-white rounded-full"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </Button>
         </div>
 
-        {/* Pagination Dots */}
+        {/* Dots */}
         <div className="flex justify-center space-x-2 mt-8">
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+          {highlights.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-primary scale-125' 
-                  : 'bg-muted hover:bg-muted-foreground'
+                index === currentIndex
+                  ? "bg-primary scale-125"
+                  : "bg-muted hover:bg-muted-foreground"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
