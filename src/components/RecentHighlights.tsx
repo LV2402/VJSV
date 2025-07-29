@@ -2,8 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Calendar, MapPin, Users } from "lucide-react";
 import { useState } from "react";
-import eventsImage from "@/assets/events-culture.jpg";
-import communityImage from "@/assets/community-writers.jpg";
+//import eventsImage from "@/assets/events-culture.jpg";
+//import communityImage from "@/assets/community-writers.jpg";
 
 const highlights = [
   {
@@ -13,7 +13,7 @@ const highlights = [
     date: "March 15, 2024",
     location: "VNRVJIET Auditorium",
     attendees: "500+",
-    image: eventsImage,
+    image: "/public/assets/community-writers.jpg",
     category: "Festival"
   },
   {
@@ -23,7 +23,7 @@ const highlights = [
     date: "February 28, 2024",
     location: "Literary Hall",
     attendees: "80+",
-    image: communityImage,
+    image: "/public/assets/events-culture.jpg",
     category: "Workshop"
   },
   {
@@ -33,7 +33,7 @@ const highlights = [
     date: "January 20, 2024",
     location: "Multi-purpose Hall",
     attendees: "200+",
-    image: eventsImage,
+    image: "/public/assets/vjsvlogo.jpg",
     category: "Competition"
   },
   {
@@ -43,7 +43,7 @@ const highlights = [
     date: "Ongoing",
     location: "Reading Room",
     attendees: "30+",
-    image: communityImage,
+    image: "/public/assets/vjsvlogo.jpg",
     category: "Series"
   }
 ];
