@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Users, Calendar } from "lucide-react";
-import heroImage from "@/assets/hero-literature.jpg";
+// import heroImage from "@/assets/hero-literature.jpg";
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src="/assets/hero-literature.jpg"
           alt="Telugu Literature Heritage" 
           className="w-full h-full object-cover"
         />
