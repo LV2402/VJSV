@@ -2,8 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Calendar, MapPin, Users } from "lucide-react";
 import { useState } from "react";
-//import eventsImage from "@/assets/events-culture.jpg";
-//import communityImage from "@/assets/community-writers.jpg";
 
 const highlights = [
   {
@@ -65,7 +63,6 @@ const RecentHighlights = () => {
   return (
     <section className="py-16 bg-culture-gradient">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-10 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             Recent <span className="bg-hero-gradient bg-clip-text text-transparent">Highlights</span>
@@ -75,9 +72,7 @@ const RecentHighlights = () => {
           </p>
         </div>
 
-        {/* Carousel */}
         <div className="relative flex items-center justify-center">
-          {/* Arrows */}
           <Button
             variant="ghost"
             size="icon"
@@ -89,49 +84,52 @@ const RecentHighlights = () => {
 
           <div className="w-full max-w-4xl transition-all duration-500 ease-in-out">
             <Card className="rounded-2xl overflow-hidden shadow-lg bg-card/80 backdrop-blur border border-border">
-              <div className="relative">
+              <div className="relative h-96"> {/* Increased height */}
                 <img
                   src={highlight.image}
                   alt={highlight.title}
-                  className="w-full h-48 object-cover" // reduced height
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
-                    {highlight.category}
-                  </span>
+                {/* Overlay with event details */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                  <div className="space-y-2">
+                    <span className="inline-block bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                      {highlight.category}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white">
+                      {highlight.title}
+                    </h3>
+                    <div className="flex items-center space-x-4 text-white/90 text-sm">
+                      <span className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{highlight.date}</span>
+                      </span>
+                      <span className="flex items-center space-x-1">
+                        <MapPin className="w-4 h-4" />
+                        <span>{highlight.location}</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <CardContent className="p-8 space-y-4"> {/* Increased padding */}
-                <h3 className="text-2xl font-bold text-foreground">
-                  {highlight.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+              <CardContent className="p-6">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {highlight.description}
                 </p>
-
-                <div className="space-y-2 pt-2">
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>{highlight.date}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    <span>{highlight.location}</span>
-                  </div>
+                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <Users className="w-4 h-4" />
                     <span>{highlight.attendees} participants</span>
                   </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="hover:bg-primary hover:text-primary-foreground transition-smooth"
+                  >
+                    Read More
+                  </Button>
                 </div>
-
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full mt-4 hover:bg-primary hover:text-primary-foreground transition-smooth"
-                >
-                  Read More
-                </Button>
               </CardContent>
             </Card>
           </div>
@@ -146,7 +144,6 @@ const RecentHighlights = () => {
           </Button>
         </div>
 
-        {/* Dots */}
         <div className="flex justify-center space-x-2 mt-8">
           {highlights.map((_, index) => (
             <button

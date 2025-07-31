@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Users, Calendar } from "lucide-react";
-// import heroImage from "@/assets/hero-literature.jpg";
 
 const Hero = () => {
   return (
@@ -18,30 +17,26 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center space-y-8">
           {/* Text Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 text-center animate-fade-in">
             <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
-                <BookOpen className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium text-primary">VNRVJIET Literary Society</span>
-              </div>
+<h1 className="text-5xl lg:text-7xl font-bold leading-tight text-center">
+  <span className="bg-hero-gradient bg-clip-text  mb-12 text-stroke-2">
+    విజ్ఞానజ్యోతి 
+  </span>
+  <span className="text-foreground block mt-6">
+    సాహితీవనం
+  </span>
+</h1>
               
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-hero-gradient bg-clip-text text-transparent text-center">
-                  Vignana Jyothi
-                </span>
-                <br />
-                <span className="text-foreground">Sahithi Vanam</span>
-              </h1>
-              
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed text-center">
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
                 వ్రాతపనిలో వేదనలు, భావాలలో భావనలు - Where Telugu literature blooms and young minds discover the power of words.
               </p>
             </div>
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+            {/* Quick Stats in one line */}
+            <div className="flex justify-center gap-12 pt-8 border-t border-border">
               <div className="text-center space-y-2 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <Users className="w-6 h-6 text-primary" />
@@ -66,15 +61,13 @@ const Hero = () => {
                 <div className="text-sm text-muted-foreground">Years Strong</div>
               </div>
 
-              <div className="text-center space-y-2 animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
+              <div className="text-center space-y-2 animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
                 <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <BookOpen className="w-6 h-6 text-secondary" />
                 </div>
                 <div className="text-2xl font-bold text-foreground">5+</div>
                 <div className="text-sm text-muted-foreground">Faculty</div>
               </div>
-
-
             </div>
           </div>
         </div>

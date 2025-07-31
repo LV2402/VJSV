@@ -1,35 +1,59 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, Mail, Instagram, Facebook, Youtube, MessageCircle, Heart } from "lucide-react";
+import {
+  BookOpen,
+  Mail,
+  Instagram,
+  Facebook,
+  Youtube,
+  MessageCircle,
+  Heart,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram", color: "hover:text-pink-500" },
-    { icon: Facebook, href: "#", label: "Facebook", color: "hover:text-blue-500" },
-    { icon: Youtube, href: "#", label: "YouTube", color: "hover:text-red-500" },
-    { icon: Mail, href: "mailto:vjsv@vnrvjiet.ac.in", label: "Email", color: "hover:text-primary" }
+    {
+      icon: Instagram,
+      href: "#",
+      label: "Instagram",
+      color: "hover:text-pink-500",
+    },
+    {
+      icon: Facebook,
+      href: "#",
+      label: "Facebook",
+      color: "hover:text-blue-500",
+    },
+    {
+      icon: Youtube,
+      href: "#",
+      label: "YouTube",
+      color: "hover:text-red-500",
+    },
+    {
+      icon: Mail,
+      href: "mailto:vjsv@vnrvjiet.ac.in",
+      label: "Email",
+      color: "hover:text-primary",
+    },
   ];
 
   const quickLinks = [
     { label: "About VJSV", href: "/about" },
     { label: "Akshara Festival", href: "/akshara" },
     { label: "Events", href: "/events" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Rachanalu", href: "/blogs" }
   ];
 
   const eventTypes = [
     { label: "Sintilatunz", href: "/events/sintilatunz" },
     { label: "Convergence", href: "/events/convergence" },
     { label: "Workshops", href: "/events/workshops" },
-    { label: "Poetry Sessions", href: "/events" },
-    { label: "Literary Discussions", href: "/events" }
   ];
 
   return (
-    <footer className="bg-literature-gradient text-secondary-foreground">
+    <footer className="bg-literature-gradient text-secondary-foreground pb-20 md:pb-10 lg:pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -45,12 +69,13 @@ const Footer = () => {
                   <p className="text-sm opacity-80">Sahithi Vanam</p>
                 </div>
               </div>
-              
+
               <p className="text-sm leading-relaxed opacity-90">
-                Vignana Jyothi Sahithi Vanam - A vibrant Telugu literature club fostering creativity, 
-                cultural heritage, and literary excellence at VNRVJIET.
+                Vignana Jyothi Sahithi Vanam - A vibrant Telugu literature club
+                fostering creativity, cultural heritage, and literary excellence
+                at VNRVJIET.
               </p>
-              
+
               <div className="flex space-x-3">
                 {socialLinks.map((social) => (
                   <a
@@ -100,36 +125,27 @@ const Footer = () => {
             {/* Contact & Feedback */}
             <div className="space-y-6">
               <h4 className="text-lg font-semibold">Get in Touch</h4>
-              
+
               <div className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Email Us</p>
-                  <a 
+                  <a
                     href="mailto:vjsv@vnrvjiet.ac.in"
                     className="text-sm opacity-80 hover:opacity-100 hover:text-primary transition-smooth"
                   >
                     vjsv@vnrvjiet.ac.in
                   </a>
                 </div>
-                
+
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Location</p>
                   <p className="text-sm opacity-80">
-                    VNRVJIET, Hyderabad<br />
+                    VNRVJIET, Hyderabad
+                    <br />
                     Telangana, India
                   </p>
                 </div>
               </div>
-
-              <Button 
-                asChild
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-warm hover:shadow-glow transition-smooth"
-              >
-                <Link to="/contact" className="flex items-center justify-center space-x-2">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Send Feedback</span>
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
@@ -141,8 +157,8 @@ const Footer = () => {
               <span>© {currentYear} VJSV - Vignana Jyothi Sahithi Vanam.</span>
               <span>All rights reserved.</span>
             </div>
-            
-            <div className="flex items-center space-x-1 text-sm opacity-80">
+
+            <div className="flex items-center space-x-1 text-sm opacity-80 mr-16">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-400 fill-current" />
               <span>for Telugu Literature</span>
@@ -150,13 +166,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
-      {/* Floating Feedback Button */}
+
+      {/* Static Feedback Button */}
       <div className="fixed bottom-6 right-6 z-40">
-        <Button 
+        <Button
           asChild
           size="lg"
-          className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow hover:scale-110 transition-all duration-300 animate-float"
+          className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-all duration-300"
         >
           <Link to="/contact" className="flex items-center space-x-2">
             <MessageCircle className="w-5 h-5" />

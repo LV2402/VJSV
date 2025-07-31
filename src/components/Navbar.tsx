@@ -37,14 +37,15 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center shadow-warm">
-              <BookOpen className="w-6 h-6 text-primary-foreground" />
-            </div>
+            <img 
+              src="/assets/vjsvlogo.jpg" 
+              alt="VJSV Logo" 
+              className="w-10 h-10 rounded-lg object-cover"
+            />
             <div className="hidden sm:block">
-              <h1 className="font-bold text-xl text-foreground">VJSV</h1>
-              <p className="text-xs text-muted-foreground -mt-1">Sahithi Vanam</p>
+              <h1 className="font-bold text-xl text-foreground">విజ్ఞానజ్యోతి సాహితీవనం</h1>
             </div>
           </Link>
 
@@ -85,9 +86,7 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-smooth hover:bg-muted ${
-                    isActive(item.path) 
-                      ? 'bg-primary text-primary-foreground shadow-warm' 
-                      : 'text-foreground'
+                    isActive(item.path) ? 'text-foreground' : 'text-foreground'
                   }`}
                 >
                   {item.label}
@@ -145,15 +144,6 @@ const Navbar = () => {
                   </Link>
                 )
               ))}
-              <div className="pt-2">
-                <Button 
-                  asChild 
-                  className="w-full bg-hero-gradient"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Link to="/contact">Contact Us</Link>
-                </Button>
-              </div>
             </div>
           </div>
         )}
