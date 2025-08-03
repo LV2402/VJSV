@@ -174,7 +174,7 @@ const Footer = () => {
           size="lg"
           className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-all duration-300"
         >
-          <Link to="/contact" className="flex items-center space-x-2">
+          <Link to="" className="flex items-center space-x-2">
             <MessageCircle className="w-5 h-5" />
             <span className="hidden sm:inline">Feedback</span>
           </Link>
