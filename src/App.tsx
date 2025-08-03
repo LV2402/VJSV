@@ -5,7 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Akshara from "./pages/Akshara";
-import Events from "./pages/Events";
+import Convergence from "./pages/Events/Convergence/Convergence";
+import Sintillations from "./pages/Events/Sintillations/Sintillations";
+import Workshops from "./pages/Events/Workshops/Workshops";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs";
 
@@ -20,8 +22,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/akshara" element={<Akshara />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:type" element={<Events />} />
+          <Route path="/events/convergence" element={<Convergence />} />
+          <Route path="/events/sintillations" element={<Sintillations />} />
+          <Route path="/events/Workshops" element={<Workshops />} />
+          {/* <Route path="/events/:type" element={<Events />} /> */}
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>
