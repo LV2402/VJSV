@@ -75,6 +75,9 @@ const config: Config = {
         "hero-gradient": "var(--hero-gradient)",
         "nature-gradient": "var(--nature-gradient)",
         "forest-gradient": "var(--forest-gradient)",
+        "fire-gradient": "var(--hero-gradient)",
+        "warm-gradient": "var(--nature-gradient)",
+        "ember-gradient": "var(--forest-gradient)",
       },
       boxShadow: {
         warm: "var(--shadow-warm)",
