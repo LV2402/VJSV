@@ -2,126 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Tree-Inspired Coolors Palette */
-    --background: 45 56% 90%; /* Soft Sand #F2E8CF */
-    --foreground: 144 30% 31%; /* Deep Forest Green #386641 */
+    --background: 33 82% 88%; /* base beige */
+    --foreground: 345 76% 8%; /* deep maroon */
 
-    --card: 45 56% 90%; /* Soft Sand #F2E8CF */
-    --card-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
+    --card: 33 82% 88%;
+    --card-foreground: 345 76% 8%;
 
-    --popover: 45 56% 90%; /* Soft Sand #F2E8CF */
-    --popover-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
+    --popover: 33 82% 88%;
+    --popover-foreground: 345 76% 8%;
 
-    /* Deep Forest Green Primary - Headers & Navbar */
-    --primary: 144 30% 31%; /* Deep Forest Green #386641 */
-    --primary-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
-    --primary-glow: 95 34% 46%; /* Leafy Green #6A994E */
+    --primary: 345 49% 54%; /* #a53860 */
+    --primary-foreground: 33 82% 88%;
 
-    /* Leafy Green Secondary - Buttons & Links */
-    --secondary: 95 34% 46%; /* Leafy Green #6A994E */
-    --secondary-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
+    --secondary: 351 100% 80%; /* #ffa5ab */
+    --secondary-foreground: 345 76% 8%;
 
-    /* Natural Muted Tones */
-    --muted: 45 30% 85%;
-    --muted-foreground: 144 20% 45%;
+    --muted: 340 51% 70%; /* #da627d */
+    --muted-foreground: 345 30% 20%;
 
-    /* Fresh Light Green Accent - Highlights & Stats */
-    --accent: 75 52% 57%; /* Fresh Light Green #A7C957 */
-    --accent-foreground: 144 30% 31%; /* Deep Forest Green #386641 */
+    --accent: 351 100% 85%;
+    --accent-foreground: 345 76% 8%;
 
-    /* Rust Red for CTAs and Alerts */
-    --destructive: 358 44% 51%; /* Rust Red #BC4749 */
-    --destructive-foreground: 45 56% 90%; /* Soft Sand #F2E8CF */
+    --destructive: 0 85% 45%;
+    --destructive-foreground: 33 82% 88%;
 
-    --border: 45 30% 80%;
-    --input: 45 25% 85%;
-    --ring: 95 34% 46%; /* Leafy Green #6A994E */
-
-    /* Tree-Inspired Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(95 34% 46%) 50%, hsl(75 52% 57%) 100%);
-    --nature-gradient: linear-gradient(180deg, hsl(45 56% 90%) 0%, hsl(45 40% 85%) 100%);
-    --forest-gradient: linear-gradient(135deg, hsl(144 30% 31%) 0%, hsl(144 35% 25%) 100%);
-    
-    /* Natural Shadows */
-    --shadow-warm: 0 10px 30px -10px hsl(144 30% 31% / 0.2);
-    --shadow-elegant: 0 4px 20px -4px hsl(95 34% 46% / 0.15);
-    --shadow-glow: 0 0 40px hsl(75 52% 57% / 0.3);
-
-    /* Smooth Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --border: 33 45% 80%;
+    --input: 33 45% 85%;
+    --ring: 345 49% 54%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* 🌈 Gradients */
+    --beige-gradient: linear-gradient(
+      135deg,
+      hsl(33, 82%, 88%) 0%,
+      hsl(33, 100%, 80%) 50%,
+      hsl(33, 60%, 70%) 100%
+    );
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --hero-gradient: var(--beige-gradient);
+    --soft-gradient: var(--beige-gradient);
+    --deep-gradient: linear-gradient(
+      135deg,
+      hsl(345 76% 8%) 0%,
+      hsl(345 49% 54%) 100%
+    );
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(345 49% 54% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(351 100% 80% / 0.15);
+    --shadow-glow: 0 0 40px hsl(340 51% 70% / 0.3);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    /* Dark mode with tree tones */
-    --background: 144 30% 15%; /* Dark Forest */
-    --foreground: 45 56% 90%; /* Soft Sand */
+    --background: 345 76% 8%;
+    --foreground: 33 82% 88%;
 
-    --card: 144 30% 18%; /* Darker Forest */
-    --card-foreground: 45 56% 90%; /* Soft Sand */
+    --card: 345 76% 12%;
+    --card-foreground: 33 82% 88%;
 
-    --popover: 144 30% 18%; /* Darker Forest */
-    --popover-foreground: 45 56% 90%; /* Soft Sand */
+    --popover: 345 76% 12%;
+    --popover-foreground: 33 82% 88%;
 
-    --primary: 95 34% 46%; /* Leafy Green */
-    --primary-foreground: 144 30% 31%; /* Deep Forest Green */
+    --primary: 351 100% 80%;
+    --primary-foreground: 345 76% 8%;
 
-    --secondary: 144 30% 35%; /* Lighter Forest */
-    --secondary-foreground: 45 56% 90%; /* Soft Sand */
+    --secondary: 345 49% 54%;
+    --secondary-foreground: 33 82% 88%;
 
-    --muted: 144 25% 25%; /* Muted Forest */
-    --muted-foreground: 45 40% 70%; /* Light Sand */
+    --muted: 345 30% 25%;
+    --muted-foreground: 33 60% 80%;
 
-    --accent: 75 52% 57%; /* Fresh Light Green */
-    --accent-foreground: 144 30% 15%; /* Dark Forest */
+    --accent: 340 51% 70%;
+    --accent-foreground: 345 76% 8%;
 
-    --destructive: 358 44% 45%; /* Darker Rust Red */
-    --destructive-foreground: 45 56% 90%; /* Soft Sand */
+    --destructive: 0 85% 45%;
+    --destructive-foreground: 33 82% 88%;
 
-    --border: 144 25% 25%; /* Muted Forest */
-    --input: 144 25% 22%; /* Dark Forest Input */
-    --ring: 95 34% 46%; /* Leafy Green */
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 345 30% 20%;
+    --input: 345 25% 18%;
+    --ring: 345 49% 54%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-image: var(--beige-gradient);
+    @apply text-foreground;
   }
 }
