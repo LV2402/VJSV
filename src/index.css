@@ -2,126 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Fiery Warm Coolors Palette */
-    --background: 48 100% 97%; /* Very light golden cream */
-    --foreground: 222 76% 6%; /* Very dark navy #03071E */
+    --background: 33 82% 88%; /* base beige */
+    --foreground: 345 76% 8%; /* deep maroon */
 
-    --card: 48 100% 95%; /* Light golden cream for cards */
-    --card-foreground: 222 76% 6%; /* Very dark navy #03071E */
+    --card: 33 82% 88%;
+    --card-foreground: 345 76% 8%;
 
-    --popover: 48 100% 95%; /* Light golden cream */
-    --popover-foreground: 222 76% 6%; /* Very dark navy #03071E */
+    --popover: 33 82% 88%;
+    --popover-foreground: 345 76% 8%;
 
-    /* Deep Red Primary - Headers & Navbar */
-    --primary: 348 89% 21%; /* Deep red #6A040F */
-    --primary-foreground: 48 100% 97%; /* Light golden cream */
-    --primary-glow: 359 93% 32%; /* Rich red #9D0208 */
+    --primary: 345 49% 54%; /* #a53860 */
+    --primary-foreground: 33 82% 88%;
 
-    /* Red-Orange Secondary - Buttons & Links */
-    --secondary: 15 96% 44%; /* Red-orange #DC2F02 */
-    --secondary-foreground: 48 100% 97%; /* Light golden cream */
+    --secondary: 351 100% 80%; /* #ffa5ab */
+    --secondary-foreground: 345 76% 8%;
 
-    /* Warm Muted Tones */
-    --muted: 42 50% 88%;
-    --muted-foreground: 340 60% 25%;
+    --muted: 340 51% 70%; /* #da627d */
+    --muted-foreground: 345 30% 20%;
 
-    /* Golden Orange Accent - Highlights & Stats */
-    --accent: 42 95% 51%; /* Golden orange #FAA307 */
-    --accent-foreground: 222 76% 6%; /* Very dark navy #03071E */
+    --accent: 351 100% 85%;
+    --accent-foreground: 345 76% 8%;
 
-    /* Bright Red for CTAs and Alerts */
-    --destructive: 0 100% 41%; /* Bright red #D00000 */
-    --destructive-foreground: 48 100% 97%; /* Light golden cream */
+    --destructive: 0 85% 45%;
+    --destructive-foreground: 33 82% 88%;
 
-    --border: 42 60% 85%;
-    --input: 42 40% 90%;
-    --ring: 42 95% 51%; /* Golden orange #FAA307 */
-
-    /* Fiery Design Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(348 89% 21%) 0%, hsl(15 96% 44%) 50%, hsl(42 95% 51%) 100%);
-    --nature-gradient: linear-gradient(180deg, hsl(48 100% 97%) 0%, hsl(42 80% 92%) 100%);
-    --forest-gradient: linear-gradient(135deg, hsl(348 89% 21%) 0%, hsl(340 75% 11%) 100%);
-    
-    /* Warm Fiery Shadows */
-    --shadow-warm: 0 10px 30px -10px hsl(348 89% 21% / 0.2);
-    --shadow-elegant: 0 4px 20px -4px hsl(15 96% 44% / 0.15);
-    --shadow-glow: 0 0 40px hsl(42 95% 51% / 0.3);
-
-    /* Smooth Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --border: 33 45% 80%;
+    --input: 33 45% 85%;
+    --ring: 345 49% 54%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* 🌈 Gradients */
+    --beige-gradient: linear-gradient(
+      135deg,
+      hsl(33, 82%, 88%) 0%,
+      hsl(33, 100%, 80%) 50%,
+      hsl(33, 60%, 70%) 100%
+    );
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --hero-gradient: var(--beige-gradient);
+    --soft-gradient: var(--beige-gradient);
+    --deep-gradient: linear-gradient(
+      135deg,
+      hsl(345 76% 8%) 0%,
+      hsl(345 49% 54%) 100%
+    );
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(345 49% 54% / 0.2);
+    --shadow-elegant: 0 4px 20px -4px hsl(351 100% 80% / 0.15);
+    --shadow-glow: 0 0 40px hsl(340 51% 70% / 0.3);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    /* Dark mode with warm fiery tones */
-    --background: 222 76% 6%; /* Very dark navy */
-    --foreground: 48 100% 92%; /* Light golden cream */
+    --background: 345 76% 8%;
+    --foreground: 33 82% 88%;
 
-    --card: 340 75% 11%; /* Dark burgundy */
-    --card-foreground: 48 100% 92%; /* Light golden cream */
+    --card: 345 76% 12%;
+    --card-foreground: 33 82% 88%;
 
-    --popover: 340 75% 11%; /* Dark burgundy */
-    --popover-foreground: 48 100% 92%; /* Light golden cream */
+    --popover: 345 76% 12%;
+    --popover-foreground: 33 82% 88%;
 
-    --primary: 42 95% 51%; /* Golden orange */
-    --primary-foreground: 222 76% 6%; /* Very dark navy */
+    --primary: 351 100% 80%;
+    --primary-foreground: 345 76% 8%;
 
-    --secondary: 24 94% 46%; /* Orange-red */
-    --secondary-foreground: 48 100% 92%; /* Light golden cream */
+    --secondary: 345 49% 54%;
+    --secondary-foreground: 33 82% 88%;
 
-    --muted: 340 50% 20%; /* Muted burgundy */
-    --muted-foreground: 42 70% 70%; /* Light golden */
+    --muted: 345 30% 25%;
+    --muted-foreground: 33 60% 80%;
 
-    --accent: 48 100% 52%; /* Golden yellow */
-    --accent-foreground: 222 76% 6%; /* Very dark navy */
+    --accent: 340 51% 70%;
+    --accent-foreground: 345 76% 8%;
 
-    --destructive: 0 100% 50%; /* Bright red */
-    --destructive-foreground: 48 100% 92%; /* Light golden cream */
+    --destructive: 0 85% 45%;
+    --destructive-foreground: 33 82% 88%;
 
-    --border: 340 50% 20%; /* Muted burgundy */
-    --input: 340 60% 15%; /* Dark burgundy input */
-    --ring: 42 95% 51%; /* Golden orange */
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 345 30% 20%;
+    --input: 345 25% 18%;
+    --ring: 345 49% 54%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-image: var(--beige-gradient);
+    @apply text-foreground;
   }
 }
