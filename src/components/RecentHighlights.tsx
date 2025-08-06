@@ -1,49 +1,59 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Calendar, MapPin, Users } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  MapPin,
+  Users,
+} from "lucide-react";
 import { useState } from "react";
 
 const highlights = [
   {
     id: 1,
     title: "Akshara 2024 Grand Finale",
-    description: "Our flagship literary festival concluded with tremendous success, featuring poetry competitions, storytelling sessions, and cultural performances.",
+    description:
+      "Our flagship literary festival concluded with tremendous success, featuring poetry competitions, storytelling sessions, and cultural performances.",
     date: "March 15, 2024",
     location: "VNRVJIET Auditorium",
     attendees: "500+",
-    image: "/public/assets/community-writers.jpg",
-    category: "Festival"
+    image: "/assets/community-writers.jpg",
+    category: "Festival",
   },
   {
     id: 2,
     title: "Telugu Poetry Workshop",
-    description: "An intensive workshop on traditional and modern Telugu poetry forms, conducted by renowned poets from the region.",
+    description:
+      "An intensive workshop on traditional and modern Telugu poetry forms, conducted by renowned poets from the region.",
     date: "February 28, 2024",
     location: "Literary Hall",
     attendees: "80+",
-    image: "/public/assets/events-culture.jpg",
-    category: "Workshop"
+    image: "/assets/events-culture.jpg",
+    category: "Workshop",
   },
   {
     id: 3,
     title: "Sintilatunz Writing Competition",
-    description: "Students showcased their creativity through essays, short stories, and poetry in this inter-college competition.",
+    description:
+      "Students showcased their creativity through essays, short stories, and poetry in this inter-college competition.",
     date: "January 20, 2024",
     location: "Multi-purpose Hall",
     attendees: "200+",
-    image: "/public/assets/vjsvlogo.jpg",
-    category: "Competition"
+    image: "/assets/vjsvlogo.jpg",
+    category: "Competition",
   },
   {
     id: 4,
     title: "Literature Discussion Series",
-    description: "Monthly book discussions featuring contemporary Telugu literature and classic works by legendary authors.",
+    description:
+      "Monthly book discussions featuring contemporary Telugu literature and classic works by legendary authors.",
     date: "Ongoing",
     location: "Reading Room",
     attendees: "30+",
-    image: "/public/assets/vjsvlogo.jpg",
-    category: "Series"
-  }
+    image: "/assets/vjsvlogo.jpg",
+    category: "Series",
+  },
 ];
 
 const RecentHighlights = () => {
@@ -61,36 +71,45 @@ const RecentHighlights = () => {
   const highlight = highlights[currentIndex];
 
   return (
-    <section className="py-16 bg-culture-gradient">
+    <section className="py-16 bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Recent <span className="bg-hero-gradient bg-clip-text text-transparent">Highlights</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover our latest events, workshops, and literary achievements that showcase the vibrant spirit of Telugu literature at VJSV.
-          </p>
-        </div>
+  <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+    <span
+      className="bg-clip-text text-transparent"
+      style={{
+        backgroundImage: "linear-gradient(to right, #811414, #d21421)",
+        WebkitBackgroundClip: "text",
+      }}
+    >
+      Recent Highlights
+    </span>
+  </h2>
+  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    Discover our latest events, workshops, and literary achievements
+    that showcase the vibrant spirit of Telugu literature at VJSV.
+  </p>
+</div>
+
 
         <div className="relative flex items-center justify-center">
           <Button
             variant="ghost"
             size="icon"
             onClick={prevSlide}
-            className="absolute left-0 z-10 hover:bg-primary hover:text-white rounded-full"
+            className="absolute left-0 z-10 hover:bg-muted/30 hover:text-primary rounded-full transition-all"
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
 
           <div className="w-full max-w-4xl transition-all duration-500 ease-in-out">
-            <Card className="rounded-2xl overflow-hidden shadow-lg bg-card/80 backdrop-blur border border-border">
-              <div className="relative h-96"> {/* Increased height */}
+            <Card className="rounded-2xl overflow-hidden shadow-elegant bg-card/80 backdrop-blur border border-border">
+              <div className="relative h-96">
                 <img
                   src={highlight.image}
                   alt={highlight.title}
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay with event details */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                   <div className="space-y-2">
                     <span className="inline-block bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
@@ -138,7 +157,7 @@ const RecentHighlights = () => {
             variant="ghost"
             size="icon"
             onClick={nextSlide}
-            className="absolute right-0 z-10 hover:bg-primary hover:text-white rounded-full"
+            className="absolute right-0 z-10 hover:bg-muted/30 hover:text-primary rounded-full transition-all"
           >
             <ChevronRight className="w-6 h-6" />
           </Button>

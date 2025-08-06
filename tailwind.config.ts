@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import animatePlugin from 'tailwindcss-animate';
+import animatePlugin from "tailwindcss-animate";
 import lineClamp from "@tailwindcss/line-clamp";
 
 const config: Config = {
@@ -10,16 +10,18 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        '2xl': "1400px",
+        "2xl": "1400px",
       },
     },
     extend: {
+      fontFamily: {
+        telugu: ["Mandali", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -129,7 +131,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [animatePlugin,lineClamp],
+  plugins: [animatePlugin, lineClamp],
 };
 
 export default config;
