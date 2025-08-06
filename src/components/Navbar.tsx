@@ -31,14 +31,15 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border shadow-elegant bg-[var(--beige-gradient)] backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-[hsla(34, 54%, 92%, 0.50)] backdrop-blur-xl shadow-elegant">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img src="/assets/vjsvlogo.png" alt="VJSV Logo" className="w-10 h-10 rounded-lg object-cover" />
             <div className="hidden sm:block">
-              
-              <h1 className="font-bold text-xl text-foreground">విజ్ఞానజ్యోతి సాహితీవనం</h1>
+              <h1 className="font-bold text-xl text-foreground font-telugu">
+                విజ్ఞానజ్యోతి సాహితీవనం
+              </h1>
             </div>
           </Link>
 
@@ -52,7 +53,7 @@ const Navbar: React.FC = () => {
                       <ChevronDown className="w-4 h-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-48 bg-card/95 backdrop-blur-md border border-border shadow-elegant">
+                  <DropdownMenuContent className="w-48 bg-card/90 backdrop-blur-md border border-border shadow-elegant">
                     {item.dropdown.map((d) => (
                       <DropdownMenuItem key={d.path} asChild>
                         <Link to={d.path} className={`w-full px-3 py-2 text-sm hover:bg-muted transition-smooth ${isActive(d.path) ? "bg-muted font-medium" : ""}`}>
@@ -78,7 +79,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden border-t border-border bg-card/95 backdrop-blur-md animate-fade-in">
+          <div className="md:hidden border-t border-border bg-card/90 backdrop-blur-md animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) =>
                 item.dropdown ? (

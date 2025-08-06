@@ -4,17 +4,17 @@
 
 @layer base {
   :root {
-    --background: 33 82% 88%; /* base beige */
+    --background: 33 77% 92%; /* #fbeee1 in HSL */
     --foreground: 345 76% 8%; /* deep maroon */
 
-    --card: 33 82% 88%;
+    --card: 33 77% 92%;
     --card-foreground: 345 76% 8%;
 
-    --popover: 33 82% 88%;
+    --popover: 33 77% 92%;
     --popover-foreground: 345 76% 8%;
 
     --primary: 345 49% 54%; /* #a53860 */
-    --primary-foreground: 33 82% 88%;
+    --primary-foreground: 33 77% 92%;
 
     --secondary: 351 100% 80%; /* #ffa5ab */
     --secondary-foreground: 345 76% 8%;
@@ -26,7 +26,7 @@
     --accent-foreground: 345 76% 8%;
 
     --destructive: 0 85% 45%;
-    --destructive-foreground: 33 82% 88%;
+    --destructive-foreground: 33 77% 92%;
 
     --border: 33 45% 80%;
     --input: 33 45% 85%;
@@ -34,12 +34,12 @@
 
     --radius: 0.5rem;
 
-    /* 🌈 Gradients */
+    /* Optional Gradients */
     --beige-gradient: linear-gradient(
       135deg,
-      hsl(33, 82%, 88%) 0%,
-      hsl(33, 100%, 80%) 50%,
-      hsl(33, 60%, 70%) 100%
+      hsl(33, 77%, 92%) 0%,
+      hsl(33, 100%, 85%) 50%,
+      hsl(33, 60%, 75%) 100%
     );
 
     --hero-gradient: var(--beige-gradient);
@@ -61,19 +61,19 @@
 
   .dark {
     --background: 345 76% 8%;
-    --foreground: 33 82% 88%;
+    --foreground: 33 77% 92%;
 
     --card: 345 76% 12%;
-    --card-foreground: 33 82% 88%;
+    --card-foreground: 33 77% 92%;
 
     --popover: 345 76% 12%;
-    --popover-foreground: 33 82% 88%;
+    --popover-foreground: 33 77% 92%;
 
     --primary: 351 100% 80%;
     --primary-foreground: 345 76% 8%;
 
     --secondary: 345 49% 54%;
-    --secondary-foreground: 33 82% 88%;
+    --secondary-foreground: 33 77% 92%;
 
     --muted: 345 30% 25%;
     --muted-foreground: 33 60% 80%;
@@ -82,7 +82,7 @@
     --accent-foreground: 345 76% 8%;
 
     --destructive: 0 85% 45%;
-    --destructive-foreground: 33 82% 88%;
+    --destructive-foreground: 33 77% 92%;
 
     --border: 345 30% 20%;
     --input: 345 25% 18%;
@@ -94,7 +94,7 @@
   }
 
   body {
-    background-image: var(--beige-gradient);
+    background-color: hsl(var(--background));
     @apply text-foreground;
   }
 }

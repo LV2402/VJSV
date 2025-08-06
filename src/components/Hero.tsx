@@ -7,45 +7,45 @@ const Hero: React.FC = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          // src="/assets/hero-literature.jpg"
+          src="/assets/bg1.png"
           alt="Telugu Literature Heritage"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/50" />
+        <div className="absolute inset-0 bg-background/30" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-12">
-          {/* Right: Logo (with blend effect) */}
+          {/* Right: Logo */}
           <div className="flex-shrink-0">
             <img
               src="/assets/vjsvlogo.png"
               alt="VJSV Club Logo"
-              className="w-72 h-72 object-contain opacity-70 mix-blend-lighten drop-shadow-md"
+              className="w-72 h-72 lg:w-80 lg:h-80 object-contain opacity-100 drop-shadow-md"
             />
           </div>
 
           {/* Left: Title + Stats */}
-          <div className="text-center lg:text-left space-y-8 animate-fade-in">
+          <div className="flex flex-col justify-center w-full text-center lg:text-left space-y-8 animate-fade-in">
             {/* Title */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span
-                  className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: "linear-gradient(to right, #d02d66, #f06292)",
-                    WebkitBackgroundClip: "text",
-                  }}
-                >
-                  విజ్ఞానజ్యోతి
-                </span>
-                <span className="block mt-4 text-[color:#d02d66]">
-                  సాహితీవనం
-                </span>
-              </h1>
+ <div className="space-y-4">
+  <h1 className="text-4xl sm:text-7xl font-bold flex flex-wrap justify-center lg:justify-start gap-3 font-telugu leading-[1.3] overflow-visible break-keep">
+    <span
+      className="bg-clip-text text-transparent"
+      style={{
+        backgroundImage: "linear-gradient(to right, #811414ff, #d21421e0)",
+        WebkitBackgroundClip: "text",
+      }}
+    >
+      విజ్ఞానజ్యోతి
+    </span>
+    <span className="text-[color:#811414ff]">
+      సాహితీవనం
+    </span>
+  </h1>
 
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto lg:mx-0 font-telugu">
                 వ్రాతపనిలో వేదనలు, భావాలలో భావనలు - Where Telugu literature blooms and young minds discover the power of words.
               </p>
             </div>
@@ -53,28 +53,28 @@ const Hero: React.FC = () => {
             {/* Stats */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-10 pt-8 border-t border-border">
               <StatBox
-                icon={<Users className="w-6 h-6" style={{ color: "#d02d66" }} />}
+                icon={<Users className="w-6 h-6" style={{ color: "#191013ff" }} />}
                 bg="--primary"
                 value="200+"
                 label="Active Members"
                 delay="0.2s"
               />
               <StatBox
-                icon={<Calendar className="w-6 h-6" style={{ color: "#d02d66" }} />}
+                icon={<Calendar className="w-6 h-6" style={{ color: "#190b10ff" }} />}
                 bg="--primary"
                 value="50+"
                 label="Events Hosted"
                 delay="0.4s"
               />
               <StatBox
-                icon={<BookOpen className="w-6 h-6" style={{ color: "#d02d66" }} />}
+                icon={<BookOpen className="w-6 h-6" style={{ color: "#1a1416ff" }} />}
                 bg="--primary"
                 value="5+"
                 label="Years Strong"
                 delay="0.6s"
               />
               <StatBox
-                icon={<BookOpen className="w-6 h-6" style={{ color: "#d02d66" }} />}
+                icon={<BookOpen className="w-6 h-6" style={{ color: "#201519ff" }} />}
                 bg="--primary"
                 value="5+"
                 label="Faculty"
