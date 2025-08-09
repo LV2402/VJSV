@@ -218,7 +218,7 @@ const Akshara = () => {
             className="mb-4"
           />
           <h1 className="text-4xl md:text-5xl font-bold">
-            కన్వర్జెన్స్ 
+            సింటిలేషన్స్
           </h1>
           <p className="mt-2 text-xl font-medium" style={{color: '#a55757'}}>{selectedYear}</p>
         </section>

@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
     {
       label: "Events",
       dropdown: [
-        { path: "/events/sintilatunz", label: "Sintilatunz" },
+        { path: "/events/sintillations", label: "Sintillations" },
         { path: "/events/convergence", label: "Convergence" },
         { path: "/events/workshops", label: "Workshops" }
       ]
