@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Akshara from "./pages/Akshara";
 import Convergence from "./pages/Events/Convergence/Convergence";
-import Sintillations from "./pages/Events/Sintillations/Sintillations";
+import Sintillations from "./pages/Events/Sintillashunz/Sintillashunz";
 import Workshops from "./pages/Events/Workshops/Workshops";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs";
