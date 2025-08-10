@@ -10,59 +10,59 @@ const Akshara = () => {
   const yearlyEventData = {
     "2025": [
       {
-        image: "/assets/events/2024/event1.jpg",
+        image: "/assets/events/2025/event1.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
+        image: "/assets/events/2025/event2.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event3.jpg",
+        image: "/assets/events/2025/event3.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event4.jpg",
+        image: "/assets/events/2025/event4.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event5.jpg",
+        image: "/assets/events/2025/event5.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event6.jpg",
+        image: "/assets/events/2025/event6.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event2.jpg",
+        image: "/assets/events/2025/event2.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event3.jpg",
+        image: "/assets/events/2025/event3.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event4.jpg",
+        image: "/assets/events/2025/event4.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event5.jpg",
+        image: "/assets/events/2025/event5.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        registerUrl: "#",
       },
       {
-        image: "/assets/events/2024/event6.jpg",
+        image: "/assets/events/2025/event6.png",
         short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        registerUrl: "https://lekhini.org/",
       },
     ],
     "2024": [
@@ -112,7 +112,7 @@ const Akshara = () => {
         long: "ఒక మంచి పుస్తకం మీతో ఉంటే వంద మంది స్నేహితులు మీతో ఉన్నట్టే. సాహిత్యం, విజ్ఞానం, శాస్త్రం, చరిత్ర, సృజనాత్మకత రచనలు, కవిత్వం, నవలలు ఇంకా ఎన్నో. ఈ పుస్తక ప్రదర్శన విజ్ఞాన వేదిక....రండి పాల్గొనండి జ్ఞాన పయనం లో మీరు పాలుపంచుకోండి.",
       },
       {
-        image: "/assets/events/2024/event8.png",
+        image: "/assets/events/2024/event7.png",
         short: "'అ ఆ!' (అక్షరాలతో ఆటవిడుపు)",
         long: "'అ ఆ!' (అక్షరాలతో ఆటవిడుపు) సాహిత్యం మరియు విజ్ఞానం నుంచి చిన్న విరామం తీసుకుని, మీకు వినోదాన్ని అందించాలన్న ఉద్దేశంతో పుట్టిన కార్యక్రమం. రకరకాల ఆటలు, భాషా సవాళ్ళు, మరియు మరెన్నో వినోదాత్మక కార్యక్రమాలతో మేము సిద్ధంగా ఉన్నాము! సరదాగా ఆడడానికి, సవాళ్ళను ఎదుర్కొనడానికి సిద్ధంగా ఉండండి!",
       },
@@ -164,17 +164,17 @@ const Akshara = () => {
         long: "వేలంపాట గురించి తెలిసిందే కదా.. ఒక వస్తువు మీద అందరూ పోటీ పడతారు. వాళ్ళకి దక్కేంత వరకు వదలరు. మన సాహితీవనం వారి పాట కూడా అంతే. కాకపోతే ఇక్కడ వస్తువు మీద కాకుండా, మీకు ఉన్న జ్ఞానం మీద ఉంటుంది.వచ్చేయండి, పాట పాడేసేయండి మరి.. అదే.. సాహితీవనం వారి పాట!! 🔔",
       },
       {
-        image: "/assets/events/2023/event6.png",//kavith
+        image: "/assets/events/2023/event6.png",
         short: "కవితా పటిమ",
         long: "మీ సాహిత్యాన్ని ప్రదర్శించాలని అనుకునేవారికి, మా కవితపటిమ స్వాగతం పలుకుతోంది. కవిత్వం అనేది సరస్వతి కటాక్షం ఉంటే వస్తుందని పెద్దవారి భావన. మరి అంతటి గొప్ప కళ మీలో ఉందనుకుంటే ఈ అవకాశాన్ని వదులుకోకండి. మా కవితాపటిమకి వస్తారని ఆశిస్తున్నాము.",
       },
       {
-        image: "/assets/events/2024/event6.png",
+        image: "/assets/events/2023/event7.png",
         short: "పుస్తక ప్రదర్శన",
         long: "ఒక మంచి పుస్తకం మీతో ఉంటే వంద మంది స్నేహితులు మీతో ఉన్నట్టే. సాహిత్యం, విజ్ఞానం, శాస్త్రం, చరిత్ర, సృజనాత్మకత రచనలు, కవిత్వం, నవలలు ఇంకా ఎన్నో. ఈ పుస్తక ప్రదర్శన విజ్ఞాన వేదిక....రండి పాల్గొనండి జ్ఞాన పయనం లో మీరు పాలుపంచుకోండి.",
       },
       {
-        image: "/assets/events/2024/event8.png",
+        image: "/assets/events/2023/event8.png",
         short: "ఆటవిడుపు",
         long: "ఆటవిడుపు సాహిత్యం మరియు విజ్ఞానం నుంచి చిన్న విరామం తీసుకుని, మీకు వినోదాన్ని అందించాలన్న ఉద్దేశంతో పుట్టిన కార్యక్రమం. రకరకాల ఆటలు, భాషా సవాళ్ళు, మరియు మరెన్నో వినోదాత్మక కార్యక్రమాలతో మేము సిద్ధంగా ఉన్నాము! సరదాగా ఆడడానికి, సవాళ్ళను ఎదుర్కొనడానికి సిద్ధంగా ఉండండి!",
       },
@@ -188,47 +188,52 @@ const Akshara = () => {
       {
         image: "/assets/events/2022/guest1.png",
         short: "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)",
-        //long: "2022 Event 1 long extended description. ",
+        long:  "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)",
       },
       {
-        image: "/assets/events/2022/event1.png",//kavitha
+        image: "/assets/events/2022/event1.png",
         short: "కవితా పటిమ",
-        //long: "2024 Event 1 long extended description. ",
+        long: "కవితా పటిమ",
       },
       {
-        image: "/assets/events/2022/event2.png",//ranga
+        image: "/assets/events/2022/event2.png",
         short: "రంగస్థలం",
         long: "సాహితీవనం X డ్రమాట్రిక్స్",
       },
       {
-        image: "/assets/events/2022/event3.png",//ithi
+        image: "/assets/events/2022/event3.png",
         short: "ఇతిహాసం",
-        //long: "2024 Event 1 long extended description. ",
+        long: "ఇతిహాసం",
       },
       {
-        image: "/assets/events/2022/event4.png",//vantalu
+        image: "/assets/events/2022/event4.png",
         short: "రారండోయ్ వంటలు చేద్దాం",
-        //long: "2024 Event 2 long extended description. ",
+        long: "రారండోయ్ వంటలు చేద్దాం",
       },
       {
-        image: "/assets/events/2022/event5.png",//varnana
+        image: "/assets/events/2022/event5.png",
         short: "వర్ణన",
-        //long: "2024 Event 2 long extended description. ",
+        long: "వర్ణన",
       },
       {
-        image: "/assets/events/2022/event6.png",//digi
+        image: "/assets/events/2022/event6.png",
         short: "డిజిటల్ మాధ్యమాలలో తెలుగు",
-        //long: "2024 Event 1 long extended description. ",
+        long: "డిజిటల్ మాధ్యమాలలో తెలుగు",
       },
       {
-        image: "/assets/events/2022/event7.png",//sruj
+        image: "/assets/events/2022/event7.png",
         short: "సృజనాత్మక రచన",
-        //long: "2024 Event 2 long extended description. ",
+        long: "సృజనాత్మక రచన",
       },
       {
         image: "/assets/events/2022/event8.png",
         short: "పుస్తక ప్రదర్శన",
         long: "ఒక మంచి పుస్తకం మీతో ఉంటే వంద మంది స్నేహితులు మీతో ఉన్నట్టే. సాహిత్యం, విజ్ఞానం, శాస్త్రం, చరిత్ర, సృజనాత్మకత రచనలు, కవిత్వం, నవలలు ఇంకా ఎన్నో. ఈ పుస్తక ప్రదర్శన విజ్ఞాన వేదిక....రండి పాల్గొనండి జ్ఞాన పయనం లో మీరు పాలుపంచుకోండి.",
+      },
+      {
+        image: "/assets/events/2022/event9.png",
+        short: "సాహితీవనం వారి పాట",
+        long: "సాహితీవనం వారి పాట",
       },
       {
         image: "/assets/events/2022/last.png",
@@ -247,7 +252,13 @@ const Akshara = () => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 px-6 py-10">
+    <div className="flex flex-wrap justify-center gap-6">
+      <div className="w-full flex justify-center mb-6">
+      <img
+        src={`/assets/events/${selectedYear}/ak${selectedYear}.png`}
+        alt={`Akshara ${selectedYear}`}
+      />
+    </div>
       {events.map((event, i) => (
         <div
           key={i}
@@ -257,19 +268,19 @@ const Akshara = () => {
           <img
             src={event.image}
             alt={`Event ${i + 1}`}
-            className="w-full h-48 object-cover rounded-md mb-4"//
+            className="w-full object-contain rounded-md mb-4"
           />
           <p className="mb-2" style={{ color: '#811414' }}>{event.short}</p>
           <div className="flex justify-end w-full">
             {selectedYear === "2025" ? (
               <a
-                href="https://lekhini.org/"
+                href={event.registerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer font-semibold text-right"
                 style={{ color: '#a55757', textDecoration: 'none' }}
               >
-                Read more
+                Register here
               </a>
             ) : (
               <details className="w-full">
@@ -288,27 +299,27 @@ const Akshara = () => {
 
 
   return (
-    <div className="min-h-screen" style={{backgroundColor: '#fbeee1', color: '#811414'}}>
-      <Navbar />
-      <main className="pt-20">
-        <section className="flex flex-col items-center justify-center text-center px-4 pt-4">
-          <img
-            src="/assets/aksharalogo.png"
-            alt="Akshara Festival Logo"
-            width={400}
-            height={400}
-            className="mb-4"
-          />
-          <h1 className="text-4xl md:text-5xl font-bold">
-            అతిపెద్ద సాహిత్య వేడుక - అక్షర
-          </h1>
-          <p className="mt-2 text-xl font-medium" style={{color: '#a55757'}}>{selectedYear}</p>
-        </section>
-        <section className="text-center px-4 py-8">
-          <p className="text-lg max-w-xl mx-auto" style={{color: '#a55757'}}>
-            తెలుగు సంస్కృతి ఉట్టిపడే వేదిక - అక్షర
-          </p>
-        </section>
+  <div className="min-h-screen" style={{ backgroundColor: '#fbeee1', color: '#811414' }}>
+    <Navbar />
+    <main className="pt-4">
+    <section className="flex flex-col items-center justify-center text-center px-4">
+    <img
+      src="/assets/aksharalogo_cropped.png"
+      alt="Akshara Festival Logo"
+      style={{ width: '460px', height: 'auto', marginBottom: '0' }}
+    />
+    <h1 className="text-4xl md:text-5xl font-bold mt-0">
+      అతిపెద్ద సాహిత్య వేడుక - అక్షర
+    </h1>
+    <p className="mt-0 text-xl font-medium" style={{ color: '#a55757' }}>
+      {selectedYear}
+    </p>
+    </section>
+      <section className="text-center px-4 pt-0 pb-4">
+        <p className="text-lg max-w-xl mx-auto" style={{ color: '#a55757' }}>
+        తెలుగు సంస్కృతి ఉట్టిపడే వేదిక - అక్షర
+        </p>
+      </section>
 
         <div className="flex justify-center gap-4 py-6">
           {["2025", "2024", "2023", "2022"].map((year) => (
