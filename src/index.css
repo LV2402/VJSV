@@ -98,3 +98,19 @@
     @apply text-foreground;
   }
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.highlight-card {
+  min-width: 340px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}

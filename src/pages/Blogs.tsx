@@ -8,14 +8,10 @@ const writings = [
     id: 1,
     title: "గుసగుసలాడే అడవి",
     author: "ప్రియా శర్మ",
+    year: "2023–27",
     type: "కవిత",
     content: `
-      గుసగుసలాడే అడవిలో, నీడలు ఆడుకునే చోట,
-      ఒక నిశ్శబ్ద రాగం రోజును పలకరిస్తుంది.
-      ప్రాచీన వృక్షాలు తమ కొమ్మలతో ఆకాశాన్ని తాకడానికి ప్రయత్నిస్తాయి.
-      అక్కడ వేదన ఒక సరళ గీతంగా మారుతుంది,
-      ప్రతి అడుగు ఒక కథను చెప్పుతుంది.
-      ఎక్కడో పక్షి కూసిన ఆ శబ్దం,
+      గుసగుసలాడే అడవిలో, నీడలు ఆడుకునే చోట,ఒక నిశ్శబ్ద రాగం రోజును పలకరిస్తుంది.ప్రాచీన వృక్షాలు తమ కొమ్మలతో ఆకాశాన్ని తాకడానికి ప్రయత్నిస్తాయి.అక్కడ వేదన ఒక సరళ గీతంగా మారుతుంది,ప్రతి అడుగు ఒక కథను చెప్పుతుంది.ఎక్కడో పక్షి కూసిన ఆ శబ్దం,
       ఒక మధురమైన గుర్తుగా మనస్సులో నిలుస్తుంది.
     `,
   },
@@ -23,6 +19,7 @@ const writings = [
     id: 2,
     title: "ఒక నక్షత్రం ప్రయాణం",
     author: "రామ్ కుమార్",
+    year: "2022–26",
     type: "కథ",
     content: `
       ఎలారా, ఒక చిన్న నక్షత్రం, తన నక్షత్రమండలం దాటి ప్రపంచాన్ని చూడాలని కలలు కనేది.
@@ -36,6 +33,7 @@ const writings = [
     id: 3,
     title: "వడగాల్పుల సవ్వడి",
     author: "సంధ్య రావు",
+    year: "2021–25",
     type: "కవిత",
     content: `
       మొదటి చినుకు, స్వర్గం నుండి రాలిన ఒక చిన్న కన్నీరు,
@@ -49,6 +47,7 @@ const writings = [
     id: 4,
     title: "కాలపయనం",
     author: "అనురాధ శేఖర్",
+    year: "2023–27",
     type: "కథ",
     content: `
       గడియారపు టిక్ టిక్... రోజులు పరుగు పెడతాయి.
@@ -62,6 +61,7 @@ const writings = [
     id: 5,
     title: "ఓ మూల చెట్టు",
     author: "వికాస్",
+    year: "2022–26",
     type: "కవిత",
     content: `
       వానకాలంలో ఊరికి చివర ఉన్న ఓ మూల చెట్టు,
@@ -74,6 +74,7 @@ const writings = [
     id: 6,
     title: "పెనుగాలికి ఎదురైన నౌక",
     author: "లలిత కృష్ణ",
+    year: "2023–27",
     type: "కథ",
     content: `
       ఒక చిన్న నౌక, ఆకాశాన్ని గెలుచుకుంటూ సాగుతుంది.
@@ -86,6 +87,7 @@ const writings = [
     id: 7,
     title: "తల్లిదండ్రుల మౌన పాట",
     author: "నిర్మల శ్రీధర్",
+    year: "2021–25",
     type: "కవిత",
     content: `
       వారు మాటలకంటే ముందే అర్థమవుతారు,
@@ -98,6 +100,7 @@ const writings = [
     id: 8,
     title: "చిలుక కథలు",
     author: "రాజేష్ మాలకొండయ్య",
+    year: "2022–26",
     type: "కథ",
     content: `
       చిన్న గ్రామంలో, ఒక బుడతడు రోజూ ఒకే చెట్టుకు వెళుతాడు.
@@ -111,6 +114,7 @@ const writings = [
     id: 9,
     title: "చీకటి లోని వెలుగు",
     author: "దీపా శిల్పి",
+    year: "2023–27",
     type: "కవిత",
     content: `
       చీకటి ముసురుతుంది, తారలు మరుగుపడతాయి,
@@ -126,102 +130,102 @@ const Blogs = () => {
   const [visibleCount, setVisibleCount] = useState(6);
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 3);
+    setVisibleCount(prev => prev + 3);
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen font-telugu"
+      style={{ backgroundColor: "#fbeee1", color: "#2d2d2d" }}
+    >
       <Navbar />
-
       <main className="pt-24 pb-12">
         <section className="text-center px-6 max-w-5xl mx-auto space-y-6">
-          <h1 className="text-5xl font-extrabold bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-extrabold text-[#811414]">
             మా సృజనాత్మక రచనలు
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-[#4f4f4f]">
             మా క్లబ్ సభ్యుల కలం నుండి జారిన భావాలు – కవితలు, కథలు, అనుభవాలు.
           </p>
-          <div className="h-1 w-24 bg-gradient-to-r from-rose-400 to-purple-600 mx-auto rounded-full"></div>
+          <div className="h-1 w-24 bg-[#811414] mx-auto rounded-full"></div>
         </section>
 
-        <section className="mt-16 px-6 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {writings.length > 0 ? (
-            writings.slice(0, visibleCount).map((writing, index) => (
-              <motion.div
-                key={writing.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-border p-6 flex flex-col justify-between"
+        <section className="mt-16 px-6 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+          {writings.slice(0, visibleCount).map((writing, index) => (
+            <motion.div
+              key={writing.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-[#e6d4c5] bg-[#fff9f4] p-6 flex flex-col justify-between h-full"
+            >
+              <div className="flex-grow">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-2xl font-semibold text-[#811414]">
+                    {writing.title}
+                  </h3>
+                  <span className="text-xs font-bold bg-[#811414] text-white px-2 py-1 rounded-full">
+                    {writing.type}
+                  </span>
+                </div>
+<p className="text-lg text-[#444] mb-2">
+  ✍ <span className="font-medium text-[#2d2d2d]">{writing.author}</span>{" "}
+  <span className="text-xs text-[#777]">({writing.year})</span>
+</p>
+
+                <p className="text-base leading-relaxed tracking-wide text-justify text-[#3f3f3f] line-clamp-4">
+                  {writing.content.trim()}
+                </p>
+              </div>
+              <div className="mt-4 text-right">
+                <button
+                  onClick={() => setSelectedWriting(writing)}
+                  className="text-sm text-[#811414] hover:text-[#5e0f0f] hover:scale-105 hover:underline transition-transform duration-200 ease-in-out"
+                >
+                  పూర్తిగా చదవండి →
+                </button>
+              </div>
+            </motion.div>
+          ))}
+
+          {visibleCount < writings.length && (
+            <div className="col-span-full text-center mt-10">
+              <button
+                onClick={handleLoadMore}
+                className="px-6 py-2 rounded-full text-white transition hover:opacity-90"
+                style={{ backgroundColor: "#811414" }}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent">
-                      {writing.title}
-                    </h3>
-                    <span className="text-xs font-bold bg-primary text-white px-2 py-1 rounded-full">
-                      {writing.type}
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">✍️ {writing.author}</p>
-                  <p className="mt-4 text-base leading-relaxed line-clamp-4 text-justify">
-                    {writing.content.trim()}
-                  </p>
-                </div>
-                <div className="mt-4 text-right">
-                  <button
-                    onClick={() => setSelectedWriting(writing)}
-                    className="text-sm text-blue-600 hover:underline transition"
-                  >
-                    పూర్తిగా చదవండి →
-                  </button>
-                </div>
-              </motion.div>
-            ))
-          ) : (
-            <p className="col-span-full text-center text-muted-foreground">
-              ఇంకా రచనలు లేవు. మీరు మొదటివారిగా రాయవచ్చు!
-            </p>
+                ఇంకా చూపించు
+              </button>
+            </div>
           )}
         </section>
-
-        {/* Load More Button */}
-        {visibleCount < writings.length && (
-          <div className="text-center mt-10">
-            <button
-              onClick={handleLoadMore}
-              className="px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/80 transition"
-            >
-              ఇంకా చూపించు
-            </button>
-          </div>
-        )}
       </main>
 
       <Footer />
 
-      {/* Modal */}
       {selectedWriting && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm transition-opacity"
           onClick={() => setSelectedWriting(null)}
         >
           <div
-            className="bg-white dark:bg-zinc-900 text-foreground rounded-xl shadow-lg max-w-xl w-full p-6 m-4 relative animate-in zoom-in-95"
-            onClick={(e) => e.stopPropagation()}
+            className="rounded-xl shadow-lg max-w-xl w-full p-6 m-4 relative"
+            style={{ backgroundColor: "#fff9f4", color: "#2d2d2d" }}
+            onClick={e => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-4 text-gray-500 hover:text-red-600 text-xl font-bold"
+              className="absolute top-3 right-4 text-[#811414] text-xl font-bold hover:text-[#5e0f0f]"
               onClick={() => setSelectedWriting(null)}
             >
               ×
             </button>
-            <h2 className="text-3xl font-bold mb-2 text-gradient bg-gradient-to-r from-rose-500 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold mb-2 text-[#811414]">
               {selectedWriting.title}
             </h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              ✍️ {selectedWriting.author} | {selectedWriting.type}
+            <p className="text-sm text-[#555] mb-4">
+              ✍ {selectedWriting.author} ({selectedWriting.year}) | {selectedWriting.type}
             </p>
             <pre className="whitespace-pre-wrap text-base leading-relaxed text-justify">
               {selectedWriting.content.trim()}
