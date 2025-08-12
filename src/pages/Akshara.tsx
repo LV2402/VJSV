@@ -1,3 +1,4 @@
+import styles from "./Akshara.module.css";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,58 +11,58 @@ const Akshara = () => {
   const yearlyEventData = {
     "2025": [
       {
-        image: "/assets/events/2025/event1.png",
-        short: "2024 Event 1 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event2.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event3.png",
-        short: "2024 Event 1 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event4.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event5.png",
-        short: "2024 Event 1 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event6.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event2.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event3.png",
-        short: "2024 Event 1 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event4.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event5.png",
-        short: "2024 Event 1 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event6.png",
-        short: "2024 Event 2 short description.",
+        image: "/assets/events/2025/event.png",
+        short: "వేచి చూడండి....",
         registerUrl: "https://lekhini.org/",
       },
     ],
@@ -135,8 +136,8 @@ const Akshara = () => {
       },
       {
         image: "/assets/events/2023/guest2.png",
-        short: "2023 guest 2 description.",
-        long: "2023 guest 2 long extended description. ",
+        short: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు",
+        long: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు",
       },
       {
         image: "/assets/events/2023/event1.png",
@@ -243,63 +244,102 @@ const Akshara = () => {
 
     ],
   };
-
-  const renderEventContent = () => {
+const renderEventContent = () => {
   const events = yearlyEventData[selectedYear];
 
   if (!events || events.length === 0) {
-    return <p className="text-center py-10" style={{ color: '#811414' }}>No events found for {selectedYear}.</p>;
+    return (
+      <p className="text-center py-10" style={{ color: '#811414' }}>
+        No events found for {selectedYear}.
+      </p>
+    );
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-6">
-      <div className="w-full flex justify-center mb-6">
-      <img
-        src={`/assets/events/${selectedYear}/ak${selectedYear}.png`}
-        alt={`Akshara ${selectedYear}`}
-      />
+    <>
+      <div className="flex justify-center gap-6 mb-6">
+  <div
+    className="rounded-xl p-5 overflow-hidden flex flex-col items-center"
+    style={{
+      backgroundColor: '#fbeee1',
+      boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)',
+      maxWidth: '400px'
+    }}
+  >
+    <img
+      src={`/assets/events/${selectedYear}/mainposter.png`}
+      alt={`Akshara ${selectedYear}`}
+      className="w-full h-auto object-contain"
+    />
+    <div className="w-full flex justify-center py-4">
+      <button
+        className="px-6 py-2 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition"
+      >
+        <a 
+        href = "#" /*paste registration link here*/
+        style={{textDecoration: 'none' }} >
+        Register Now</a> 
+      </button>
     </div>
-      {events.map((event, i) => (
-        <div
-          key={i}
-          className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%]"
-          style={{ backgroundColor: '#fbeee1', boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)' }}
-        >
-          <img
-            src={event.image}
-            alt={`Event ${i + 1}`}
-            className="w-full object-contain rounded-md mb-4"
-          />
-          <p className="mb-2" style={{ color: '#811414' }}>{event.short}</p>
-          <div className="flex justify-end w-full">
-            {selectedYear === "2025" ? (
-              <a
-                href={event.registerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer font-semibold text-right"
-                style={{ color: '#a55757', textDecoration: 'none' }}
-              >
-                Register here
-              </a>
-            ) : (
-              <details className="w-full">
-                <summary className="cursor-pointer font-semibold text-right" style={{ color: '#a55757', textDecoration: 'none' }}>
-                  Read more
-                </summary>
-                <p className="mt-2 whitespace-pre-line text-left" style={{ color: '#9d4545' }}>{event.long}</p>
-              </details>
-            )}
+  </div>
+</div>
+
+      <div className="flex flex-wrap justify-center gap-6">
+        {events.map((event, i) => (
+          <div
+            key={i}
+            className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%]"
+            style={{
+              backgroundColor: '#fbeee1',
+              boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)'
+            }}
+          >
+            <img
+              src={event.image}
+              alt={`Event ${i + 1}`}
+              className="w-full object-contain rounded-md mb-4"
+            />
+            <p className="mb-2" style={{ color: '#811414' }}>
+              {event.short}
+            </p>
+            <div className="flex justify-end w-full">
+              {selectedYear === '2025' ? (
+                <a
+                  href={event.registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer font-semibold text-right"
+                  style={{ color: '#a55757', textDecoration: 'none' }}
+                >
+                  Register here
+                </a>
+              ) : (
+                <details className="w-full">
+                  <summary
+                    className="cursor-pointer font-semibold text-right"
+                    style={{ color: '#a55757', textDecoration: 'none' }}
+                  >
+                    Read more
+                  </summary>
+                  <p
+                    className="mt-2 whitespace-pre-line text-left"
+                    style={{ color: '#9d4545' }}
+                  >
+                    {event.long}
+                  </p>
+                </details>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 
 
   return (
-  <div className="min-h-screen" style={{ backgroundColor: '#fbeee1', color: '#811414' }}>
+  <div className={styles.root}>
     <Navbar />
     <main className="pt-4">
     <section className="flex flex-col items-center justify-center text-center px-4">
@@ -309,15 +349,16 @@ const Akshara = () => {
       style={{ width: '460px', height: 'auto', marginBottom: '0' }}
     />
     <h1 className="text-4xl md:text-5xl font-bold mt-0">
-      అతిపెద్ద సాహిత్య వేడుక - అక్షర
+      అతిపెద్ద తెలుగు సాహిత్య వేడుక - అక్షర
     </h1>
-    <p className="mt-0 text-xl font-medium" style={{ color: '#a55757' }}>
+    <br></br>
+    <p className="mt-0 text-xl font-bold" style={{ color: '#6c2121ff' }}>
       {selectedYear}
     </p>
     </section>
       <section className="text-center px-4 pt-0 pb-4">
-        <p className="text-lg max-w-xl mx-auto" style={{ color: '#a55757' }}>
-        తెలుగు సంస్కృతి ఉట్టిపడే వేదిక - అక్షర
+        <p className="text-2xl max-w-xl mx-auto font-bold" style={{ color: '#6c2121ff' }}>
+        29th ఆగస్టు నుంచి 9th సెప్టెంబరు వరకు
         </p>
       </section>
 
