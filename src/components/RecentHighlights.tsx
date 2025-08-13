@@ -13,10 +13,14 @@ import { useEffect, useRef, useState } from "react";
 
 const instagramLinks = [
   "https://www.instagram.com/reel/DNLUBNxxkfi/",
+    "https://www.instagram.com/p/DMPSdaiTb6e/",
+  "https://www.instagram.com/p/DLuoEBixveO/",
+    "https://www.instagram.com/p/DH6Gb1nxi8P/?img_index=1",
+
   "https://www.instagram.com/p/DHqk6nOzc6K/",
   "https://www.instagram.com/p/DGTT8f_zuCr/",
-  "https://www.instagram.com/p/DLuoEBixveO/",
-  "https://www.instagram.com/p/DH6Gb1nxi8P/?img_index=1"
+  
+
 ];
 
 const RecentHighlights = () => {
@@ -62,7 +66,7 @@ const RecentHighlights = () => {
   }, [isHovering]);
 
   return (
-    <section className="py-16 bg-background">
+    <section className="bg-background">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">

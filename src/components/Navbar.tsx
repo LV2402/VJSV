@@ -16,22 +16,22 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/akshara", label: "Akshara" },
+    { path: "/", label: "హోమ్ (Home)" },
+    { path: "/akshara", label: "అక్షర (Akshara)" },
     {
-      label: "Events",
+      label: "ఈవెంట్స్ (Events)",
       dropdown: [
         { path: "/events/sintillations", label: "Sintillations" },
         { path: "/events/convergence", label: "Convergence" },
         { path: "/events/workshops", label: "Workshops" }
       ]
     },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/blogs", label: "Rachanalu" },
+    { path: "/gallery", label: "చిత్రమాలిక (Gallery)" },
+    { path: "/blogs", label: "రచనలు (Writings)" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-[hsla(34,54%,92%,0.50)] backdrop-blur-xl shadow-elegant">
+    <nav className="font-telugu fixed top-0 left-0 right-0 z-50 border-b border-border bg-[hsla(34,54%,92%,0.50)] backdrop-blur-xl shadow-elegant">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
