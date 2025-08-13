@@ -10,14 +10,15 @@ const Gallery = () => {
         {/* Intro Section */}
         {/* గ్యాలరీ */}
         <section className="text-center py-10">
-          <h1 className="text-4xl font-bold text-primary mb-4">
-            చిత్రమాలిక 
-          </h1>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-            మా క్లబ్‌లో జరిగిన ప్రత్యేకమైన క్షణాలను, సృజనాత్మకతను మరియు
-            స్ఫూర్తిని ప్రతిబింబించే చిత్రాలు ఇక్కడ చూడండి.
-          </p>
-        </section>
+  <h1 className="text-[2.75rem] md:text-[3rem] font-bold text-[#811414] leading-snug">
+    చిత్రమాలిక
+  </h1>
+  <p className="max-w-3xl mx-auto text-lg md:text-xl text-[#811414] opacity-90 leading-relaxed mt-3">
+    మా క్లబ్‌లో జరిగిన ప్రత్యేకమైన క్షణాలను, సృజనాత్మకతను మరియు
+    స్ఫూర్తిని ప్రతిబింబించే చిత్రాలు ఇక్కడ చూడండి.
+  </p>
+</section>
+
 
         {/* Gallery Section */}
         <GalleryGrid />
