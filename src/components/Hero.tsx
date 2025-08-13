@@ -48,10 +48,10 @@ const Hero: React.FC = () => {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto lg:mx-0">
-                వ్రాతపనిలో వేదనలు, భావాలలో భావనలు - Where Telugu literature blooms
-                and young minds discover the power of words.
-              </p>
+<p className="mt-10 text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto lg:mx-0">
+  అక్షరాల్లో ప్రేమ, వాక్యాల్లో సంస్కృతి
+</p>
+
             </div>
 
             {/* Stats */}

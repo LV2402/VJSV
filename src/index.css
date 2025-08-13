@@ -114,3 +114,11 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
+
+.instagram-media {
+  height: 506px !important;
+  width: 320px !important;       /* reduce width */
+  transform: scale(0.9);          
+  transform-origin: top left;     /* keep transform origin */
+  margin-bottom: 20px;
+}
