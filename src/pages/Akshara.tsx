@@ -3,11 +3,97 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Modal component as provided
+const Modal = ({ isOpen, onClose, event }) => {
+  if (!isOpen) return null;
+  return (
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center animate-fade-out"
+      style={{
+        animation: 'modalFadeIn 0.1s ease-out'
+      }}
+    >
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0" 
+        style={{backgroundColor: 'rgba(222, 172, 172, 0.85)'}}
+        onClick={onClose}
+      ></div>
+      
+      {/* Modal Content */}
+      <div 
+        className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
+        style={{ 
+          backgroundColor: '#fbeee1', 
+          boxShadow: '0 8px 24px rgba(129, 20, 20, 0.8)',
+          animation: 'modalSlideIn 0.3s ease-out'
+        }}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity z-10"
+          style={{ backgroundColor: '#811414', color: '#fbeee1' }}
+          title="Close"
+        >
+          ×
+        </button>
+        
+        {/* Modal Body */}
+        <div className="pt-2">
+          <img
+  src={event.image}
+  alt="Event"
+  className="w-full max-h-80 object-contain rounded-md mb-4"
+  style={{ animation: 'fadeInUp 0.5s ease-out 0.1s both' }}
+/>
+
+          <h3 
+            className="text-xl font-bold mb-3" 
+            style={{ 
+              color: '#811414',
+              animation: 'fadeInUp 0.5s ease-out 0.2s both'
+            }}
+          >
+            Event Details
+          </h3>
+          <p 
+            className="mb-4" 
+            style={{ 
+              color: '#811414',
+              animation: 'fadeInUp 0.5s ease-out 0.3s both'
+            }}
+          >
+            {event.short}
+          </p>
+          <div 
+            className="border-t pt-4" 
+            style={{ 
+              borderColor: '#d4a574',
+              animation: 'fadeInUp 0.5s ease-out 0.4s both'
+            }}
+          >
+            <p className="whitespace-pre-line leading-relaxed" style={{ color: '#9d4545' }}>
+              {event.long}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Akshara = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalEvent, setModalEvent] = useState(null);
+
   const handleYearClick = (year) => {
     setSelectedYear(year);
+    setModalOpen(false); // Close modal when year changes
+    setModalEvent(null);
   };
+
   const yearlyEventData = {
     "2025": [
       {
@@ -244,20 +330,24 @@ const Akshara = () => {
 
     ],
   };
-const renderEventContent = () => {
-  const events = yearlyEventData[selectedYear];
 
-  if (!events || events.length === 0) {
+  const handleReadMore = (event) => {
+    setModalEvent(event);
+    setModalOpen(true);
+  };
+
+  const renderEventContent = () => {
+    const events = yearlyEventData[selectedYear];
+    if (!events || events.length === 0) {
+      return (
+        <p className="text-center py-10" style={{ color: '#811414' }}>
+          No events found for {selectedYear}.
+        </p>
+      );
+    }
     return (
-      <p className="text-center py-10" style={{ color: '#811414' }}>
-        No events found for {selectedYear}.
-      </p>
-    );
-  }
-
-  return (
-    <>
-      <div className="flex justify-center gap-6 mb-6">
+      <>
+        <div className="flex justify-center gap-6 mb-6">
   <div
     className="rounded-xl p-5 overflow-hidden flex flex-col items-center"
     style={{
@@ -283,65 +373,64 @@ const renderEventContent = () => {
     </div>
   </div>
 </div>
-
-      <div className="flex flex-wrap justify-center gap-6">
-        {events.map((event, i) => (
-          <div
-            key={i}
-            className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%]"
-            style={{
-              backgroundColor: '#fbeee1',
-              boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)'
-            }}
-          >
-            <img
-              src={event.image}
-              alt={`Event ${i + 1}`}
-              className="w-full object-contain rounded-md mb-4"
-            />
-            <p className="mb-2" style={{ color: '#811414' }}>
-              {event.short}
-            </p>
-            <div className="flex justify-end w-full">
-              {selectedYear === '2025' ? (
-                <a
-                  href={event.registerUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer font-semibold text-right"
-                  style={{ color: '#a55757', textDecoration: 'none' }}
-                >
-                  Register here
-                </a>
-              ) : (
-                <details className="w-full">
-                  <summary
+        <div className="flex flex-wrap justify-center gap-6">
+          {events.map((event, i) => (
+            <div
+              key={i}
+              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%]"
+              style={{
+                backgroundColor: '#fbeee1',
+                boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)'
+              }}
+            >
+              <img
+                src={event.image}
+                alt={`Event ${i + 1}`}
+                className="w-full object-contain rounded-md mb-4"
+              />
+              <p className="mb-2" style={{ color: '#811414' }}>
+                {event.short}
+              </p>
+              <div className="flex justify-end w-full">
+                {selectedYear === '2025' ? (
+                  <a
+                    href={event.registerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="cursor-pointer font-semibold text-right"
                     style={{ color: '#a55757', textDecoration: 'none' }}
                   >
-                    Read more
-                  </summary>
-                  <p
-                    className="mt-2 whitespace-pre-line text-left"
-                    style={{ color: '#9d4545' }}
-                  >
-                    {event.long}
-                  </p>
-                </details>
-              )}
+                    Register here
+                  </a>
+                ) : (
+                  event.long && (
+                    <button
+                      onClick={() => handleReadMore(event)}
+                      className="cursor-pointer font-semibold text-right px-4 py-2 rounded hover:opacity-80"
+                      style={{ color: '#a55757', background: 'none', border: 'none' }}
+                    >
+                      Read more
+                    </button>
+                  )
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-};
-
+          ))}
+        </div>
+        {/* Modal */}
+        <Modal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          event={modalEvent || {}}
+        />
+      </>
+    );
+  };
 
   return (
-  <div className={styles.root}>
-    <Navbar />
-    <main className="pt-4">
+    <div className={styles.root}>
+      <Navbar />
+      <main className="pt-4">
     <section className="flex flex-col items-center justify-center text-center px-4">
     <img
       src="/assets/aksharalogo_cropped.png"
@@ -383,6 +472,7 @@ const renderEventContent = () => {
 
         {renderEventContent()}
       </main>
+      <br></br>
       <Footer />
     </div>
   );
