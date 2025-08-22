@@ -97,46 +97,46 @@ const Akshara = () => {
   const yearlyEventData = {
     "2025": [
       {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
+        image: "/assets/events/2025/event1.png",
+        short: "రెండు పావుల చదరంగం",
+        registerUrl: "https://forms.gle/bnirGRkSNXbwnoBt6",
+      },
+      {
+        image: "/assets/events/2025/event2.png",
+        short: "వికీవిహారం",
+        registerUrl: "https://forms.gle/7CQYULRs5L7diX4V9",
+      },
+      {
+        image: "/assets/events/2025/event3.png",
+        short: "గీతం-సంగీతం",
+        registerUrl: "https://forms.gle/gKLWm9DhGMZkuQY26",
+      },
+      {
+        image: "/assets/events/2025/event4.png",
+        short: "అక్షరాన్వేషణ",
+        registerUrl: "https://forms.gle/UHivKXTJzqwiN53R9",
+      },
+      {
+        image: "/assets/events/2025/event5.png",
+        short: "సాహితీవనం వారి పాట",
+        registerUrl: "https://forms.gle/HeGfY7b1TiB86a1E7",
+      },
+      {
+        image: "/assets/events/2025/event6.png",
+        short: "వాదం-ప్రతివాదం",
+        registerUrl: "https://forms.gle/EVVfGaekmPqhwP6w9",
+      },
+      {
+        image: "/assets/events/2025/event7.png",
+        short: "పుస్తక ప్రదర్శన",
         registerUrl: "#",
       },
       {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
+        image: "/assets/events/2025/event8.png",
+        short: "ఆటవిడుపు",
         registerUrl: "#",
       },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
-        image: "/assets/events/2025/event.png",
-        short: "వేచి చూడండి....",
-        registerUrl: "#",
-      },
-      {
+      /*{
         image: "/assets/events/2025/event.png",
         short: "వేచి చూడండి....",
         registerUrl: "#",
@@ -150,7 +150,7 @@ const Akshara = () => {
         image: "/assets/events/2025/event.png",
         short: "వేచి చూడండి....",
         registerUrl: "https://lekhini.org/",
-      },
+      },*/
     ],
     "2024": [
       {
@@ -366,7 +366,8 @@ const Akshara = () => {
         className="px-6 py-2 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition"
       >
         <a 
-        href = "#" /*paste registration link here*/
+        href = "https://lnk.bio/vjsv_akshara25"
+        target="_blank"
         style={{textDecoration: 'none' }} >
         Register Now</a> 
       </button>
@@ -377,7 +378,7 @@ const Akshara = () => {
           {events.map((event, i) => (
             <div
               key={i}
-              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%]"
+              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%] transform transition-transform duration-300 hover:scale-105"
               style={{
                 backgroundColor: '#fbeee1',
                 boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)'
@@ -388,7 +389,7 @@ const Akshara = () => {
                 alt={`Event ${i + 1}`}
                 className="w-full object-contain rounded-md mb-4"
               />
-              <p className="mb-2" style={{ color: '#811414' }}>
+              <p className="mb-2 font-bold text-xl" style={{ color: '#811414' }}>
                 {event.short}
               </p>
               <div className="flex justify-end w-full">
@@ -400,7 +401,7 @@ const Akshara = () => {
                     className="cursor-pointer font-semibold text-right"
                     style={{ color: '#a55757', textDecoration: 'none' }}
                   >
-                    Register here
+                  Register here
                   </a>
                 ) : (
                   event.long && (
