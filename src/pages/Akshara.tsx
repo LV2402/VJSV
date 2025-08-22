@@ -331,7 +331,7 @@ const Akshara = () => {
     ],
   };
 
-  const handleReadMore = (event) => {
+  const handleReadMore = (event) => {   
     setModalEvent(event);
     setModalOpen(true);
   };

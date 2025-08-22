@@ -179,8 +179,7 @@ const Blogs = () => {
 
   return (
     <div
-      className="min-h-screen font-telugu"
-      style={{ backgroundColor: "#fbeee1", color: "#2d2d2d" }}
+      className="min-h-screen font-telugu bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100"
     >
       <Navbar />
       <main className="pt-24 pb-12">
@@ -189,7 +188,7 @@ const Blogs = () => {
             మా సృజనాత్మక రచనలు
           </h1>
           <p className="text-lg text-[#4f4f4f]">
-            మా క్లబ్ సభ్యుల కలం నుండి జారిన భావాలు – కవితలు, కథలు, అనుభవాలు.
+            మా కూటమి సభ్యుల  కలం నుండి జారిన భావాలు – కవితలు, కథలు, అనుభవాలు.
           </p>
           <div className="h-1 w-24 bg-[#811414] mx-auto rounded-full"></div>
         </section>

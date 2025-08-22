@@ -1,111 +1,141 @@
-import { BookOpen, Users, Calendar } from "lucide-react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Hero: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden font-telugu">
-      {/* Background image */}
+    <section className="relative min-h-[90vh] flex items-center justify-center text-center font-telugu overflow-hidden">
+      {/* Background Image with Ken Burns Effect */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/bg1.png"
-          alt="Telugu Literature Heritage"
-          className="w-full h-full object-cover"
+          src="/assets/akshara.jpg"
+          alt="VJSV Group"
+          className="pt-16 w-full h-full object-cover md:object-center object-top transform scale-105 animate-[kenBurns_20s_ease-in-out_infinite_alternate]"
         />
-        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 animate-[fadeIn_1.5s_ease-out]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-8 lg:gap-12">
-          
-          {/* Right: Logo */}
-          <div className="flex-shrink-0">
-            <img
-              src="/assets/vjsvlogo.png"
-              alt="VJSV Club Logo"
-              className="w-48 h-48 sm:w-72 sm:h-72 lg:w-80 lg:h-80 object-contain drop-shadow-md"
-            />
-          </div>
+      {/* Floating Particles Background */}
+      <div className="absolute inset-0 z-5">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white/20 rounded-full animate-[float_6s_ease-in-out_infinite]"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 4}s`
+            }}
+          />
+        ))}
+      </div>
 
-          {/* Left: Title + Stats */}
-          <div className="flex flex-col justify-center w-full text-center lg:text-left space-y-10 animate-fade-in">
-            
-            {/* Title + Tagline */}
-            <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                <span
-                  className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #811414ff, #d21421e0)",
-                    WebkitBackgroundClip: "text",
-                  }}
-                >
-                  విజ్ఞానజ్యోతి
-                </span>{" "}
-                <span className="text-[#811414ff]">
-                  సాహితీవనం
-                </span>
-              </h1>
-
-<p className="mt-10 text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto lg:mx-0">
-  అక్షరాల్లో ప్రేమ, వాక్యాల్లో సంస్కృతి
-</p>
-
-            </div>
-
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-6 border-t border-border">
-              <StatBox
-                icon={<Users className="w-6 h-6" style={{ color: "#191013ff" }} />}
-                value="200+"
-                label="Active Members"
-                delay="0.2s"
-              />
-              <StatBox
-                icon={<Calendar className="w-6 h-6" style={{ color: "#190b10ff" }} />}
-                value="50+"
-                label="Events Hosted"
-                delay="0.4s"
-              />
-              <StatBox
-                icon={<BookOpen className="w-6 h-6" style={{ color: "#1a1416ff" }} />}
-                value="5+"
-                label="Years Strong"
-                delay="0.6s"
-              />
-              <StatBox
-                icon={<BookOpen className="w-6 h-6" style={{ color: "#201519ff" }} />}
-                value="5+"
-                label="Faculty"
-                delay="0.8s"
-              />
-            </div>
+      {/* Content with Staggered Animations */}
+      <div className="relative z-10 max-w-4xl px-4 sm:px-6">
+        <h1 
+          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl leading-tight transform transition-all duration-1000 ease-out ${
+            isVisible 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-12 opacity-0'
+          }`}
+        >
+          <span className="inline-block animate-[slideInUp_0.8s_ease-out_0.3s_both]">విజ్ఞానజ్యోతి</span>{" "}
+          <span className="inline-block animate-[slideInUp_0.8s_ease-out_0.6s_both]">సాహితీవనం</span>
+        </h1>
+        
+        <p 
+          className={`mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 font-medium leading-relaxed transform transition-all duration-1000 ease-out delay-500 ${
+            isVisible 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-8 opacity-0'
+          }`}
+        >
+          <span className="inline-block animate-[fadeInUp_1s_ease-out_0.9s_both]">తెలుగు సాహిత్యం</span>
+          <span className="inline-block mx-2 animate-[pulse_2s_ease-in-out_infinite]">·</span>
+          <span className="inline-block animate-[fadeInUp_1s_ease-out_1.1s_both]">సంస్కృతి</span>
+        </p>
+        
+        {/* Mobile readability section with slide-in animation */}
+        <div className="mt-8 sm:hidden">
+          <div 
+            className={`inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-3 transform transition-all duration-800 ease-out delay-1000 ${
+              isVisible 
+                ? 'translate-y-0 opacity-100 scale-100' 
+                : 'translate-y-4 opacity-0 scale-95'
+            }`}
+          >
+            <p className="text-sm text-gray-200">
+              సాహిత్య సేవలో మా ప్రయాణం
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Animated Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="flex flex-col items-center animate-[bounce_2s_infinite]">
+          <div className="w-1 h-8 bg-white/50 rounded-full animate-[grow_2s_ease-in-out_infinite]"></div>
+          <div className="w-2 h-2 bg-white/70 rounded-full mt-2 animate-[pulse_2s_ease-in-out_infinite_0.5s]"></div>
+        </div>
+      </div>
+
+      {/* Decorative animated border elements */}
+      <div className="absolute top-20 left-4 w-12 h-12 border-2 border-white/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+      <div className="absolute top-32 right-8 w-8 h-8 border border-white/20 rotate-45 animate-[pulse_3s_ease-in-out_infinite]"></div>
+      <div className="absolute bottom-20 left-8 w-6 h-6 bg-white/20 rounded-full animate-[float_4s_ease-in-out_infinite]"></div>
+
+      <style>{`
+        @keyframes kenBurns {
+          0% { transform: scale(1.05) translateX(0px) translateY(0px); }
+          100% { transform: scale(1.1) translateX(-10px) translateY(-5px); }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-10px) translateX(5px); }
+          50% { transform: translateY(5px) translateX(-5px); }
+          75% { transform: translateY(-5px) translateX(10px); }
+        }
+        
+        @keyframes grow {
+          0%, 100% { height: 2rem; opacity: 0.5; }
+          50% { height: 2.5rem; opacity: 0.8; }
+        }
+      `}</style>
     </section>
   );
 };
-
-interface StatBoxProps {
-  icon: React.ReactNode;
-  value: string;
-  label: string;
-  delay: string;
-}
-
-const StatBox: React.FC<StatBoxProps> = ({ icon, value, label, delay }) => (
-  <div
-    className="text-center space-y-2 animate-slide-in-right"
-    style={{ animationDelay: delay }}
-  >
-    <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-2 bg-primary/10">
-      {icon}
-    </div>
-    <div className="text-2xl font-bold text-[#d02d66]">{value}</div>
-    <div className="text-sm text-muted-foreground">{label}</div>
-  </div>
-);
 
 export default Hero;
