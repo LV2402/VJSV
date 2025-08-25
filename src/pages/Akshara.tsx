@@ -129,12 +129,12 @@ const Akshara = () => {
       {
         image: "/assets/events/2025/event7.png",
         short: "పుస్తక ప్రదర్శన",
-        registerUrl: "#",
+        registerUrl: "",
       },
       {
         image: "/assets/events/2025/event8.png",
         short: "ఆటవిడుపు",
-        registerUrl: "#",
+        registerUrl: "",
       },
       /*{
         image: "/assets/events/2025/event.png",

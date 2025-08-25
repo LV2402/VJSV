@@ -1,3 +1,4 @@
+import styles from "./Convergence.module.css";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,7 +17,7 @@ const Modal = ({ isOpen, onClose, event }) => {
       {/* Backdrop */}
       <div 
         className="absolute inset-0" 
-        style={{backgroundColor: 'rgba(255, 255, 255, 0.7)'}}
+        style={{backgroundColor: 'rgba(222, 172, 172, 0.85)'}}
         onClick={onClose}
       ></div>
       
@@ -40,11 +41,11 @@ const Modal = ({ isOpen, onClose, event }) => {
         </button>
         
         {/* Modal Body */}
-        <div className="pt-2">
+        <div className={styles.root}>
           <img
-            src="/assets/events/Convergence.png"
+            src={event.image}
             alt="Event"
-            className="w-full h-48 object-cover rounded-md mb-4"
+            className="w-full max-h-80 object-contain rounded-md mb-4"
             style={{ animation: 'fadeInUp 0.5s ease-out 0.1s both' }}
           />
           <h3 
@@ -56,7 +57,7 @@ const Modal = ({ isOpen, onClose, event }) => {
           >
             Event Details
           </h3>
-          <p 
+          <h3 
             className="mb-4" 
             style={{ 
               color: '#811414',
@@ -64,7 +65,7 @@ const Modal = ({ isOpen, onClose, event }) => {
             }}
           >
             {event.short}
-          </p>
+          </h3>
           <div 
             className="border-t pt-4" 
             style={{ 
@@ -107,32 +108,32 @@ const Akshara = () => {
     "2025": [
         {
         image: "/assets/events/2025/RRR/Adugula_Adhipathi.png",
-        short: "2024 Event 1 short description.",
+        short: "RRR - అడుగుల అధిపతి",
         long: "ఈ ఆటలో ఒక జట్టు మాత్రమే ఆడుతారు. జట్టుకు ఇద్దరు సభ్యులు ఉంటారు.వైకుంఠపాళి ఆటలో మొదటి పది అవకాశాల్లో గమ్యానికి అత్యంత చేరువుగా వెళ్తారో వారే విజేత.ఒక్కో గడి దాటేందుకు ప్రశ్న అడగబడును.సరైన సమాధానం చెప్పినవారు ముందుకి వెళ్తారు,తప్పు సమాధానం చెప్పనివారికి టాస్క్ ఇవ్వబడును.ప్రశ్నకు సమాధానం జట్టులో ఎవరైనా చెప్పవచ్చు.నిచ్చెన వచ్చినప్పుడు ఒక ఆటగాడు తన సహచారికి చిత్రరూపంలో ఇతిహాస ఘట్టాన్ని చెప్పవలసి ఉంటుంది.సరైన సమాధానం చెప్తే నిచ్చెన ఎక్కే అవకాశం ఉంటుంది.పాము వస్తే కిందికి వెళ్ళిపోవాల్సి ఉంటుంది.పూర్తి ఆటను పాచికలతో ఆడవలసి ఉంటుంది.",
       },
       {
         image: "/assets/events/2025/RRR/Chathurvyuham.png",
-        short: "2024 Event 2 short description.",
+        short: "RRR - చతుర్వ్యూహం",
         long: "ఈ ఆట రెండు రౌండ్లుగా ఆడుతారు.ఒక జట్టు లో నలుగురు వరకు ఆడవచ్చు.మొదటి రౌండు లో పాటకి సంబంధించిన చిత్రాలు చూపించడం జరుగుతుంది. ఆ చిత్రాలను ఆధారంగా పాటను గుర్తించాల్సి ఉంటుంది.రెండవ రౌండులో పాటలో ఒక భాగాన్ని మ్యూట్ చేసి చూపించడం జరుగుతుంది. ఆ భాగంలోని పాట యొక్క చరణాలను గుర్తించాలి.విజేతను నిర్ధారించు విధానం:సరైన సమాధానం చెప్పినవారికి పది(10) పాయింట్లు ఇవ్వబడును,తప్పు సమాధానం చెప్పినవరికి అయిదు(5) పాయింట్లు తీసివెయ్యబడును , ప్రశ్న ను పాస్ చేసినవాళ్ళకి రెండు(2) పాయింట్లు తీసివెయ్యబడును.ఇలా ఎవరికైతే ఎక్కువ పాయింట్లు వస్తాయో వాళ్ళు విజేతలు.",
       },
       {
         image: "/assets/events/2025/RRR/PuraanaMedalu.png",
-        short: "2024 Event 1 short description.",
+        short: "RRR - పురాణ మేడలు",
         long: "2024 Event 1 long extended description. ".repeat(10),
       },
       {
         image: "/assets/events/2025/Saaradhi/Budget_Sessions.png",
-        short: "2024 Event 2 short description.",
+        short: "సారథి - BUDGET SESSIONS",
         long: "2024 Event 2 long extended description. ".repeat(10),
       },
       {
         image: "/assets/events/2025/Saaradhi/Kathana_Kuthulam.png",
-        short: "2024 Event 1 short description.",
+        short: "సారథి - కథన కుతూహలం",
         long: "2024 Event 1 long extended description. ".repeat(10),
       },
       {
         image: "/assets/events/2025/Saaradhi/Telugu_Taavi.png",
-        short: "2024 Event 2 short description.",
+        short: "సారథి - తెలుగు తావి",
         long: "2024 Event 2 long extended description. ".repeat(10),
       },
     ],
@@ -160,7 +161,7 @@ const Akshara = () => {
       {
         image: "/assets/events/2024/Saaradhi/Kathana_Kuthulam.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        long: "2024 Event 1 long extended description. ",
       },
       {
         image: "/assets/events/2024/Saaradhi/Telugu_Taavi.png",
@@ -256,16 +257,17 @@ const Akshara = () => {
           >
             <img
               src={event.image}
-              className="w-full h-48 object-cover rounded-md mb-4"
+              className="w-full object-contain rounded-md mb-4"
               alt="Event"
             />
-            <p className="mb-2" style={{ color: '#811414' }}>{event.short}</p>
+            <p className="mb-2 font-bold text-xl" style={{ color: '#811414' }}
+            >{event.short}</p>
             <div className="flex justify-end w-full">
               {(
                 <button
                   onClick={() => handleReadMoreClick(event)}
-                  className="cursor-pointer font-semibold text-right hover:opacity-80 transition-opacity"
-                  style={{ color: '#a55757', background: 'none', border: 'none', padding: 0 }}
+                  className="cursor-pointer font-semibold text-right px-4 py-2 rounded hover:opacity-80"
+                  style={{ color: '#a55757', background: 'none', border: 'none' }}
                 >
                   Read more
                 </button>
@@ -280,7 +282,7 @@ const Akshara = () => {
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fbeee1', color: '#811414'}}>
       {/* Add CSS animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -348,7 +350,7 @@ const Akshara = () => {
           animation: fadeInUp 1s ease-out 0.9s both;
         }
       `}</style>
-      
+      <div className={styles.root}>
       <div className="navbar-fade-in">
         <Navbar />
       </div>
@@ -356,10 +358,10 @@ const Akshara = () => {
       <main className="pt-20 content-fade-in">
         <section className="flex flex-col items-center justify-center text-center px-4 pt-4">
           <img
-            src="/assets/events/Convergence.png"
+            src="/assets/conv.png"
             alt="LOGO"
             width={600}
-            height={600}
+            height={100}
             className="mb-4"
             style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}
           />
@@ -369,6 +371,7 @@ const Akshara = () => {
           >
             కన్వర్జెన్స్
           </h1>
+          <br />
           <p 
             className="mt-2 text-xl font-medium" 
             style={{
@@ -421,7 +424,7 @@ const Akshara = () => {
       <div style={{ animation: 'fadeIn 1s ease-out 1.2s both' }}>
         <Footer />
       </div>
-      
+      </div>
       {/* Add the Modal at the end */}
       <Modal 
         isOpen={modalOpen} 
