@@ -161,7 +161,7 @@ const Akshara = () => {
       {
         image: "/assets/events/2024/Saaradhi/Kathana_Kuthulam.png",
         short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        long: "2024 Event 1 long extended description. ",
       },
       {
         image: "/assets/events/2024/Saaradhi/Telugu_Taavi.png",
