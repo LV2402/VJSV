@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');
+
+.root {
+  font-family: 'Mandali', sans-serif;
+  background-color: #fbeee1;
+  color: #811414;
+  min-height: 100vh;
+}

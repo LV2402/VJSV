@@ -1,3 +1,4 @@
+import styles from "./Sintillashunz.modules.css";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -77,7 +78,7 @@ const Modal = ({ isOpen, onClose, event }) => {
             </p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
@@ -305,7 +306,7 @@ const Akshara = () => {
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fbeee1', color: '#811414'}}>
       {/* Add CSS animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
