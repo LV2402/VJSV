@@ -434,12 +434,12 @@ const Akshara = () => {
       <main className="pt-4">
     <section className="flex flex-col items-center justify-center text-center px-4">
     <img
-      src="/assets/aksharalogo_cropped.png"
+      src="/assets/akshara.png"
       alt="Akshara Festival Logo"
       style={{ width: '460px', height: 'auto', marginBottom: '0' }}
     />
     <h1 className="text-4xl md:text-5xl font-bold mt-0">
-      అతిపెద్ద తెలుగు సాహిత్య వేడుక - అక్షర
+      అతిపెద్ద సాహితీ - సాంస్కృతిక వేడుక  "అక్షర"
     </h1>
     <br></br>
     <p className="mt-0 text-xl font-bold" style={{ color: '#6c2121ff' }}>

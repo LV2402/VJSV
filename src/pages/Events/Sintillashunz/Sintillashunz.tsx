@@ -1,4 +1,4 @@
-import styles from "./Sintillashunz.modules.css";
+import styles from "./Sintillashunz.module.css";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose, event }) => {
       {/* Backdrop */}
       <div 
         className="absolute inset-0" 
-        style={{backgroundColor: 'rgba(129, 20, 20, 0.7)'}}
+        style={{backgroundColor: 'rgba(222, 172, 172, 0.85)'}}
         onClick={onClose}
       ></div>
       
@@ -45,7 +45,7 @@ const Modal = ({ isOpen, onClose, event }) => {
           <img
             src={event.image}
             alt="Event"
-            className="w-full h-48 object-cover rounded-md mb-4"
+            className="w-full max-h-80 object-contain rounded-md mb-4"
             style={{ animation: 'fadeInUp 0.5s ease-out 0.1s both' }}
           />
           <h3 
@@ -57,7 +57,7 @@ const Modal = ({ isOpen, onClose, event }) => {
           >
             Event Details
           </h3>
-          <p 
+          <h3 
             className="mb-4" 
             style={{ 
               color: '#811414',
@@ -65,7 +65,7 @@ const Modal = ({ isOpen, onClose, event }) => {
             }}
           >
             {event.short}
-          </p>
+          </h3>
           <div 
             className="border-t pt-4" 
             style={{ 
@@ -107,155 +107,98 @@ const Akshara = () => {
   const yearlyEventData = {
     "2025": [
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2025/Sinti/mainposter.png",
+        short: "సింటిలేషన్స్",
+        long: "ఆట! ఆనందం! ఆహ్లాదం! కోసం ఎదురుచూస్తున్నారా? అయితే సంకోచం ఎందుకు? బ్రహ్మాండమైన ఉత్తేజంతో, మర్చిపోలేని జ్ఞాపకాలతో నిండిన కార్యక్రమాలతో మేము సిద్ధం. మీ ఉత్సాహాన్ని రెట్టింపు చేసుకుని మీరు సిద్ధంగా ఉండండి.",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2025/Sinti/event1.png",
+        short: "శోధించు - సాధించు",
+        long: "శోధన ప్రారంభమైంది… నిధి మీకోసం ఎదురు చూస్తోంది! సూచనలను ఛేదించండి, లక్ష్యాన్ని చేరుకోండి! ఆసక్తికరమైన మార్గాలతో మిమ్మల్ని పరీక్షించడానికి మేమొచ్చాం ‘శోధించు సాధించు’తో... సిద్ధంగా ఉన్నారా? ఇక ఆలస్యం ఎందుకు… మొదలు పెట్టండి మీ గెలుపు ప్రయాణం!",
       },
       {
-        image: "/assets/events/2024/event3.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2025/Sinti/event2.png",
+        short: "గళ్ళ గల్లంతు",
+        long: "ఒక్కరి జవాబు... అందరినీ ముందుకు తీసుకెళ్తుంది! కలిసి ఆడినా, గెలవడం మాత్రం నీ మెదడుపై ఆధారపడివుంది. ఆసక్తికరమైన ఆట... ఉత్కంఠభరితమైన ప్రయాణం! బృందంగా మొదలుపెట్టిన, చివరికి మిగిలేది ఒక్కరే! మరి మొదలెడదామా?",
       },
       {
-        image: "/assets/events/2024/event4.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event5.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event6.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2025/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event3.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event4.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event5.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event6.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2025/Sinti/event3.png",
+        short: "పదవినోదం",
+        long: "ఆధారాలను ఛేదించి, సరైన పదాలను కనుగొని, విజేతలవ్వండి! ప్రతీ పజిల్ మీలోని తెలివితేటలను పరీక్షించి, కొత్త పదాలను నేర్చుకునే అద్భుత అవకాశాన్ని అందిస్తూ ఆలోచనలకు కొత్త దారి తీస్తుంది! ప్రతి దశలో ఆసక్తికరమైన సవాళ్లు మరియు అబ్బురపరిచే పదాలు! సిద్ధమేనా? అయితే ఇప్పుడే ఆరంభించండి,మీ సామర్థ్యాన్ని చాటండి!",
       },
     ],
     "2024": [
       {
-        image: "/assets/events/2024/Saaradhi.png",
-        short: "2024 Event 1 short description.",
-        long: "ఈ ఆటలో ఒక జట్టు మాత్రమే ఆడుతారు. జట్టుకు ఇద్దరు సభ్యులు ఉంటారు.వైకుంఠపాళి ఆటలో మొదటి పది అవకాశాల్లో గమ్యానికి అత్యంత చేరువుగా వెళ్తారో వారే విజేత.ఒక్కో గడి దాటేందుకు ప్రశ్న అడగబడును.సరైన సమాధానం చెప్పినవారు ముందుకి వెళ్తారు,తప్పు సమాధానం చెప్పనివారికి టాస్క్ ఇవ్వబడును.ప్రశ్నకు సమాధానం జట్టులో ఎవరైనా చెప్పవచ్చు.నిచ్చెన వచ్చినప్పుడు ఒక ఆటగాడు తన సహచారికి చిత్రరూపంలో ఇతిహాస ఘట్టాన్ని చెప్పవలసి ఉంటుంది.సరైన సమాధానం చెప్తే నిచ్చెన ఎక్కే అవకాశం ఉంటుంది.పాము వస్తే కిందికి వెళ్ళిపోవాల్సి ఉంటుంది.పూర్తి ఆటను పాచికలతో ఆడవలసి ఉంటుంది.",
+        image: "/assets/events/2024/Sinti/7.png",
+        short: "సింటిలేషన్స్",
+        long: "ఆట! ఆనందం! ఆహ్లాదం! కోసం ఎదురుచూస్తున్నారా? అయితే సంకోచం ఎందుకు? బ్రహ్మాండమైన ఉత్తేజంతో, మర్చిపోలేని జ్ఞాపకాలతో నిండిన కార్యక్రమాలతో మేము సిద్ధం. మీ ఉత్సాహాన్ని రెట్టింపు చేసుకుని మీరు సిద్ధంగా ఉండండి. ",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "ఈ ఆట రెండు రౌండ్లుగా ఆడుతారు.ఒక జట్టు లో నలుగురు వరకు ఆడవచ్చు.మొదటి రౌండు లో పాటకి సంబంధించిన చిత్రాలు చూపించడం జరుగుతుంది. ఆ చిత్రాలను ఆధారంగా పాటను గుర్తించాల్సి ఉంటుంది.రెండవ రౌండులో పాటలో ఒక భాగాన్ని మ్యూట్ చేసి చూపించడం జరుగుతుంది. ఆ భాగంలోని పాట యొక్క చరణాలను గుర్తించాలి.విజేతను నిర్ధారించు విధానం:సరైన సమాధానం చెప్పినవారికి పది(10) పాయింట్లు ఇవ్వబడును,తప్పు సమాధానం చెప్పినవరికి అయిదు(5) పాయింట్లు తీసివెయ్యబడును , ప్రశ్న ను పాస్ చేసినవాళ్ళకి రెండు(2) పాయింట్లు తీసివెయ్యబడును.ఇలా ఎవరికైతే ఎక్కువ పాయింట్లు వస్తాయో వాళ్ళు విజేతలు.",
+        image: "/assets/events/2024/Sinti/4.png",
+        short: "శోధించు - సాధించు",
+        long : "శోధించు - సాధించు: సమయం లేదు మిత్రమా...నిధిని వెతకడానికి మీరు సిద్ధమా? 💥💥కొత్త కొత్త చిక్కులతో మీ ముందుకు వచ్చేస్తునాం🔊🔊మొదలు పెట్టండి మీ పరుగుల వేట.... ఇది సాహితీవనం వారి ఆట🔥",
       },
       {
-        image: "/assets/events/2024/event3.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2024/Sinti/5.png",
+        short: "గీతం - సంగీతం",
+        long: "సంగీతం అంటే మెచ్చని వారు ఉంటారా? అందుకుగాను మీ అందరి కోసం “గీతం సంగీతం” 🎶 అనే కార్యక్రమంతో ముందుకు వస్తున్నాము. మీ జట్టుతో కలిసి ఈ సప్తస్వరాల మేళాలో పాల్గొని, పాటను కనిపెట్టి, విజేతలుగా నిలవండి!",
       },
       {
-        image: "/assets/events/2024/event4.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2024/Sinti/6.png",
+        short: "ప్రయాస",
+        long : "రెండు పావులు...తొమ్మిది గళ్ళు...పది ప్రశ్నలు....ఇది మీరు ఆడని చదరంగం మా సాహితీవనం చదరంగం! రెండు పావుల చదరంగం!! 💥💥",
       },
       {
-        image: "/assets/events/2024/event5.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2024/Sinti/3.png",
+        short: "కథనం",
+        long : "వెండి తెరపై కథానాయకుడు, కథానాయిక నటిస్తే అది సినిమా 📽... అదే గుర్తు తెలియని పాత్రలకు మీ ఊహాత్మక కల్పనను జోడిస్తూ అల్లుకుపోయే రచనమే మన సాహితీ వనం కథనం ✨",
       },
       {
-        image: "/assets/events/2024/event6.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2024/Sinti/2.png",
+        short: "ఆటవిడుపు",
+        long : "ఆట! ఆనందం! ఆహ్లాదం! కోసం ఎదురుచూస్తున్నారా? అయితే సంకోచం ఎందుకు? బ్రహ్మాండమైన ఉత్తేజంతో, మర్చిపోలేని జ్ఞాపకాలతో నిండిన కార్యక్రమాలతో మేము సిద్ధం. మీ ఉత్సాహాన్ని రెట్టింపు చేసుకుని మీరు సిద్ధంగా ఉండండి. 💥",
       },
     ],
     "2023": [
       {
-        image: "/assets/events/2023/event1.jpg",
-        short: "2023 Event 1 short description.",
-        long: "2023 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/main.jpg",
+        short: "సింటిలేషన్స్",
+        long: "సింటిలేషన్స్ - VNRVJIET Annual Fest",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/1.jpg",
+        short: "గీతం - సంగీతం",
+        long: "సంగీత ప్రియులకు ఓ సులువైన పరీక్ష, ఈ ఆట 🎶రాగాన్ని బట్టి పాటని కనిపెట్టి, ఆసక్తికరమైన బహుమానాలు గెలుచుకోండి! 🎁✨",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/2.jpg",
+        short: "చెలిమి",
+        long: "సినిమాలు చూసిన ప్రతిసారీ అందులోని పాత్రల్లో మన స్నేహితులని చూస్కోవడం అందరికీ అలవాటే! అలా మేము మీకు ఇచ్చిన సినీ/ఇతిహాస పాత్రలు మీ స్నేహితుల్లో ఎవరికి దగ్గరిగా ఉంటాయో చెప్తూ, దాని వెనుక ఉన్న కారణాన్ని అందంగా వర్ణించే ఆట - చెలిమి 👭👬",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/3.jpg",
+        short: "బుగ్గలు పడినయ్ ఆడినం",
+        long: "మీ అదృష్టాన్ని, జవాబులిచ్చే వేగాన్ని పరీక్షించే ఆట - బుగ్గలు పడ్డాయి.. ఆడినం 🎈బెలూన్లను పగలగొడుతూ వాటిలో దాగున్న ఓ అంశాన్ని ఎంచుకొని, దానికి సంబంధించిన ప్రశ్నలకు వేగంగా సమాధానాలు ఇస్తే చాలు, ఆసక్తికరమైన నగదు బహుమానం మీ సొంతం! ",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/4.jpg",
+        short: "కథనం",
+        long: "కథనం - మేము మీకిచ్చే పదాల ఆధారంగా మీ సొంత కథలను అల్లి, ఆసక్తికరమైన నగదు బహుమానాలు గెలుచుకునే అవకాశం! 📝✨",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Sinti/5.jpg",
+        short: "మాటరాని మౌనమిది",
+        long: "ముఖంలో హావభావాలను పండిస్తూ, మేము మీకు ఇచ్చిన సినిమా/పాట పేరుని మీ మిత్రుల చేత కనిపెట్టించే ఓ సరదా ఆట - మాటరాని మౌనమిది 🎭🎬",
+      },
+      {
+        image: "/assets/events/2023/Sinti/6.jpg",
+        short: "వ్యక్తం",
+        long: "మీలోని కవిని ప్రపంచానికి పరిచయం చేసేందుకు ఓ చక్కని వేదిక - వ్యక్తం 🗣",
       },
     ],
-    "2022": [
-      {
-        image: "/assets/events/2022/event1.jpg",
-        short: "2022 Event 1 short description.",
-        long: "2022 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-    ],
+  
   };
 
-  // Update your renderEventContent function
   const renderEventContent = () => {
     const events = yearlyEventData[selectedYear];
 
@@ -282,10 +225,11 @@ const Akshara = () => {
           >
             <img
               src={event.image}
-              className="w-full h-48 object-cover rounded-md mb-4"
+            className="w-full max-h-80 object-contain rounded-md mb-4"
               alt="Event"
             />
-            <p className="mb-2" style={{ color: '#811414' }}>{event.short}</p>
+            <p className="mb-2 font-bold text-xl" style={{ color: '#811414' }}
+            >{event.short}</p>
             <div className="flex justify-end w-full">
               {(
                 <button
@@ -304,7 +248,7 @@ const Akshara = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{backgroundColor: '#fbeee1', color: '#811414'}}>
+    <div className={styles.root}>
       {/* Add CSS animations */}
       <style>{`
         @keyframes fadeIn {
@@ -382,7 +326,7 @@ const Akshara = () => {
       <main className="pt-20 content-fade-in">
         <section className="flex flex-col items-center justify-center text-center px-4 pt-4">
           <img
-            src=""
+            src="/assets/sinti.png"
             alt="Akshara Festival Logo"
             width={400}
             height={400}
@@ -407,7 +351,7 @@ const Akshara = () => {
         </section>
         
         <div className="flex justify-center gap-4 py-6 years-fade-in">
-          {["2025", "2024", "2023", "2022"].map((year) => (
+          {["2025", "2024", "2023"].map((year) => (
             <button
               key={year}
               onClick={() => handleYearClick(year)}

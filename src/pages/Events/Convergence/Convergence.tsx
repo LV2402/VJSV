@@ -137,96 +137,80 @@ const Akshara = () => {
         long: "2024 Event 2 long extended description. ".repeat(10),
       },
     ],
-    "2024": [
+    "2023'R": [
       {
-        image: "/assets/events/2024/RRR/Adugula_Adhipathi.png",
-        short: "2024 Event 1 short description.",
-        long: "ఈ ఆటలో ఒక జట్టు మాత్రమే ఆడుతారు. జట్టుకు ఇద్దరు సభ్యులు ఉంటారు.వైకుంఠపాళి ఆటలో మొదటి పది అవకాశాల్లో గమ్యానికి అత్యంత చేరువుగా వెళ్తారో వారే విజేత.ఒక్కో గడి దాటేందుకు ప్రశ్న అడగబడును.సరైన సమాధానం చెప్పినవారు ముందుకి వెళ్తారు,తప్పు సమాధానం చెప్పనివారికి టాస్క్ ఇవ్వబడును.ప్రశ్నకు సమాధానం జట్టులో ఎవరైనా చెప్పవచ్చు.నిచ్చెన వచ్చినప్పుడు ఒక ఆటగాడు తన సహచారికి చిత్రరూపంలో ఇతిహాస ఘట్టాన్ని చెప్పవలసి ఉంటుంది.సరైన సమాధానం చెప్తే నిచ్చెన ఎక్కే అవకాశం ఉంటుంది.పాము వస్తే కిందికి వెళ్ళిపోవాల్సి ఉంటుంది.పూర్తి ఆటను పాచికలతో ఆడవలసి ఉంటుంది.",
+        image: "/assets/events/2023/RRR/4.png",
+        short: "RRR - కురుక్షేత్రం లో రావణసంహారం",
+        long: "RRR ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం - కురుక్షేత్రం లో రావణ సంహారం!!",
       },
       {
-        image: "/assets/events/2024/RRR/Chathurvyuham.png",
-        short: "2024 Event 2 short description.",
-        long: "ఈ ఆట రెండు రౌండ్లుగా ఆడుతారు.ఒక జట్టు లో నలుగురు వరకు ఆడవచ్చు.మొదటి రౌండు లో పాటకి సంబంధించిన చిత్రాలు చూపించడం జరుగుతుంది. ఆ చిత్రాలను ఆధారంగా పాటను గుర్తించాల్సి ఉంటుంది.రెండవ రౌండులో పాటలో ఒక భాగాన్ని మ్యూట్ చేసి చూపించడం జరుగుతుంది. ఆ భాగంలోని పాట యొక్క చరణాలను గుర్తించాలి.విజేతను నిర్ధారించు విధానం:సరైన సమాధానం చెప్పినవారికి పది(10) పాయింట్లు ఇవ్వబడును,తప్పు సమాధానం చెప్పినవరికి అయిదు(5) పాయింట్లు తీసివెయ్యబడును , ప్రశ్న ను పాస్ చేసినవాళ్ళకి రెండు(2) పాయింట్లు తీసివెయ్యబడును.ఇలా ఎవరికైతే ఎక్కువ పాయింట్లు వస్తాయో వాళ్ళు విజేతలు.",
+        image: "/assets/events/2023/RRR/5.png",
+        short: "RRR - పదవ్యూహం",
+        long: "ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం - పదవ్యూహం !!",
       },
       {
-        image: "/assets/events/2024/RRR/PuraanaMedalu.png",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/RRR/6.png",
+        short: "RRR - లక్ష్య ప్రశ్నలు",
+        long: "ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం-లక్ష్య ప్రశ్నలు!!",
       },
       {
-        image: "/assets/events/2024/Saaradhi/Budget_Sessions.png",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Saradhi/1.png",
+        short: "సారథి - BUDGET SESSIONS",
+        long: "సారథి ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం Budget Sessions!! ఇందులో భాగంగా అలా మీరు కూడా కాసేపు అధికారంలోకి వచ్చి ఒక స్ఫూర్తిదాయక బడ్జెట్ ని రూపొందించి మన రాష్ట్రానికి మరింత అభివృద్ధి పథం చూపించే వినూత్న అవకాశం.",
       },
       {
-        image: "/assets/events/2024/Saaradhi/Kathana_Kuthulam.png",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ",
+        image: "/assets/events/2023/Saradhi/2.png",
+        short: "సారథి - Voice For Nation",
+        long: "సారథి ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం Voice for Nation!! ఇందులో భాగంగా మన భారత దేశాన్ని వివిధ సామాజిక, ఆర్థిక మరియు సాంస్కృతిక అంశాలలో ఇతర దేశాలతో పోల్చి మన దేశం ఎందుకు గొప్పో మీరు వివరించాలి.",
       },
       {
-        image: "/assets/events/2024/Saaradhi/Telugu_Taavi.png",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Saradhi/3.png",
+        short: "సారథి - ప్రకటన - ప్రచారం",
+        long: "సారథి ఆధ్వర్యంలో, విజ్ఞానజ్యోతి సాహితీవనం వారు వినూత్నంగా నిర్వహిస్తున్న కార్యక్రమం ప్రకటన- ప్రచారం!!ప్రకటన-ప్రచారం అనే ఈ కార్యక్రమం ఎన్నికల గురించి, ఎన్నికల ప్రకటన(మేనిఫెస్టో) గురించి అవగాహన తీసుకొని రావడమే ప్రధాన లక్ష్యం.",
+      },
+      {
+        image: "/assets/events/2023/Saradhi/7.png",
+        short: "సారథి - తెలుగు తావి",
+        long: "ఈ Convergence లో భాగంగా విజ్ఞానజ్యోతి సాహితీవనం తరపున తెలుగు తావి అనే స్టాల్ ని ఏర్పాటు చేస్తున్నాం. ఈ స్టాల్ యొక్క ముఖ్య ఉద్దేశ్యం మన తెలుగు వారు ఇంజనీర్లుగా మారి ప్రపంచంలో ప్రభావవంతమైన వ్యక్తులుగా ఎటువంటి విప్లవాత్మకమైన మార్పులు తీసుకువచ్చారో, తెలియపరచడం, మరియు వివిధ యాసలు, సామ్రాజ్యాలు, అష్టాదశపురాణాల గురించి ప్రదర్శనలు ఏర్పాటు చేసి విద్యార్థులకు అవగాహన కల్పించడం!!",
       },
     ],
     "2023": [
       {
-        image: "/assets/events/2023/event1.jpg",
-        short: "2023 Event 1 short description.",
-        long: "2023 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/RRR/1r.png",
+        short: "RRR - సాహితీవనం వారి పాట",
+        long :"సినిమాలంటే అందరికీ ఇష్టమే! మీకే కనుక ఒక సినిమాని రూపొందించే అవకాశం వస్తే? ఒక అందమైన సినిమాని నిర్మించడానికి కావాల్సిన సాంకేతిక బృందాన్ని వేలంపాట ద్వారా ఎన్నుకునే ఆసక్తికరమైన ఆటే ఈ సాహితీవనం వారి పాట 🔔",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/RRR/2r.png",
+        short: "RRR - ఆట - వేట",
+        long: "రోజూ తిరిగే కాలేజీనే..ఎప్పుడూ చుసే ప్రదేశాలే..కానీ చమత్కారమైన తెలుగు పొడుపు కథలు మరియు క్లిష్టమైన ప్రశ్నలకు జవాబులు వెతికి, ఆ ప్రదేశాలు కనుక్కోవడానికి స్నేహితులతో కలిసి ఒక ఆట ఆడితే? అదే *ఆట - వేట*📍",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/RRR/3r.png",
+        short: "RRR - ప్రశ్నావినోదము",
+        long: "పరీక్షల్లో ప్రశ్నలకి జవాబులు రాసి రాసి విసిగెత్తిపోయారా? అయితే ఈసారి సరదాగా జవాబులకి ప్రశ్నలు సృష్టించండి, ప్రశ్నావినోదములో పాల్గొనండి!",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/RRR/4r.png",
+        short: "సాహిత్య సందడి",
+        long: "మన రాష్ట్రంలో ఎంతో మంది కవులు ఎంతో మంది సంఘసంస్కర్తలు... ఇంతేనా? ఇతిహాసాలైన మహాభారత, భాగవత, రామాయణ మధ్య సంబంధాలు... ఇంతేనా? ఇంకెన్నో వినోదభరితమైన ఆటలు, పాటలు... అన్ని ఒకటే చోటుంటే ఇంకేమైన ఉందా... వినోదమే వినోదము!! వీటన్నింటి గురించి తెలుసుకోవాలంటే Convergence’23 లో భాగమైన సారధిలోని *సాహిత్య సందడి* లో పాల్గొనండి … 🎉",
       },
       {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Saradhi/1r.png",
+        short: "సారథి - సభాపర్వం",
+        long : "యుధ్ధానికి కావలసింది బాహు బలం....కానీ మాటల యుధ్ధానికి కావలసింది వాదనా గుణం. మీ గొంతుతో పాటు మీ మాటల ప్రవాహాన్ని పెంచి ఒక మలుపుకి లేదా మార్పుకి కారణం అవ్వాలంటే సాహితీవనం వారు నిర్వహించే సభాపర్వం లో పాల్గొనండి.",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-    ],
-    "2022": [
-      {
-        image: "/assets/events/2022/event1.jpg",
-        short: "2022 Event 1 short description.",
-        long: "2022 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Saradhi/2r.png",
+        short: "సారథి - YOUTH PARLIAMENT",
+        long : "YOUTH PARLIAMENT",
       },
       {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
+        image: "/assets/events/2023/Saradhi/3r.png",
+        short: "సారథి - జిజ్ఞాస",
+        long : "దేశంలో ఉన్న ప్రతి పౌరుడికి ఉండే హక్కులు మానవహక్కులు. మానవహక్కులు గురించి తెలుసుకోవడం ఎంతో ముఖ్యమైంది. జిజ్ఞాసలో పాల్గొని మీ జ్ఞ్యానాన్ని పరీక్షించుకొండి. తగిన బహుమానాలు పొందండి.",
       },
-      {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event1.jpg",
-        short: "2024 Event 1 short description.",
-        long: "2024 Event 1 long extended description. ".repeat(10),
-      },
-      {
-        image: "/assets/events/2024/event2.jpg",
-        short: "2024 Event 2 short description.",
-        long: "2024 Event 2 long extended description. ".repeat(10),
-      },
+      
     ],
   };
 
@@ -384,7 +368,7 @@ const Akshara = () => {
         </section>
         
         <div className="flex justify-center gap-4 py-6 years-fade-in">
-          {["2025", "2024", "2023", "2022"].map((year) => (
+          {["2025", "2023'R", "2023"].map((year) => (
             <button
               key={year}
               onClick={() => handleYearClick(year)}
