@@ -59,21 +59,6 @@ const Hero: React.FC = () => {
           <span className="inline-block mx-2 animate-[pulse_2s_ease-in-out_infinite]">·</span>
           <span className="inline-block animate-[fadeInUp_1s_ease-out_1.1s_both]">సంస్కృతి</span>
         </p>
-        
-        {/* Mobile readability section with slide-in animation */}
-        <div className="mt-8 sm:hidden">
-          <div 
-            className={`inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-3 transform transition-all duration-800 ease-out delay-1000 ${
-              isVisible 
-                ? 'translate-y-0 opacity-100 scale-100' 
-                : 'translate-y-4 opacity-0 scale-95'
-            }`}
-          >
-            <p className="text-sm text-gray-200">
-              సాహిత్య సేవలో మా ప్రయాణం
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Animated Scroll Indicator */}
