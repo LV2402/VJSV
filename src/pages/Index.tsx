@@ -6,7 +6,7 @@ import Boxes from "@/components/Boxes";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 font-telugu">
+    <div className="min-h-screen  font-telugu">
       <Navbar />
       <main>
         <Hero />

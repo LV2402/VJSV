@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <img
           src="/assets/akshara.jpg"
           alt="VJSV Group"
-          className="pt-16 w-full h-full object-cover md:object-center object-top transform scale-105 animate-[kenBurns_20s_ease-in-out_infinite_alternate]"
+          className="w-full h-full object-cover md:object-center transform scale-105 animate-[kenBurns_20s_ease-in-out_infinite_alternate] mt-16"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 animate-[fadeIn_1.5s_ease-out]" />
       </div>

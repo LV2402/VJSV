@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Mock function for demo
-  const isActive = (path) => path === "/";
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
     { path: "/", label: "హోమ్ (Home)" },
@@ -15,25 +17,37 @@ const Navbar = () => {
       dropdown: [
         { path: "/events/sintillations", label: "Sintillations" },
         { path: "/events/convergence", label: "Convergence" },
-        { path: "/events/workshops", label: "Workshops" }
-      ]
+        { path: "/events/workshops", label: "Workshops" },
+      ],
     },
     { path: "/gallery", label: "చిత్రమాలిక (Gallery)" },
     { path: "/blogs", label: "రచనలు (Writings)" },
   ];
 
+  const baseLink =
+    "relative px-3 py-2 rounded-md text-base font-medium transition-all duration-200";
+const activeLink =
+  "font-semibold text-[#6c2121] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-[#6c2121] after:rounded-full";
+
+  const inactiveLink = "font-normal text-[#6c2121] hover:opacity-80";
+
+  const isDropdownChildActive = (dropdownItems: { path: string }[]) =>
+    dropdownItems.some((d) => location.pathname.startsWith(d.path));
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 backdrop-blur-xl shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-              <img src="/assets/vjsvlogo.png" alt="" />
+          <a
+            href="/"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md">
+              <img src="/assets/vjsvlogo.png" alt="Logo" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-bold text-xl text-gray-800">
+              <h1 className="font-bold text-xl text-[#6c2121] drop-shadow-sm">
                 విజ్ఞానజ్యోతి సాహితీవనం
               </h1>
             </div>
@@ -44,16 +58,25 @@ const Navbar = () => {
             {navItems.map((item) =>
               item.dropdown ? (
                 <div key={item.label} className="relative group">
-                  <button className="flex items-center space-x-1 px-3 py-2 rounded-md hover:bg-white/30 text-gray-700 hover:text-gray-900 transition-all duration-200 text-base font-medium">
+                  <button
+                    className={`${baseLink} flex items-center space-x-1 ${
+                      isDropdownChildActive(item.dropdown)
+                        ? activeLink
+                        : inactiveLink
+                    }`}
+                  >
                     <span>{item.label}</span>
-                    <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
+                    <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 text-[#6c2121]" />
                   </button>
-                  <div className="absolute top-full left-0 mt-1 w-48 bg-white/95 backdrop-blur-md border border-white/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {/* Dropdown */}
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 border border-gray-200 rounded-xl shadow-xl opacity-0 scale-95 invisible group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-300 backdrop-blur-sm">
                     {item.dropdown.map((d) => (
                       <a
                         key={d.path}
                         href={d.path}
-                        className={`block px-3 py-2 text-base hover:bg-blue-50/50 first:rounded-t-lg last:rounded-b-lg transition-all duration-200 ${isActive(d.path) ? "bg-blue-100/50 font-medium text-blue-800" : "text-gray-700"}`}
+                        className={`block px-3 py-2 text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
+                          isActive(d.path) ? activeLink : inactiveLink
+                        }`}
                       >
                         {d.label}
                       </a>
@@ -64,7 +87,9 @@ const Navbar = () => {
                 <a
                   key={item.path}
                   href={item.path}
-                  className={`px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-white/30 ${isActive(item.path) ? "text-blue-700 bg-white/20" : "text-gray-700"}`}
+                  className={`${baseLink} ${
+                    isActive(item.path) ? activeLink : inactiveLink
+                  }`}
                 >
                   {item.label}
                 </a>
@@ -74,40 +99,64 @@ const Navbar = () => {
 
           {/* Mobile Toggle */}
           <div className="md:hidden">
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
-              className="p-2 text-gray-700 hover:bg-white/30 rounded-md transition-all duration-200"
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 hover:bg-gray-100 rounded-md transition-all duration-200"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6 text-[#6c2121]" />
+              ) : (
+                <Menu className="w-6 h-6 text-[#6c2121]" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-white/30 bg-white/90 backdrop-blur-md">
+          <div className="md:hidden border-t border-gray-200 bg-white/95 shadow-lg backdrop-blur-md animate-fadeIn">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) =>
                 item.dropdown ? (
                   <div key={item.label} className="space-y-1">
-                    <div className="px-3 py-2 text-base font-medium text-gray-600">{item.label}</div>
-                    {item.dropdown.map((d) => (
-                      <a
-                        key={d.path}
-                        href={d.path}
-                        onClick={() => setIsOpen(false)}
-                        className={`block px-6 py-2 text-base transition-all duration-200 hover:bg-blue-50/50 rounded-md ${isActive(d.path) ? "bg-blue-100/50 font-medium text-blue-800" : "text-gray-700"}`}
-                      >
-                        {d.label}
-                      </a>
-                    ))}
+                    <button
+                      onClick={() =>
+                        setOpenDropdown(
+                          openDropdown === item.label ? null : item.label
+                        )
+                      }
+                      className="w-full flex justify-between items-center px-3 py-2 text-base font-medium text-[#6c2121] hover:bg-gray-100 rounded-md"
+                    >
+                      {item.label}
+                      <ChevronDown
+                        className={`w-4 h-4 transform transition-transform ${
+                          openDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {(openDropdown === item.label ||
+                      isDropdownChildActive(item.dropdown)) &&
+                      item.dropdown.map((d) => (
+                        <a
+                          key={d.path}
+                          href={d.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-6 py-2 text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
+                            isActive(d.path) ? activeLink : inactiveLink
+                          }`}
+                        >
+                          {d.label}
+                        </a>
+                      ))}
                   </div>
                 ) : (
                   <a
                     key={item.path}
                     href={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base font-medium transition-all duration-200 hover:bg-white/30 rounded-md ${isActive(item.path) ? "text-blue-700 bg-white/20 font-medium" : "text-gray-700"}`}
+                    className={`${baseLink} block ${
+                      isActive(item.path) ? activeLink : inactiveLink
+                    }`}
                   >
                     {item.label}
                   </a>
@@ -117,6 +166,19 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </nav>
   );
 };
