@@ -35,11 +35,11 @@ const Footer = () => {
 
   const quickLinks = [
     { label: "About VJSV", href: "/" },
-    { label: "Akshara Festival", href: "/akshara" },
+    { label: "Akshara", href: "/akshara" },
   ];
 
   const eventTypes = [
-    { label: "Sintillationz", href: "/events/sintillations" },
+    { label: "Sintillashunz", href: "/events/Sintillashunz" },
     { label: "Convergence", href: "/events/convergence" },
     { label: "Workshops", href: "/events/workshops" },
   ];

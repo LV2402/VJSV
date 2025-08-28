@@ -15,7 +15,7 @@ const Navbar = () => {
     {
       label: "ఈవెంట్స్ (Events)",
       dropdown: [
-        { path: "/events/sintillations", label: "Sintillationz" },
+        { path: "/events/Sintillashunz", label: "Sintillashunz" },
         { path: "/events/convergence", label: "Convergence" },
         { path: "/events/workshops", label: "Workshops" },
       ],
