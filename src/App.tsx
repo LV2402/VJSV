@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ add this
 import Index from "./pages/Index";
 import Akshara from "./pages/Akshara";
 import Convergence from "./pages/Events/Convergence/Convergence";
@@ -19,13 +20,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop /> {/* ✅ ensures scroll resets on route change */}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/akshara" element={<Akshara />} />
           <Route path="/events/convergence" element={<Convergence />} />
           <Route path="/events/sintillations" element={<Sintillations />} />
-          <Route path="/events/Workshops" element={<Workshops />} />
-          {/* <Route path="/events/:type" element={<Events />} /> */}
+          <Route path="/events/workshops" element={<Workshops />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blogs" element={<Blogs />} />
         </Routes>

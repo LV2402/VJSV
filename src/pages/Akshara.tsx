@@ -3,77 +3,79 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Modal component as provided
+// Modal Component with animations
 const Modal = ({ isOpen, onClose, event }) => {
   if (!isOpen) return null;
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center animate-fade-out"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
       style={{
-        animation: 'modalFadeIn 0.1s ease-out'
+        animation: "modalFadeIn 0.1s ease-out",
       }}
     >
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0" 
-        style={{backgroundColor: 'rgba(222, 172, 172, 0.85)'}}
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "rgba(222, 172, 172, 0.85)" }}
         onClick={onClose}
       ></div>
-      
+
       {/* Modal Content */}
-      <div 
+      <div
         className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
-        style={{ 
-          backgroundColor: '#fbeee1', 
-          boxShadow: '0 8px 24px rgba(129, 20, 20, 0.8)',
-          animation: 'modalSlideIn 0.3s ease-out'
+        style={{
+          backgroundColor: "#fbeee1",
+          boxShadow: "0 8px 24px rgba(129, 20, 20, 0.8)",
+          animation: "modalSlideIn 0.3s ease-out",
         }}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity z-10"
-          style={{ backgroundColor: '#811414', color: '#fbeee1' }}
+          style={{ backgroundColor: "#811414", color: "#fbeee1" }}
           title="Close"
         >
           ×
         </button>
-        
+
         {/* Modal Body */}
         <div className="pt-2">
           <img
-  src={event.image}
-  alt="Event"
-  className="w-full max-h-80 object-contain rounded-md mb-4"
-  style={{ animation: 'fadeInUp 0.5s ease-out 0.1s both' }}
-/>
-
-          <h3 
-            className="text-xl font-bold mb-3" 
-            style={{ 
-              color: '#811414',
-              animation: 'fadeInUp 0.5s ease-out 0.2s both'
+            src={event.image}
+            alt="Event"
+            className="w-full max-h-80 object-contain rounded-md mb-4"
+            style={{ animation: "fadeInUp 0.5s ease-out 0.1s both" }}
+          />
+          <h3
+            className="text-xl font-bold mb-3"
+            style={{
+              color: "#811414",
+              animation: "fadeInUp 0.5s ease-out 0.2s both",
             }}
           >
             Event Details
           </h3>
-          <p 
-            className="mb-4" 
-            style={{ 
-              color: '#811414',
-              animation: 'fadeInUp 0.5s ease-out 0.3s both'
+          <p
+            className="mb-4"
+            style={{
+              color: "#811414",
+              animation: "fadeInUp 0.5s ease-out 0.3s both",
             }}
           >
             {event.short}
           </p>
-          <div 
-            className="border-t pt-4" 
-            style={{ 
-              borderColor: '#d4a574',
-              animation: 'fadeInUp 0.5s ease-out 0.4s both'
+          <div
+            className="border-t pt-4"
+            style={{
+              borderColor: "#d4a574",
+              animation: "fadeInUp 0.5s ease-out 0.4s both",
             }}
           >
-            <p className="whitespace-pre-line leading-relaxed" style={{ color: '#9d4545' }}>
+            <p
+              className="whitespace-pre-line leading-relaxed"
+              style={{ color: "#9d4545" }}
+            >
               {event.long}
             </p>
           </div>
@@ -331,139 +333,105 @@ const Akshara = () => {
     ],
   };
 
-  const handleReadMore = (event) => {   
-    setModalEvent(event);
-    setModalOpen(true);
-  };
-
-  const renderEventContent = () => {
-    const events = yearlyEventData[selectedYear];
-    if (!events || events.length === 0) {
-      return (
-        <p className="text-center py-10" style={{ color: '#811414' }}>
-          No events found for {selectedYear}.
-        </p>
-      );
-    }
-    return (
-      <>
-        <div className="flex justify-center gap-6 mb-6">
-  <div
-    className="rounded-xl p-5 overflow-hidden flex flex-col items-center"
-    style={{
-      backgroundColor: '#fbeee1',
-      boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)',
-      maxWidth: '400px'
-    }}
-  >
-    <img
-      src={`/assets/events/${selectedYear}/mainposter.png`}
-      alt={`Akshara ${selectedYear}`}
-      className="w-full h-auto object-contain"
-    />
-    <div className="w-full flex justify-center py-4">
-      <button
-        className="px-6 py-2 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition"
-      >
-        <a 
-        href = "https://lnk.bio/vjsv_akshara25"
-        target="_blank"
-        style={{textDecoration: 'none' }} >
-        Register Now</a> 
-      </button>
-    </div>
-  </div>
-</div>
-        <div className="flex flex-wrap justify-center gap-6">
-          {events.map((event, i) => (
-            <div
-              key={i}
-              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%] transform transition-transform duration-300 hover:scale-105"
-              style={{
-                backgroundColor: '#fbeee1',
-                boxShadow: '0 4px 8px rgba(129, 20, 20, 0.6)'
-              }}
-            >
-              <img
-                src={event.image}
-                alt={`Event ${i + 1}`}
-                className="w-full object-contain rounded-md mb-4"
-              />
-              <p className="mb-2 font-bold text-xl" style={{ color: '#811414' }}>
-                {event.short}
-              </p>
-              <div className="flex justify-end w-full">
-                {selectedYear === '2025' ? (
-                  <a
-                    href={event.registerUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-pointer font-semibold text-right"
-                    style={{ color: '#a55757', textDecoration: 'none' }}
-                  >
-                  Register here
-                  </a>
-                ) : (
-                  event.long && (
-                    <button
-                      onClick={() => handleReadMore(event)}
-                      className="cursor-pointer font-semibold text-right px-4 py-2 rounded hover:opacity-80"
-                      style={{ color: '#a55757', background: 'none', border: 'none' }}
-                    >
-                      Read more
-                    </button>
-                  )
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Modal */}
-        <Modal
-          isOpen={modalOpen}
-          onClose={() => setModalOpen(false)}
-          event={modalEvent || {}}
-        />
-      </>
-    );
-  };
+  const events = yearlyEventData[selectedYear];
 
   return (
     <div className={styles.root}>
-      <Navbar />
-      <main className="pt-4">
-    <section className="flex flex-col items-center justify-center text-center px-4">
-    <img
-      src="/assets/akshara.png"
-      alt="Akshara Festival Logo"
-      style={{ width: '460px', height: 'auto', marginBottom: '0' }}
-    />
-    <h1 className="text-4xl md:text-5xl font-bold mt-0">
-      అతిపెద్ద సాహితీ - సాంస్కృతిక వేడుక  "అక్షర"
-    </h1>
-    <br></br>
-    <p className="mt-0 text-xl font-bold" style={{ color: '#6c2121ff' }}>
-      {selectedYear}
-    </p>
-    </section>
-      <section className="text-center px-4 pt-0 pb-4">
-        <p className="text-2xl max-w-xl mx-auto font-bold" style={{ color: '#6c2121ff' }}>
-        29th ఆగస్టు నుంచి 9th సెప్టెంబరు వరకు
-        </p>
-      </section>
+      {/* Animations copied from Sintillashunz */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
 
-        <div className="flex justify-center gap-4 py-6">
-          {["2025", "2024", "2023", "2022"].map((year) => (
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInDown {
+          from { opacity: 0; transform: translateY(-30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes modalFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+          from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+          to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .navbar-fade-in {
+          animation: slideInDown 0.8s ease-out;
+        }
+
+        .content-fade-in {
+          animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .heading-fade-in {
+          animation: fadeInUp 1.2s ease-out 0.5s both;
+        }
+
+        .years-fade-in {
+          animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .events-fade-in {
+          animation: fadeInUp 1s ease-out 0.9s both;
+        }
+      `}</style>
+
+      {/* Navbar */}
+      <div className="navbar-fade-in">
+        <Navbar />
+      </div>
+
+      {/* Hero Section */}
+      <main className="pt-20 content-fade-in">
+        <section className="flex flex-col items-center text-center px-4 pt-4">
+          <img
+            src="/assets/akshara.png"
+            alt="Akshara Festival Logo"
+            width={400}
+            height={400}
+            className="mb-4"
+            style={{ animation: "fadeInUp 1s ease-out 0.2s both" }}
+          />
+          <h1
+            className="text-4xl md:text-5xl font-bold heading-fade-in"
+            style={{ animation: "fadeInUp 1.5s ease-out 0.6s both" }}
+          >
+            అక్షర
+          </h1>
+          <p
+            className="mt-2 text-xl font-medium"
+            style={{
+              color: "#a55757",
+              animation: "fadeInUp 1.2s ease-out 0.8s both",
+            }}
+          >
+            {selectedYear}
+          </p>
+        </section>
+
+        {/* Year Buttons */}
+        <div className="flex justify-center gap-4 py-6 years-fade-in">
+          {["2025", "2024"].map((year) => (
             <button
               key={year}
               onClick={() => handleYearClick(year)}
-              className={`px-4 py-2 rounded-full border text-sm font-semibold transition-colors ${
+              className={`px-4 py-2 rounded-full border text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${
                 selectedYear === year ? "text-white" : "hover:opacity-80"
               }`}
               style={{
-                backgroundColor: selectedYear === year ? '#811414' : '#f5e6d3',
-                color: selectedYear === year ? '#fbeee1' : '#811414',
-                borderColor: '#d4a574'
+                backgroundColor:
+                  selectedYear === year ? "#811414" : "#f5e6d3",
+                color: selectedYear === year ? "#fbeee1" : "#811414",
+                borderColor: "#d4a574",
               }}
             >
               {year}
@@ -471,10 +439,41 @@ const Akshara = () => {
           ))}
         </div>
 
-        {renderEventContent()}
+        {/* Events Grid */}
+        <div className="events-fade-in flex flex-wrap justify-center gap-6 px-6 py-10">
+          {events?.map((ev, i) => (
+            <div
+              key={i}
+              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%] transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+              style={{
+                backgroundColor: "#fbeee1",
+                boxShadow: "0 4px 8px rgba(129, 20, 20, 0.6)",
+              }}
+              onClick={() => {
+                setModalEvent(ev);
+                setModalOpen(true);
+              }}
+            >
+              <img
+                src={ev.image}
+                alt="Event"
+                className="w-full max-h-80 object-contain rounded-md mb-4"
+              />
+              <p className="mb-2 font-bold text-xl" style={{ color: "#811414" }}>
+                {ev.short}
+              </p>
+            </div>
+          ))}
+        </div>
       </main>
-      <br></br>
-      <Footer />
+
+      {/* Footer */}
+      <div style={{ animation: "fadeIn 1s ease-out 1.2s both" }}>
+        <Footer />
+      </div>
+
+      {/* Modal */}
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} event={modalEvent || {}} />
     </div>
   );
 };

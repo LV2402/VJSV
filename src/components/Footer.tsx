@@ -39,7 +39,7 @@ const Footer = () => {
   ];
 
   const eventTypes = [
-    { label: "Sintilatunz", href: "/events/sintillations" },
+    { label: "Sintillationz", href: "/events/sintillations" },
     { label: "Convergence", href: "/events/convergence" },
     { label: "Workshops", href: "/events/workshops" },
   ];
@@ -125,15 +125,23 @@ const Footer = () => {
               </h4>
 
               <div className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm font-medium">Email Us</p>
-                  <a
-                    href="mailto:vjsv@vnrvjiet.ac.in"
-                    className="text-sm opacity-80 hover:opacity-100 hover:text-[#d21421] transition-colors"
-                  >
-                    vjsv@vnrvjiet.ac.in
-                  </a>
-                </div>
+<div className="space-y-2">
+  <p className="text-sm font-medium">Email Us</p>
+  <a
+    href="mailto:vjsv@vnrvjiet.ac.in"
+    className="block text-sm opacity-80 hover:opacity-100 hover:text-[#d21421] transition-colors"
+  >
+    vjsv@vnrvjiet.in
+  </a>
+  <a
+    href="mailto:contact@vjsv.com"
+    className="block text-sm opacity-80 hover:opacity-100 hover:text-[#d21421] transition-colors"
+  >
+    vjsaahitiivanam@gmail.com
+  </a>
+</div>
+
+
 
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Contact Us</p>

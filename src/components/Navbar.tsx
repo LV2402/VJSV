@@ -15,7 +15,7 @@ const Navbar = () => {
     {
       label: "ఈవెంట్స్ (Events)",
       dropdown: [
-        { path: "/events/sintillations", label: "Sintillations" },
+        { path: "/events/sintillations", label: "Sintillationz" },
         { path: "/events/convergence", label: "Convergence" },
         { path: "/events/workshops", label: "Workshops" },
       ],
@@ -25,29 +25,29 @@ const Navbar = () => {
   ];
 
   const baseLink =
-    "relative px-3 py-2 rounded-md text-base font-medium transition-all duration-200";
-const activeLink =
-  "font-semibold text-[#6c2121] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-[#6c2121] after:rounded-full";
-
-  const inactiveLink = "font-normal text-[#6c2121] hover:opacity-80";
+    "relative px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-all duration-200";
+  const activeLink =
+    "font-semibold text-[#6c2121] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-[#6c2121] after:rounded-full";
+  const inactiveLink =
+    "font-normal text-[#6c2121] hover:opacity-80 truncate";
 
   const isDropdownChildActive = (dropdownItems: { path: string }[]) =>
     dropdownItems.some((d) => location.pathname.startsWith(d.path));
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shadow-md shrink-0">
               <img src="/assets/vjsvlogo.png" alt="Logo" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-bold text-xl text-[#6c2121] drop-shadow-sm">
+              <h1 className="font-bold text-lg sm:text-xl text-[#6c2121] drop-shadow-sm truncate max-w-[200px] md:max-w-none">
                 విజ్ఞానజ్యోతి సాహితీవనం
               </h1>
             </div>
@@ -74,7 +74,7 @@ const activeLink =
                       <a
                         key={d.path}
                         href={d.path}
-                        className={`block px-3 py-2 text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
+                        className={`block px-3 py-2 text-sm sm:text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
                           isActive(d.path) ? activeLink : inactiveLink
                         }`}
                       >
@@ -101,7 +101,7 @@ const activeLink =
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 hover:bg-gray-100 rounded-md transition-all duration-200"
+              className="p-2.5 hover:bg-gray-100 rounded-md transition-all duration-200"
             >
               {isOpen ? (
                 <X className="w-6 h-6 text-[#6c2121]" />
@@ -125,7 +125,7 @@ const activeLink =
                           openDropdown === item.label ? null : item.label
                         )
                       }
-                      className="w-full flex justify-between items-center px-3 py-2 text-base font-medium text-[#6c2121] hover:bg-gray-100 rounded-md"
+                      className="w-full flex justify-between items-center px-3 py-2 text-sm sm:text-base font-medium text-[#6c2121] hover:bg-gray-100 rounded-md"
                     >
                       {item.label}
                       <ChevronDown
@@ -141,7 +141,7 @@ const activeLink =
                           key={d.path}
                           href={d.path}
                           onClick={() => setIsOpen(false)}
-                          className={`block px-6 py-2 text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
+                          className={`block w-full px-6 py-2 text-sm sm:text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
                             isActive(d.path) ? activeLink : inactiveLink
                           }`}
                         >
@@ -167,10 +167,6 @@ const activeLink =
         )}
       </div>
       <style>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(-5px); }
           to { opacity: 1; transform: translateY(0); }

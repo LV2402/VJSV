@@ -11,11 +11,13 @@ const GalleryGrid = () => {
     "/assets/gallery_kosam/17.JPG",
     "/assets/gallery_kosam/6.JPG",
     "/assets/gallery_kosam/7.JPG",
+    "/assets/gallery_kosam/12.JPG",
+    "/assets/gallery_kosam/11.jpg",
     "/assets/gallery_kosam/8.JPG",
     "/assets/gallery_kosam/10.jpg",
     "/assets/gallery_kosam/19.jpg",
-    "/assets/gallery_kosam/11.jpg",
-    "/assets/gallery_kosam/12.JPG",
+
+
     "/assets/gallery_kosam/14.jpg",
     "/assets/gallery_kosam/21.jpg",
     "/assets/gallery_kosam/16.jpg",
