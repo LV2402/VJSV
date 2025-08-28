@@ -150,7 +150,7 @@ const Akshara = () => {
     color: "rgba(255, 255, 255, 0.6)",
     textShadow: "1px 1px 2px rgba(209, 146, 146, 0.6)"
   }}>
-      సాంకేతిక కార్యశాలలు
+      కార్యశాలలు
     </h1>
   </section>
         <div className="flex flex-wrap justify-center gap-6 px-6 py-10">
