@@ -91,6 +91,8 @@ const RecentHighlights = () => {
           className="flex gap-6 overflow-x-scroll no-scrollbar items-center"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
+          onTouchStart={() => setIsHovering(true)}   // 👈 pause on touch
+          onTouchEnd={() => setIsHovering(false)}    // 👈 resume on release
           style={{ cursor: isHovering ? "pause" : "grab" }}
         >
           {[...instagramLinks, ...instagramLinks].map((link, idx) => (
