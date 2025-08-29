@@ -12,6 +12,7 @@ declare global {
 import { useEffect, useRef, useState } from "react";
 
 const instagramLinks = [
+  "https://www.instagram.com/p/DN7AlVwD3lH/?img_index=1",
   "https://www.instagram.com/p/DN518pRkuYS/",
   "https://www.instagram.com/p/DN5kLbvEVfh/",
   "https://www.instagram.com/p/DN46BM2Edth/",

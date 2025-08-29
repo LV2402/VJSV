@@ -173,18 +173,25 @@ const Footer = () => {
       </div>
 
       {/* Feedback Button */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <Button
-          asChild
-          size="lg"
-          className="rounded-full bg-[#a53860] hover:bg-[#450920] text-white shadow-md transition-all duration-300"
-        >
-          <Link to="" className="flex items-center space-x-2">
-            <MessageCircle className="w-5 h-5" />
-            <span className="hidden sm:inline">Feedback</span>
-          </Link>
-        </Button>
-      </div>
+<div className="fixed bottom-6 right-6 z-40">
+  <Button
+    asChild
+    size="lg"
+    className="rounded-full bg-[#a53860] hover:bg-[#450920] text-white shadow-md transition-all duration-300"
+  >
+    <a 
+      href="https://forms.gle/QytReb3qq4e6hKTG6"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center space-x-2"
+      style={{ textDecoration: "none" }}
+    >
+      <MessageCircle className="w-5 h-5" />
+      <span>Feedback</span>
+    </a>
+  </Button>
+</div>
+
     </footer>
   );
 };
