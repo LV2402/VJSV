@@ -10,11 +10,8 @@ declare global {
 }
 
 import { useEffect, useRef, useState } from "react";
-import {
-  BASE_HIGHLIGHT_URLS,
-  getHighlightUrls,
-  subscribeHighlightUpdates,
-} from "@/lib/highlights";
+import { BASE_HIGHLIGHT_URLS } from "@/lib/highlights";
+import { fetchAdminList } from "@/lib/adminApi";
 
 const RecentHighlights = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -39,11 +36,27 @@ const RecentHighlights = () => {
   }, []);
 
   useEffect(() => {
-    setInstagramLinks(getHighlightUrls());
+    fetchAdminList<{ url: string }[]>("highlights", []).then((data) => {
+      setInstagramLinks(
+        Array.from(
+          new Set([...BASE_HIGHLIGHT_URLS, ...data.map((item) => item.url)])
+        )
+      );
+    });
   }, []);
 
   useEffect(() => {
-    return subscribeHighlightUpdates(setInstagramLinks);
+    const interval = window.setInterval(() => {
+      fetchAdminList<{ url: string }[]>("highlights", []).then((data) => {
+        setInstagramLinks(
+          Array.from(
+            new Set([...BASE_HIGHLIGHT_URLS, ...data.map((item) => item.url)])
+          )
+        );
+      });
+    }, 5000);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   useEffect(() => {

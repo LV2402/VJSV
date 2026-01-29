@@ -2,10 +2,7 @@ import styles from "./Sintillashunz.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  getSintiEntries,
-  subscribeSintiUpdates,
-} from "@/lib/sintillashunzEvents";
+import { fetchAdminList } from "@/lib/adminApi";
 
 // Modal Component - Add this new component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -92,7 +89,9 @@ const Akshara = () => {
   // Add these new state variables
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [adminEntries, setAdminEntries] = useState(() => getSintiEntries());
+  const [adminEntries, setAdminEntries] = useState<
+    { year: string; short: string; long: string; image: string }[]
+  >([]);
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -110,8 +109,10 @@ const Akshara = () => {
   };
 
   useEffect(() => {
-    setAdminEntries(getSintiEntries());
-    return subscribeSintiUpdates(setAdminEntries);
+    fetchAdminList<{ year: string; short: string; long: string; image: string }[]>(
+      "sintillashunz",
+      []
+    ).then(setAdminEntries);
   }, []);
 
   const yearlyEventData = {

@@ -2,10 +2,7 @@ import styles from "./Convergence.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  getConvergenceEntries,
-  subscribeConvergenceUpdates,
-} from "@/lib/convergenceEvents";
+import { fetchAdminList } from "@/lib/adminApi";
 
 // Modal Component - Add this new component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -92,9 +89,9 @@ const Akshara = () => {
   // Add these new state variables
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [adminEntries, setAdminEntries] = useState(() =>
-    getConvergenceEntries()
-  );
+  const [adminEntries, setAdminEntries] = useState<
+    { year: string; short: string; long: string; image: string }[]
+  >([]);
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -112,8 +109,10 @@ const Akshara = () => {
   };
 
   useEffect(() => {
-    setAdminEntries(getConvergenceEntries());
-    return subscribeConvergenceUpdates(setAdminEntries);
+    fetchAdminList<{ year: string; short: string; long: string; image: string }[]>(
+      "convergence",
+      []
+    ).then(setAdminEntries);
   }, []);
 
   const yearlyEventData = {

@@ -2,10 +2,7 @@ import styles from "./Akshara.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  getAksharaEntries,
-  subscribeAksharaUpdates,
-} from "@/lib/aksharaEvents";
+import { fetchAdminList } from "@/lib/adminApi";
 
 // Modal component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -92,7 +89,9 @@ const Akshara = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalEvent, setModalEvent] = useState(null);
-  const [adminEntries, setAdminEntries] = useState(() => getAksharaEntries());
+  const [adminEntries, setAdminEntries] = useState<
+    { year: string; short: string; registerUrl: string; image: string }[]
+  >([]);
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -101,8 +100,9 @@ const Akshara = () => {
   };
 
   useEffect(() => {
-    setAdminEntries(getAksharaEntries());
-    return subscribeAksharaUpdates(setAdminEntries);
+    fetchAdminList<
+      { year: string; short: string; registerUrl: string; image: string }[]
+    >("akshara", []).then(setAdminEntries);
   }, []);
 
   const yearlyEventData = {

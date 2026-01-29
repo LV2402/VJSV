@@ -2,32 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./Admin.module.css";
-import { addHighlightUrl, getHighlightUrls } from "@/lib/highlights";
-import {
-  addAksharaEntry,
-  getAksharaEntries,
-  removeAksharaEntry,
-} from "@/lib/aksharaEvents";
-import {
-  addGalleryImages,
-  getGalleryImages,
-  removeGalleryImage,
-} from "@/lib/galleryImages";
-import {
-  addSintiEntry,
-  getSintiEntries,
-  removeSintiEntry,
-} from "@/lib/sintillashunzEvents";
-import {
-  addConvergenceEntry,
-  getConvergenceEntries,
-  removeConvergenceEntry,
-} from "@/lib/convergenceEvents";
-import {
-  addWorkshopEntry,
-  getWorkshopEntries,
-  removeWorkshopEntry,
-} from "@/lib/workshopsEvents";
+import { deleteItem, fetchAdminList, postForm } from "@/lib/adminApi";
 
 const ADMIN_USERNAME = "vj.sahitivanam";
 const ADMIN_PASSWORD = "VJSVwebsite";
@@ -75,20 +50,22 @@ const Admin = () => {
   const [aksharaImageFile, setAksharaImageFile] = useState<File | null>(null);
   const [aksharaRegisterUrl, setAksharaRegisterUrl] = useState("");
   const [aksharaError, setAksharaError] = useState("");
-  const [aksharaEntries, setAksharaEntries] = useState(
-    getAksharaEntries()
-  );
+  const [aksharaEntries, setAksharaEntries] = useState<
+    { year: string; short: string }[]
+  >([]);
   const [galleryModalOpen, setGalleryModalOpen] = useState(false);
   const [galleryFiles, setGalleryFiles] = useState<FileList | null>(null);
   const [galleryError, setGalleryError] = useState("");
-  const [galleryImages, setGalleryImages] = useState(() => getGalleryImages());
+  const [galleryImages, setGalleryImages] = useState<{ src: string }[]>([]);
   const [sintiModalOpen, setSintiModalOpen] = useState(false);
   const [sintiYear, setSintiYear] = useState("2025");
   const [sintiShort, setSintiShort] = useState("");
   const [sintiLong, setSintiLong] = useState("");
   const [sintiImageFile, setSintiImageFile] = useState<File | null>(null);
   const [sintiError, setSintiError] = useState("");
-  const [sintiEntries, setSintiEntries] = useState(() => getSintiEntries());
+  const [sintiEntries, setSintiEntries] = useState<
+    { year: string; short: string }[]
+  >([]);
   const [convergenceModalOpen, setConvergenceModalOpen] = useState(false);
   const [convergenceYear, setConvergenceYear] = useState("2025");
   const [convergenceShort, setConvergenceShort] = useState("");
@@ -97,9 +74,9 @@ const Admin = () => {
     null
   );
   const [convergenceError, setConvergenceError] = useState("");
-  const [convergenceEntries, setConvergenceEntries] = useState(() =>
-    getConvergenceEntries()
-  );
+  const [convergenceEntries, setConvergenceEntries] = useState<
+    { year: string; short: string }[]
+  >([]);
   const [workshopsModalOpen, setWorkshopsModalOpen] = useState(false);
   const [workshopsYear, setWorkshopsYear] = useState("2025");
   const [workshopsShort, setWorkshopsShort] = useState("");
@@ -108,9 +85,9 @@ const Admin = () => {
     null
   );
   const [workshopsError, setWorkshopsError] = useState("");
-  const [workshopsEntries, setWorkshopsEntries] = useState(() =>
-    getWorkshopEntries()
-  );
+  const [workshopsEntries, setWorkshopsEntries] = useState<
+    { year: string; short: string }[]
+  >([]);
 
   const canSubmit = useMemo(
     () => username.trim().length > 0 && password.trim().length > 0,
@@ -135,27 +112,22 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    setHighlightUrls(getHighlightUrls());
-  }, []);
-
-  useEffect(() => {
-    setAksharaEntries(getAksharaEntries());
-  }, []);
-
-  useEffect(() => {
-    setGalleryImages(getGalleryImages());
-  }, []);
-
-  useEffect(() => {
-    setSintiEntries(getSintiEntries());
-  }, []);
-
-  useEffect(() => {
-    setConvergenceEntries(getConvergenceEntries());
-  }, []);
-
-  useEffect(() => {
-    setWorkshopsEntries(getWorkshopEntries());
+    fetchAdminList<{ url: string }[]>("highlights", []).then((data) =>
+      setHighlightUrls(data.map((item) => item.url))
+    );
+    fetchAdminList<{ year: string; short: string }[]>("akshara", []).then(
+      setAksharaEntries
+    );
+    fetchAdminList<{ src: string }[]>("gallery", []).then(setGalleryImages);
+    fetchAdminList<{ year: string; short: string }[]>("sintillashunz", []).then(
+      setSintiEntries
+    );
+    fetchAdminList<{ year: string; short: string }[]>("convergence", []).then(
+      setConvergenceEntries
+    );
+    fetchAdminList<{ year: string; short: string }[]>("workshops", []).then(
+      setWorkshopsEntries
+    );
   }, []);
 
   const handleAddHighlight = (event: React.FormEvent) => {
@@ -175,10 +147,16 @@ const Admin = () => {
       return;
     }
 
-    const nextUrls = addHighlightUrl(trimmed);
-    setHighlightUrls(nextUrls);
-    setHighlightUrl("");
-    setHighlightError("");
+    const formData = new FormData();
+    formData.append("url", trimmed);
+
+    postForm<{ url: string }[]>("/api/highlights", formData)
+      .then((data) => {
+        setHighlightUrls(data.map((item) => item.url));
+        setHighlightUrl("");
+        setHighlightError("");
+      })
+      .catch(() => setHighlightError("Failed to save. Try again."));
   };
 
   const readFileAsDataUrl = (file: File) =>
@@ -210,45 +188,27 @@ const Admin = () => {
       return;
     }
 
-    try {
-      const imageDataUrl = await readFileAsDataUrl(aksharaImageFile);
-      const nextEntries = addAksharaEntry({
-        year: aksharaYear,
-        short: trimmedShort,
-        image: imageDataUrl,
-        registerUrl: trimmedUrl,
-      });
+    const formData = new FormData();
+    formData.append("year", aksharaYear);
+    formData.append("short", trimmedShort);
+    formData.append("registerUrl", trimmedUrl);
+    formData.append("image", aksharaImageFile);
 
-      setAksharaEntries(nextEntries);
-      setAksharaShort("");
-      setAksharaImageFile(null);
-      setAksharaRegisterUrl("");
-      setAksharaError("");
-    } catch {
-      setAksharaError("Unable to read the image. Please try again.");
-    }
+    postForm<{ year: string; short: string }[]>("/api/akshara", formData)
+      .then((data) => {
+        setAksharaEntries(data);
+        setAksharaShort("");
+        setAksharaImageFile(null);
+        setAksharaRegisterUrl("");
+        setAksharaError("");
+      })
+      .catch(() => setAksharaError("Failed to save. Try again."));
   };
 
   const handleDeleteAksharaEntry = (index: number) => {
-    const nextEntries = removeAksharaEntry(index);
-    setAksharaEntries(nextEntries);
-  };
-
-  const readFilesAsDataUrls = async (files: FileList) => {
-    const fileArray = Array.from(files);
-    const results = await Promise.all(
-      fileArray.map(
-        (file) =>
-          new Promise<string>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(String(reader.result));
-            reader.onerror = () => reject(new Error("Failed to read image."));
-            reader.readAsDataURL(file);
-          })
-      )
-    );
-
-    return results.map((src) => ({ src }));
+    deleteItem<{ year: string; short: string }[]>(`/api/akshara/${index}`)
+      .then(setAksharaEntries)
+      .catch(() => setAksharaError("Failed to delete. Try again."));
   };
 
   const handleAddGalleryImages = async (event: React.FormEvent) => {
@@ -259,20 +219,24 @@ const Admin = () => {
       return;
     }
 
-    try {
-      const entries = await readFilesAsDataUrls(galleryFiles);
-      const nextImages = addGalleryImages(entries);
-      setGalleryImages(nextImages);
-      setGalleryFiles(null);
-      setGalleryError("");
-    } catch {
-      setGalleryError("Unable to read images. Please try again.");
-    }
+    const formData = new FormData();
+    Array.from(galleryFiles).forEach((file) => {
+      formData.append("files", file);
+    });
+
+    postForm<{ src: string }[]>("/api/gallery", formData)
+      .then((data) => {
+        setGalleryImages(data);
+        setGalleryFiles(null);
+        setGalleryError("");
+      })
+      .catch(() => setGalleryError("Unable to upload images. Try again."));
   };
 
   const handleDeleteGalleryImage = (index: number) => {
-    const nextImages = removeGalleryImage(index);
-    setGalleryImages(nextImages);
+    deleteItem<{ src: string }[]>(`/api/gallery/${index}`)
+      .then(setGalleryImages)
+      .catch(() => setGalleryError("Failed to delete. Try again."));
   };
 
   const handleAddSintiEntry = async (event: React.FormEvent) => {
@@ -296,28 +260,29 @@ const Admin = () => {
       return;
     }
 
-    try {
-      const imageDataUrl = await readFileAsDataUrl(sintiImageFile);
-      const nextEntries = addSintiEntry({
-        year: sintiYear,
-        short: trimmedShort,
-        long: trimmedLong,
-        image: imageDataUrl,
-      });
+    const formData = new FormData();
+    formData.append("year", sintiYear);
+    formData.append("short", trimmedShort);
+    formData.append("long", trimmedLong);
+    formData.append("image", sintiImageFile);
 
-      setSintiEntries(nextEntries);
-      setSintiShort("");
-      setSintiLong("");
-      setSintiImageFile(null);
-      setSintiError("");
-    } catch {
-      setSintiError("Unable to read the image. Please try again.");
-    }
+    postForm<{ year: string; short: string }[]>("/api/sintillashunz", formData)
+      .then((data) => {
+        setSintiEntries(data);
+        setSintiShort("");
+        setSintiLong("");
+        setSintiImageFile(null);
+        setSintiError("");
+      })
+      .catch(() => setSintiError("Failed to save. Try again."));
   };
 
   const handleDeleteSintiEntry = (index: number) => {
-    const nextEntries = removeSintiEntry(index);
-    setSintiEntries(nextEntries);
+    deleteItem<{ year: string; short: string }[]>(
+      `/api/sintillashunz/${index}`
+    )
+      .then(setSintiEntries)
+      .catch(() => setSintiError("Failed to delete. Try again."));
   };
 
   const handleAddConvergenceEntry = async (event: React.FormEvent) => {
@@ -341,28 +306,27 @@ const Admin = () => {
       return;
     }
 
-    try {
-      const imageDataUrl = await readFileAsDataUrl(convergenceImageFile);
-      const nextEntries = addConvergenceEntry({
-        year: convergenceYear,
-        short: trimmedShort,
-        long: trimmedLong,
-        image: imageDataUrl,
-      });
+    const formData = new FormData();
+    formData.append("year", convergenceYear);
+    formData.append("short", trimmedShort);
+    formData.append("long", trimmedLong);
+    formData.append("image", convergenceImageFile);
 
-      setConvergenceEntries(nextEntries);
-      setConvergenceShort("");
-      setConvergenceLong("");
-      setConvergenceImageFile(null);
-      setConvergenceError("");
-    } catch {
-      setConvergenceError("Unable to read the image. Please try again.");
-    }
+    postForm<{ year: string; short: string }[]>("/api/convergence", formData)
+      .then((data) => {
+        setConvergenceEntries(data);
+        setConvergenceShort("");
+        setConvergenceLong("");
+        setConvergenceImageFile(null);
+        setConvergenceError("");
+      })
+      .catch(() => setConvergenceError("Failed to save. Try again."));
   };
 
   const handleDeleteConvergenceEntry = (index: number) => {
-    const nextEntries = removeConvergenceEntry(index);
-    setConvergenceEntries(nextEntries);
+    deleteItem<{ year: string; short: string }[]>(`/api/convergence/${index}`)
+      .then(setConvergenceEntries)
+      .catch(() => setConvergenceError("Failed to delete. Try again."));
   };
 
   const handleAddWorkshopEntry = async (event: React.FormEvent) => {
@@ -386,28 +350,27 @@ const Admin = () => {
       return;
     }
 
-    try {
-      const imageDataUrl = await readFileAsDataUrl(workshopsImageFile);
-      const nextEntries = addWorkshopEntry({
-        year: workshopsYear,
-        short: trimmedShort,
-        long: trimmedLong,
-        image: imageDataUrl,
-      });
+    const formData = new FormData();
+    formData.append("year", workshopsYear);
+    formData.append("short", trimmedShort);
+    formData.append("long", trimmedLong);
+    formData.append("image", workshopsImageFile);
 
-      setWorkshopsEntries(nextEntries);
-      setWorkshopsShort("");
-      setWorkshopsLong("");
-      setWorkshopsImageFile(null);
-      setWorkshopsError("");
-    } catch {
-      setWorkshopsError("Unable to read the image. Please try again.");
-    }
+    postForm<{ year: string; short: string }[]>("/api/workshops", formData)
+      .then((data) => {
+        setWorkshopsEntries(data);
+        setWorkshopsShort("");
+        setWorkshopsLong("");
+        setWorkshopsImageFile(null);
+        setWorkshopsError("");
+      })
+      .catch(() => setWorkshopsError("Failed to save. Try again."));
   };
 
   const handleDeleteWorkshopEntry = (index: number) => {
-    const nextEntries = removeWorkshopEntry(index);
-    setWorkshopsEntries(nextEntries);
+    deleteItem<{ year: string; short: string }[]>(`/api/workshops/${index}`)
+      .then(setWorkshopsEntries)
+      .catch(() => setWorkshopsError("Failed to delete. Try again."));
   };
 
   return (

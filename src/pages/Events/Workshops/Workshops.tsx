@@ -2,10 +2,7 @@ import styles from "./Workshops.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  getWorkshopEntries,
-  subscribeWorkshopUpdates,
-} from "@/lib/workshopsEvents";
+import { fetchAdminList } from "@/lib/adminApi";
 
 // Modal Component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -94,7 +91,9 @@ const Akshara = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [adminEntries, setAdminEntries] = useState(() => getWorkshopEntries());
+  const [adminEntries, setAdminEntries] = useState<
+    { year: string; short: string; long: string; image: string }[]
+  >([]);
 
   const yearlyEventData = {
     "2025": [
@@ -117,8 +116,10 @@ const Akshara = () => {
   };
 
   useEffect(() => {
-    setAdminEntries(getWorkshopEntries());
-    return subscribeWorkshopUpdates(setAdminEntries);
+    fetchAdminList<{ year: string; short: string; long: string; image: string }[]>(
+      "workshops",
+      []
+    ).then(setAdminEntries);
   }, []);
 
   const yearlyEventsWithAdmin = useMemo(() => {

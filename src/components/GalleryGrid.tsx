@@ -1,8 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import {
-  getGalleryImages,
-  subscribeGalleryUpdates,
-} from "@/lib/galleryImages";
+import { fetchAdminList } from "@/lib/adminApi";
 
 const GalleryGrid = () => {
   const baseImages = [
@@ -29,11 +26,10 @@ const GalleryGrid = () => {
     "/assets/gallery_kosam/20.jpg",
   ];
 
-  const [adminImages, setAdminImages] = useState(() => getGalleryImages());
+  const [adminImages, setAdminImages] = useState<{ src: string }[]>([]);
 
   useEffect(() => {
-    setAdminImages(getGalleryImages());
-    return subscribeGalleryUpdates(setAdminImages);
+    fetchAdminList<{ src: string }[]>("gallery", []).then(setAdminImages);
   }, []);
 
   const images = useMemo(
