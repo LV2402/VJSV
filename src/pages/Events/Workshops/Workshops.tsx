@@ -1,7 +1,11 @@
 import styles from "./Workshops.module.css";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  getWorkshopEntries,
+  subscribeWorkshopUpdates,
+} from "@/lib/workshopsEvents";
 
 // Modal Component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -87,26 +91,68 @@ const Modal = ({ isOpen, onClose, event }) => {
 };
 
 const Akshara = () => {
+  const [selectedYear, setSelectedYear] = useState("2025");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [adminEntries, setAdminEntries] = useState(() => getWorkshopEntries());
 
-  const events = [
-    {
-      image: "/assets/events/workshops/rachanaku.png",
-      short: "రచనకు వేళాయెరా",
-      long: "ఈ కార్యశాలలో డా|| కిరణ్ చక్రవర్తుల గారిచే సృజనాత్మకంగా కవితలు, గేయ కవిత్వం(Lyrics) , కథలు ఎలా రాయాలో ప్రాథమిక అంశాల నుండి అధునాతన స్థాయి వరకు చెప్పటం జరిగింది.",
-    },
-    {
-      image: "/assets/events/workshops/wiki.png",
-      short: "వికీ విభవం",
-      long: "భాషాప్రేమికుల ఉత్సాహం నడుమ, నేటి తరం సాంకేతికతను జత చేస్తూ నిర్వహించబడిన వికీ విభవం కార్యశాలకు విశేష స్పందన లభించింది. వికీపీడియా ఖాతా తెరువడం మొదలు అతి ముఖ్యంగా వ్యాస సవరణ, సృజనాత్మక రచన వంటి అంశాలను స్పృశిస్తూ ముఖ్య అతిథులు శ్రీ ఆత్రం మోతీరాం గారు, శ్రీ సీడం కిరణ్ గారు మరియు కష్యప్ గారు చెప్పిన మాటలతో రెండు రోజుల పాటు జరిగిన ఈ కార్యక్రమం విజయవంతం అయ్యింది.",
-    },
-    {
-      image: "/assets/events/workshops/Datathon.png",
-      short: "DATATHON",
-      long: "పెరుగుతున్న సాంకేతికతలో, సమాచారం అపారంగా పెరిగిపోతుంది. ప్రస్తుతం సమాచారం ప్రతిచోటా ఉంది. మనకు చాలా సమాచారం ఉన్నప్పటికీ,సమాచారం నిల్వ చేయడం ప్రధాన సమస్య కాదు.ఆ సమాచారాన్ని తిరిగి పొందడం ప్రధాన సవాలు.సమాచార నిల్వ వేగంగా మరియు చౌకగా లభిస్తోంది.ప్రస్తుతం దీని ధర తిరిగి సమాచారం పొందడంపైనే ఆధారపడి ఉంటుంది.ఈ అపారమైన సమాచారం రాబట్టడానికై ఆధునిక పరిష్కారాలు కావాలి. ఈ పరిష్కారాలకు ఒక మార్గం చూపించడానికే మా ఈ కార్యశాల.",
-    },
-  ];
+  const yearlyEventData = {
+    "2025": [
+      {
+        image: "/assets/events/workshops/rachanaku.png",
+        short: "రచనకు వేళాయెరా",
+        long: "ఈ కార్యశాలలో డా|| కిరణ్ చక్రవర్తుల గారిచే సృజనాత్మకంగా కవితలు, గేయ కవిత్వం(Lyrics) , కథలు ఎలా రాయాలో ప్రాథమిక అంశాల నుండి అధునాతన స్థాయి వరకు చెప్పటం జరిగింది.",
+      },
+      {
+        image: "/assets/events/workshops/wiki.png",
+        short: "వికీ విభవం",
+        long: "భాషాప్రేమికుల ఉత్సాహం నడుమ, నేటి తరం సాంకేతికతను జత చేస్తూ నిర్వహించబడిన వికీ విభవం కార్యశాలకు విశేష స్పందన లభించింది. వికీపీడియా ఖాతా తెరువడం మొదలు అతి ముఖ్యంగా వ్యాస సవరణ, సృజనాత్మక రచన వంటి అంశాలను స్పృశిస్తూ ముఖ్య అతిథులు శ్రీ ఆత్రం మోతీరాం గారు, శ్రీ సీడం కిరణ్ గారు మరియు కష్యప్ గారు చెప్పిన మాటలతో రెండు రోజుల పాటు జరిగిన ఈ కార్యక్రమం విజయవంతం అయ్యింది.",
+      },
+      {
+        image: "/assets/events/workshops/Datathon.png",
+        short: "DATATHON",
+        long: "పెరుగుతున్న సాంకేతికతలో, సమాచారం అపారంగా పెరిగిపోతుంది. ప్రస్తుతం సమాచారం ప్రతిచోటా ఉంది. మనకు చాలా సమాచారం ఉన్నప్పటికీ,సమాచారం నిల్వ చేయడం ప్రధాన సమస్య కాదు.ఆ సమాచారాన్ని తిరిగి పొందడం ప్రధాన సవాలు.సమాచార నిల్వ వేగంగా మరియు చౌకగా లభిస్తోంది.ప్రస్తుతం దీని ధర తిరిగి సమాచారం పొందడంపైనే ఆధారపడి ఉంటుంది.ఈ అపారమైన సమాచారం రాబట్టడానికై ఆధునిక పరిష్కారాలు కావాలి. ఈ పరిష్కారాలకు ఒక మార్గం చూపించడానికే మా ఈ కార్యశాల.",
+      },
+    ],
+  };
+
+  useEffect(() => {
+    setAdminEntries(getWorkshopEntries());
+    return subscribeWorkshopUpdates(setAdminEntries);
+  }, []);
+
+  const yearlyEventsWithAdmin = useMemo(() => {
+    const merged = { ...yearlyEventData } as Record<string, any[]>;
+
+    adminEntries.forEach((entry) => {
+      const list = merged[entry.year] ?? [];
+      merged[entry.year] = [
+        ...list,
+        {
+          image: entry.image,
+          short: entry.short,
+          long: entry.long,
+        },
+      ];
+    });
+
+    return merged;
+  }, [adminEntries]);
+
+  const yearOptions = useMemo(() => {
+    const years = Object.keys(yearlyEventsWithAdmin);
+    return years
+      .map((year) => year.trim())
+      .filter(Boolean)
+      .sort((a, b) => Number(b) - Number(a));
+  }, [yearlyEventsWithAdmin]);
+
+  useEffect(() => {
+    if (yearOptions.length === 0) return;
+    if (!yearOptions.includes(selectedYear)) {
+      setSelectedYear(yearOptions[0]);
+    }
+  }, [yearOptions, selectedYear]);
 
   const handleReadMoreClick = (event) => {
     setSelectedEvent(event);
@@ -153,8 +199,27 @@ const Akshara = () => {
       కార్యశాలలు
     </h1>
   </section>
+        <div className="flex justify-center gap-4 py-6">
+          {yearOptions.map((year) => (
+            <button
+              key={year}
+              onClick={() => setSelectedYear(year)}
+              className={`px-4 py-2 rounded-full border text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${
+                selectedYear === year ? "text-white" : "hover:opacity-80"
+              }`}
+              style={{
+                backgroundColor: selectedYear === year ? "#811414" : "#f5e6d3",
+                color: selectedYear === year ? "#fbeee1" : "#811414",
+                borderColor: "#d4a574",
+              }}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+
         <div className="flex flex-wrap justify-center gap-6 px-6 py-10">
-          {events.map((event, i) => (
+          {(yearlyEventsWithAdmin[selectedYear] || []).map((event, i) => (
             <div
               key={i}
               className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%] transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"

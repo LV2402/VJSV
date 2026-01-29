@@ -13,6 +13,21 @@ import {
   getGalleryImages,
   removeGalleryImage,
 } from "@/lib/galleryImages";
+import {
+  addSintiEntry,
+  getSintiEntries,
+  removeSintiEntry,
+} from "@/lib/sintillashunzEvents";
+import {
+  addConvergenceEntry,
+  getConvergenceEntries,
+  removeConvergenceEntry,
+} from "@/lib/convergenceEvents";
+import {
+  addWorkshopEntry,
+  getWorkshopEntries,
+  removeWorkshopEntry,
+} from "@/lib/workshopsEvents";
 
 const ADMIN_USERNAME = "vj.sahitivanam";
 const ADMIN_PASSWORD = "VJSVwebsite";
@@ -67,6 +82,35 @@ const Admin = () => {
   const [galleryFiles, setGalleryFiles] = useState<FileList | null>(null);
   const [galleryError, setGalleryError] = useState("");
   const [galleryImages, setGalleryImages] = useState(() => getGalleryImages());
+  const [sintiModalOpen, setSintiModalOpen] = useState(false);
+  const [sintiYear, setSintiYear] = useState("2025");
+  const [sintiShort, setSintiShort] = useState("");
+  const [sintiLong, setSintiLong] = useState("");
+  const [sintiImageFile, setSintiImageFile] = useState<File | null>(null);
+  const [sintiError, setSintiError] = useState("");
+  const [sintiEntries, setSintiEntries] = useState(() => getSintiEntries());
+  const [convergenceModalOpen, setConvergenceModalOpen] = useState(false);
+  const [convergenceYear, setConvergenceYear] = useState("2025");
+  const [convergenceShort, setConvergenceShort] = useState("");
+  const [convergenceLong, setConvergenceLong] = useState("");
+  const [convergenceImageFile, setConvergenceImageFile] = useState<File | null>(
+    null
+  );
+  const [convergenceError, setConvergenceError] = useState("");
+  const [convergenceEntries, setConvergenceEntries] = useState(() =>
+    getConvergenceEntries()
+  );
+  const [workshopsModalOpen, setWorkshopsModalOpen] = useState(false);
+  const [workshopsYear, setWorkshopsYear] = useState("2025");
+  const [workshopsShort, setWorkshopsShort] = useState("");
+  const [workshopsLong, setWorkshopsLong] = useState("");
+  const [workshopsImageFile, setWorkshopsImageFile] = useState<File | null>(
+    null
+  );
+  const [workshopsError, setWorkshopsError] = useState("");
+  const [workshopsEntries, setWorkshopsEntries] = useState(() =>
+    getWorkshopEntries()
+  );
 
   const canSubmit = useMemo(
     () => username.trim().length > 0 && password.trim().length > 0,
@@ -100,6 +144,18 @@ const Admin = () => {
 
   useEffect(() => {
     setGalleryImages(getGalleryImages());
+  }, []);
+
+  useEffect(() => {
+    setSintiEntries(getSintiEntries());
+  }, []);
+
+  useEffect(() => {
+    setConvergenceEntries(getConvergenceEntries());
+  }, []);
+
+  useEffect(() => {
+    setWorkshopsEntries(getWorkshopEntries());
   }, []);
 
   const handleAddHighlight = (event: React.FormEvent) => {
@@ -217,6 +273,141 @@ const Admin = () => {
   const handleDeleteGalleryImage = (index: number) => {
     const nextImages = removeGalleryImage(index);
     setGalleryImages(nextImages);
+  };
+
+  const handleAddSintiEntry = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const trimmedShort = sintiShort.trim();
+    const trimmedLong = sintiLong.trim();
+
+    if (!trimmedShort) {
+      setSintiError("Please enter a short title.");
+      return;
+    }
+
+    if (!trimmedLong) {
+      setSintiError("Please enter a long description.");
+      return;
+    }
+
+    if (!sintiImageFile) {
+      setSintiError("Please upload an image.");
+      return;
+    }
+
+    try {
+      const imageDataUrl = await readFileAsDataUrl(sintiImageFile);
+      const nextEntries = addSintiEntry({
+        year: sintiYear,
+        short: trimmedShort,
+        long: trimmedLong,
+        image: imageDataUrl,
+      });
+
+      setSintiEntries(nextEntries);
+      setSintiShort("");
+      setSintiLong("");
+      setSintiImageFile(null);
+      setSintiError("");
+    } catch {
+      setSintiError("Unable to read the image. Please try again.");
+    }
+  };
+
+  const handleDeleteSintiEntry = (index: number) => {
+    const nextEntries = removeSintiEntry(index);
+    setSintiEntries(nextEntries);
+  };
+
+  const handleAddConvergenceEntry = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const trimmedShort = convergenceShort.trim();
+    const trimmedLong = convergenceLong.trim();
+
+    if (!trimmedShort) {
+      setConvergenceError("Please enter a short title.");
+      return;
+    }
+
+    if (!trimmedLong) {
+      setConvergenceError("Please enter a long description.");
+      return;
+    }
+
+    if (!convergenceImageFile) {
+      setConvergenceError("Please upload an image.");
+      return;
+    }
+
+    try {
+      const imageDataUrl = await readFileAsDataUrl(convergenceImageFile);
+      const nextEntries = addConvergenceEntry({
+        year: convergenceYear,
+        short: trimmedShort,
+        long: trimmedLong,
+        image: imageDataUrl,
+      });
+
+      setConvergenceEntries(nextEntries);
+      setConvergenceShort("");
+      setConvergenceLong("");
+      setConvergenceImageFile(null);
+      setConvergenceError("");
+    } catch {
+      setConvergenceError("Unable to read the image. Please try again.");
+    }
+  };
+
+  const handleDeleteConvergenceEntry = (index: number) => {
+    const nextEntries = removeConvergenceEntry(index);
+    setConvergenceEntries(nextEntries);
+  };
+
+  const handleAddWorkshopEntry = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const trimmedShort = workshopsShort.trim();
+    const trimmedLong = workshopsLong.trim();
+
+    if (!trimmedShort) {
+      setWorkshopsError("Please enter a short title.");
+      return;
+    }
+
+    if (!trimmedLong) {
+      setWorkshopsError("Please enter a long description.");
+      return;
+    }
+
+    if (!workshopsImageFile) {
+      setWorkshopsError("Please upload an image.");
+      return;
+    }
+
+    try {
+      const imageDataUrl = await readFileAsDataUrl(workshopsImageFile);
+      const nextEntries = addWorkshopEntry({
+        year: workshopsYear,
+        short: trimmedShort,
+        long: trimmedLong,
+        image: imageDataUrl,
+      });
+
+      setWorkshopsEntries(nextEntries);
+      setWorkshopsShort("");
+      setWorkshopsLong("");
+      setWorkshopsImageFile(null);
+      setWorkshopsError("");
+    } catch {
+      setWorkshopsError("Unable to read the image. Please try again.");
+    }
+  };
+
+  const handleDeleteWorkshopEntry = (index: number) => {
+    const nextEntries = removeWorkshopEntry(index);
+    setWorkshopsEntries(nextEntries);
   };
 
   return (
@@ -352,6 +543,12 @@ const Admin = () => {
                         ? () => setHighlightModalOpen(true)
                         : section.title === "Akshara"
                         ? () => setAksharaModalOpen(true)
+                        : section.title === "Sintillashunz"
+                        ? () => setSintiModalOpen(true)
+                        : section.title === "Convergence"
+                        ? () => setConvergenceModalOpen(true)
+                        : section.title === "Workshops"
+                        ? () => setWorkshopsModalOpen(true)
                         : section.title === "Gallery"
                         ? () => setGalleryModalOpen(true)
                         : undefined
@@ -528,6 +725,402 @@ const Admin = () => {
                       <button
                         type="button"
                         onClick={() => handleDeleteGalleryImage(index)}
+                        className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
+                        style={{
+                          color: "#811414",
+                          border: "1px solid #811414",
+                          backgroundColor: "#fbeee1",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {sintiModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ animation: "fadeIn 0.2s ease-out" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(222, 172, 172, 0.85)" }}
+            onClick={() => setSintiModalOpen(false)}
+          />
+          <div
+            className="relative w-full max-w-xl max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
+            style={{
+              backgroundColor: "#fbeee1",
+              boxShadow: "0 8px 24px rgba(129, 20, 20, 0.8)",
+              animation: "fadeInUp 0.3s ease-out",
+            }}
+          >
+            <button
+              onClick={() => setSintiModalOpen(false)}
+              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: "#811414", color: "#fbeee1" }}
+              title="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-2">Sintillashunz Form</h2>
+            <p className="text-sm mb-6" style={{ color: "#9d4545" }}>
+              Add a new Sintillashunz item with year, image, short, and long
+              description.
+            </p>
+            <form className="space-y-4" onSubmit={handleAddSintiEntry}>
+              <div>
+                <label className="block text-sm font-medium mb-2">Year</label>
+                <select
+                  value={sintiYear}
+                  onChange={(event) => setSintiYear(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                >
+                  {Array.from(
+                    { length: new Date().getFullYear() - 2022 + 1 },
+                    (_, idx) => `${2022 + idx}`
+                  )
+                    .reverse()
+                    .map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(event) =>
+                    setSintiImageFile(event.target.files?.[0] ?? null)
+                  }
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Short</label>
+                <input
+                  type="text"
+                  value={sintiShort}
+                  onChange={(event) => setSintiShort(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter short title"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Long</label>
+                <textarea
+                  value={sintiLong}
+                  onChange={(event) => setSintiLong(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm min-h-[120px] focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter long description"
+                />
+              </div>
+              {sintiError ? (
+                <p className="text-sm text-[#b3261e] font-medium">
+                  {sintiError}
+                </p>
+              ) : null}
+              <button
+                type="submit"
+                className="rounded-full font-semibold py-2.5 px-6 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: "#811414",
+                  color: "#fbeee1",
+                  boxShadow: "0 4px 10px rgba(129, 20, 20, 0.4)",
+                }}
+              >
+                Add Sintillashunz Item
+              </button>
+            </form>
+
+            {sintiEntries.length > 0 ? (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-3">Saved Items</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "#9d4545" }}>
+                  {sintiEntries.map((entry, index) => (
+                    <li
+                      key={`${entry.year}-${entry.short}-${index}`}
+                      className="flex items-center justify-between gap-3"
+                    >
+                      <span>
+                        {entry.year} — {entry.short}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteSintiEntry(index)}
+                        className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
+                        style={{
+                          color: "#811414",
+                          border: "1px solid #811414",
+                          backgroundColor: "#fbeee1",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {convergenceModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ animation: "fadeIn 0.2s ease-out" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(222, 172, 172, 0.85)" }}
+            onClick={() => setConvergenceModalOpen(false)}
+          />
+          <div
+            className="relative w-full max-w-xl max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
+            style={{
+              backgroundColor: "#fbeee1",
+              boxShadow: "0 8px 24px rgba(129, 20, 20, 0.8)",
+              animation: "fadeInUp 0.3s ease-out",
+            }}
+          >
+            <button
+              onClick={() => setConvergenceModalOpen(false)}
+              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: "#811414", color: "#fbeee1" }}
+              title="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-2">Convergence Form</h2>
+            <p className="text-sm mb-6" style={{ color: "#9d4545" }}>
+              Add a new Convergence item with year, image, short, and long
+              description.
+            </p>
+            <form className="space-y-4" onSubmit={handleAddConvergenceEntry}>
+              <div>
+                <label className="block text-sm font-medium mb-2">Year</label>
+                <select
+                  value={convergenceYear}
+                  onChange={(event) => setConvergenceYear(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                >
+                  {Array.from(
+                    { length: new Date().getFullYear() - 2022 + 1 },
+                    (_, idx) => `${2022 + idx}`
+                  )
+                    .reverse()
+                    .map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(event) =>
+                    setConvergenceImageFile(event.target.files?.[0] ?? null)
+                  }
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Short</label>
+                <input
+                  type="text"
+                  value={convergenceShort}
+                  onChange={(event) => setConvergenceShort(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter short title"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Long</label>
+                <textarea
+                  value={convergenceLong}
+                  onChange={(event) => setConvergenceLong(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm min-h-[120px] focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter long description"
+                />
+              </div>
+              {convergenceError ? (
+                <p className="text-sm text-[#b3261e] font-medium">
+                  {convergenceError}
+                </p>
+              ) : null}
+              <button
+                type="submit"
+                className="rounded-full font-semibold py-2.5 px-6 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: "#811414",
+                  color: "#fbeee1",
+                  boxShadow: "0 4px 10px rgba(129, 20, 20, 0.4)",
+                }}
+              >
+                Add Convergence Item
+              </button>
+            </form>
+
+            {convergenceEntries.length > 0 ? (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-3">Saved Items</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "#9d4545" }}>
+                  {convergenceEntries.map((entry, index) => (
+                    <li
+                      key={`${entry.year}-${entry.short}-${index}`}
+                      className="flex items-center justify-between gap-3"
+                    >
+                      <span>
+                        {entry.year} — {entry.short}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteConvergenceEntry(index)}
+                        className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
+                        style={{
+                          color: "#811414",
+                          border: "1px solid #811414",
+                          backgroundColor: "#fbeee1",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {workshopsModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ animation: "fadeIn 0.2s ease-out" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(222, 172, 172, 0.85)" }}
+            onClick={() => setWorkshopsModalOpen(false)}
+          />
+          <div
+            className="relative w-full max-w-xl max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
+            style={{
+              backgroundColor: "#fbeee1",
+              boxShadow: "0 8px 24px rgba(129, 20, 20, 0.8)",
+              animation: "fadeInUp 0.3s ease-out",
+            }}
+          >
+            <button
+              onClick={() => setWorkshopsModalOpen(false)}
+              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: "#811414", color: "#fbeee1" }}
+              title="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-2">Workshops Form</h2>
+            <p className="text-sm mb-6" style={{ color: "#9d4545" }}>
+              Add a new Workshop item with year, image, short, and long
+              description.
+            </p>
+            <form className="space-y-4" onSubmit={handleAddWorkshopEntry}>
+              <div>
+                <label className="block text-sm font-medium mb-2">Year</label>
+                <select
+                  value={workshopsYear}
+                  onChange={(event) => setWorkshopsYear(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                >
+                  {Array.from(
+                    { length: new Date().getFullYear() - 2022 + 1 },
+                    (_, idx) => `${2022 + idx}`
+                  )
+                    .reverse()
+                    .map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(event) =>
+                    setWorkshopsImageFile(event.target.files?.[0] ?? null)
+                  }
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Short</label>
+                <input
+                  type="text"
+                  value={workshopsShort}
+                  onChange={(event) => setWorkshopsShort(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter short title"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Long</label>
+                <textarea
+                  value={workshopsLong}
+                  onChange={(event) => setWorkshopsLong(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm min-h-[120px] focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter long description"
+                />
+              </div>
+              {workshopsError ? (
+                <p className="text-sm text-[#b3261e] font-medium">
+                  {workshopsError}
+                </p>
+              ) : null}
+              <button
+                type="submit"
+                className="rounded-full font-semibold py-2.5 px-6 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: "#811414",
+                  color: "#fbeee1",
+                  boxShadow: "0 4px 10px rgba(129, 20, 20, 0.4)",
+                }}
+              >
+                Add Workshop Item
+              </button>
+            </form>
+
+            {workshopsEntries.length > 0 ? (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-3">Saved Items</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "#9d4545" }}>
+                  {workshopsEntries.map((entry, index) => (
+                    <li
+                      key={`${entry.year}-${entry.short}-${index}`}
+                      className="flex items-center justify-between gap-3"
+                    >
+                      <span>
+                        {entry.year} — {entry.short}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteWorkshopEntry(index)}
                         className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
                         style={{
                           color: "#811414",

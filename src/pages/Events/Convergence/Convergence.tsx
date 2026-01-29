@@ -1,7 +1,11 @@
 import styles from "./Convergence.module.css";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  getConvergenceEntries,
+  subscribeConvergenceUpdates,
+} from "@/lib/convergenceEvents";
 
 // Modal Component - Add this new component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -88,6 +92,9 @@ const Akshara = () => {
   // Add these new state variables
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [adminEntries, setAdminEntries] = useState(() =>
+    getConvergenceEntries()
+  );
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
@@ -103,6 +110,11 @@ const Akshara = () => {
     setModalOpen(false);
     setSelectedEvent(null);
   };
+
+  useEffect(() => {
+    setAdminEntries(getConvergenceEntries());
+    return subscribeConvergenceUpdates(setAdminEntries);
+  }, []);
 
   const yearlyEventData = {
     "2025": [
@@ -214,9 +226,42 @@ const Akshara = () => {
     ],
   };
 
+  const yearlyEventsWithAdmin = useMemo(() => {
+    const merged = { ...yearlyEventData } as Record<string, any[]>;
+
+    adminEntries.forEach((entry) => {
+      const list = merged[entry.year] ?? [];
+      merged[entry.year] = [
+        ...list,
+        {
+          image: entry.image,
+          short: entry.short,
+          long: entry.long,
+        },
+      ];
+    });
+
+    return merged;
+  }, [adminEntries]);
+
+  const yearOptions = useMemo(() => {
+    const years = Object.keys(yearlyEventsWithAdmin);
+    return years
+      .map((year) => year.trim())
+      .filter(Boolean)
+      .sort((a, b) => Number(b) - Number(a));
+  }, [yearlyEventsWithAdmin]);
+
+  useEffect(() => {
+    if (yearOptions.length === 0) return;
+    if (!yearOptions.includes(selectedYear)) {
+      setSelectedYear(yearOptions[0]);
+    }
+  }, [yearOptions, selectedYear]);
+
   // Update your renderEventContent function
   const renderEventContent = () => {
-    const events = yearlyEventData[selectedYear];
+    const events = yearlyEventsWithAdmin[selectedYear];
 
     if (!events || events.length === 0) {
       return <p className="text-center py-10" style={{ color: '#811414' }}>No events found for {selectedYear}.</p>;
@@ -368,7 +413,7 @@ const Akshara = () => {
         </section>
         
         <div className="flex justify-center gap-4 py-6 years-fade-in">
-          {["2025", "2023'R", "2023"].map((year) => (
+          {yearOptions.map((year) => (
             <button
               key={year}
               onClick={() => handleYearClick(year)}
