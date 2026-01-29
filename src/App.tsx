@@ -11,6 +11,7 @@ import Sintillations from "./pages/Events/Sintillashunz/Sintillashunz";
 import Workshops from "./pages/Events/Workshops/Workshops";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/events/workshops" element={<Workshops />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

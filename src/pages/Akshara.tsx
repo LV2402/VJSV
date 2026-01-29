@@ -1,7 +1,11 @@
 import styles from "./Akshara.module.css";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  getAksharaEntries,
+  subscribeAksharaUpdates,
+} from "@/lib/aksharaEvents";
 
 // Modal component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -88,12 +92,18 @@ const Akshara = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalEvent, setModalEvent] = useState(null);
+  const [adminEntries, setAdminEntries] = useState(() => getAksharaEntries());
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
     setModalOpen(false);
     setModalEvent(null);
   };
+
+  useEffect(() => {
+    setAdminEntries(getAksharaEntries());
+    return subscribeAksharaUpdates(setAdminEntries);
+  }, []);
 
   const yearlyEventData = {
     "2025": [
@@ -152,13 +162,34 @@ const Akshara = () => {
     ],
   };
 
+  const yearlyEventsWithAdmin = useMemo(() => {
+    const merged = { ...yearlyEventData } as Record<string, any[]>;
+
+    adminEntries.forEach((entry) => {
+      const list = merged[entry.year] ?? [];
+      merged[entry.year] = [
+        ...list,
+        {
+          image: entry.image,
+          short: entry.short,
+          long: entry.registerUrl
+            ? `Registration link: ${entry.registerUrl}`
+            : "",
+          registerUrl: entry.registerUrl,
+        },
+      ];
+    });
+
+    return merged;
+  }, [adminEntries]);
+
   const handleReadMore = (event) => {
     setModalEvent(event);
     setModalOpen(true);
   };
 
   const renderEventContent = () => {
-    const events = yearlyEventData[selectedYear];
+    const events = yearlyEventsWithAdmin[selectedYear];
     if (!events || events.length === 0) {
       return (
         <p className="text-center py-10" style={{ color: "#811414" }}>
@@ -219,7 +250,7 @@ const Akshara = () => {
                 {event.short}
               </p>
               <div className="flex justify-end w-full">
-                {selectedYear === "2025" ? (
+                {event.registerUrl ? (
                   <a
                     href={event.registerUrl}
                     target="_blank"

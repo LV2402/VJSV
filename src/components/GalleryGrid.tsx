@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  getGalleryImages,
+  subscribeGalleryUpdates,
+} from "@/lib/galleryImages";
 
 const GalleryGrid = () => {
-  const images = [
+  const baseImages = [
     "/assets/gallery_kosam/1.JPG",
     "/assets/gallery_kosam/2.jpg",
     "/assets/gallery_kosam/4.JPG",
@@ -24,6 +28,18 @@ const GalleryGrid = () => {
     "/assets/gallery_kosam/18.JPG",
     "/assets/gallery_kosam/20.jpg",
   ];
+
+  const [adminImages, setAdminImages] = useState(() => getGalleryImages());
+
+  useEffect(() => {
+    setAdminImages(getGalleryImages());
+    return subscribeGalleryUpdates(setAdminImages);
+  }, []);
+
+  const images = useMemo(
+    () => [...baseImages, ...adminImages.map((entry) => entry.src)],
+    [adminImages]
+  );
 
   return (
     <section className="py-4 bg-background">
