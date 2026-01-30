@@ -188,6 +188,22 @@ const Akshara = () => {
     setModalOpen(true);
   };
 
+  const years = useMemo(() => {
+    return Object.keys(yearlyEventsWithAdmin)
+      .filter((year) => year && !Number.isNaN(Number(year)))
+      .sort((a, b) => Number(b) - Number(a));
+  }, [yearlyEventsWithAdmin]);
+
+  useEffect(() => {
+    if (years.length === 0) {
+      return;
+    }
+
+    if (!years.includes(selectedYear)) {
+      setSelectedYear(years[0]);
+    }
+  }, [years, selectedYear]);
+
   const renderEventContent = () => {
     const events = yearlyEventsWithAdmin[selectedYear];
     if (!events || events.length === 0) {
@@ -323,7 +339,7 @@ const Akshara = () => {
 
         {/* Year Switch Buttons */}
         <div className="flex justify-center gap-4 py-6">
-          {["2025", "2024", "2023", "2022"].map((year) => (
+          {years.map((year) => (
             <button
               key={year}
               onClick={() => handleYearClick(year)}
