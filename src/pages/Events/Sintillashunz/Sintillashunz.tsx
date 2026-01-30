@@ -2,7 +2,7 @@ import styles from "./Sintillashunz.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { fetchAdminList } from "@/lib/adminApi";
+import { fetchAdminList, resolveAdminAssetUrl } from "@/lib/adminApi";
 
 // Modal Component - Add this new component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -218,7 +218,7 @@ const Akshara = () => {
       merged[entry.year] = [
         ...list,
         {
-          image: entry.image,
+          image: resolveAdminAssetUrl(entry.image),
           short: entry.short,
           long: entry.long,
         },
