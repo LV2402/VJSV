@@ -14,6 +14,8 @@ const withBase = (url: string) => {
   return `${API_BASE}${prefix}${url}`;
 };
 
+export const resolveAdminAssetUrl = (url: string) => withBase(url);
+
 const fetchJson = async <T,>(url: string, fallback: T): Promise<T> => {
   try {
     const response = await fetch(withBase(url));
