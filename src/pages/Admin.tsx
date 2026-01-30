@@ -204,6 +204,15 @@ const Admin = () => {
       .catch(() => setHighlightError("Failed to save. Try again."));
   };
 
+  const handleDeleteHighlight = (index: number) => {
+    deleteItem<{ url: string }[]>(`/api/highlights/${index}`)
+      .then((data) => {
+        setHighlightUrls(data.map((item) => item.url));
+        setHighlightError("");
+      })
+      .catch(() => setHighlightError("Failed to delete. Try again."));
+  };
+
   const readFileAsDataUrl = (file: File) =>
     new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
@@ -728,9 +737,24 @@ const Admin = () => {
               <div className="mt-6">
                 <h3 className="text-lg font-semibold mb-3">Saved URLs</h3>
                 <ul className="space-y-2 text-sm" style={{ color: "#9d4545" }}>
-                  {highlightUrls.map((url) => (
-                    <li key={url} className="break-all">
-                      {url}
+                  {highlightUrls.map((url, index) => (
+                    <li
+                      key={`${url}-${index}`}
+                      className="flex items-start justify-between gap-3"
+                    >
+                      <span className="break-all flex-1">{url}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteHighlight(index)}
+                        className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
+                        style={{
+                          color: "#811414",
+                          border: "1px solid #811414",
+                          backgroundColor: "#fbeee1",
+                        }}
+                      >
+                        Delete
+                      </button>
                     </li>
                   ))}
                 </ul>

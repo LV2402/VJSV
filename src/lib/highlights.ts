@@ -1,23 +1,4 @@
-export const BASE_HIGHLIGHT_URLS = [
-  "https://www.instagram.com/p/DN7AlVwD3lH/?img_index=1",
-  "https://www.instagram.com/p/DN518pRkuYS/",
-  "https://www.instagram.com/p/DN5kLbvEVfh/",
-  "https://www.instagram.com/p/DN46BM2Edth/",
-  "https://www.instagram.com/p/DN4qJDyEfi_/",
-  "https://www.instagram.com/p/DNyHCpcYjjj/",
-  "https://www.instagram.com/p/DNvLG915sIU/",
-  "https://www.instagram.com/p/DNs-XJw4uf7/",
-  "https://www.instagram.com/p/DNqXHvMx8Jb/",
-  "https://www.instagram.com/p/DNntpgBxUFI/",
-  "https://www.instagram.com/p/DNlFlSSxLmz/",
-  "https://www.instagram.com/p/DNibMPlxLi1/",
-  "https://www.instagram.com/reel/DNLUBNxxkfi/",
-  "https://www.instagram.com/p/DMPSdaiTb6e/",
-  "https://www.instagram.com/p/DLuoEBixveO/",
-  "https://www.instagram.com/p/DH6Gb1nxi8P/?img_index=1",
-  "https://www.instagram.com/p/DHqk6nOzc6K/",
-  "https://www.instagram.com/p/DGTT8f_zuCr/",
-];
+export const BASE_HIGHLIGHT_URLS: string[] = [];
 
 export const HIGHLIGHTS_STORAGE_KEY = "vjsv_highlight_urls";
 export const HIGHLIGHTS_UPDATED_EVENT = "vjsvHighlightsUpdated";

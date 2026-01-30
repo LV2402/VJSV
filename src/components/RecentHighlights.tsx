@@ -10,7 +10,6 @@ declare global {
 }
 
 import { useEffect, useRef, useState } from "react";
-import { BASE_HIGHLIGHT_URLS } from "@/lib/highlights";
 import { fetchAdminList } from "@/lib/adminApi";
 
 const RecentHighlights = () => {
@@ -18,9 +17,7 @@ const RecentHighlights = () => {
   const scrollSpeed = 0.5;
   const [isHovering, setIsHovering] = useState(false);
   const animationRef = useRef<number | null>(null);
-  const [instagramLinks, setInstagramLinks] = useState<string[]>(
-    BASE_HIGHLIGHT_URLS
-  );
+  const [instagramLinks, setInstagramLinks] = useState<string[]>([]);
 
   // Load Instagram embed script once
   useEffect(() => {
@@ -37,22 +34,14 @@ const RecentHighlights = () => {
 
   useEffect(() => {
     fetchAdminList<{ url: string }[]>("highlights", []).then((data) => {
-      setInstagramLinks(
-        Array.from(
-          new Set([...BASE_HIGHLIGHT_URLS, ...data.map((item) => item.url)])
-        )
-      );
+      setInstagramLinks(data.map((item) => item.url));
     });
   }, []);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
       fetchAdminList<{ url: string }[]>("highlights", []).then((data) => {
-        setInstagramLinks(
-          Array.from(
-            new Set([...BASE_HIGHLIGHT_URLS, ...data.map((item) => item.url)])
-          )
-        );
+        setInstagramLinks(data.map((item) => item.url));
       });
     }, 5000);
 
