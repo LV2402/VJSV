@@ -241,3 +241,36 @@ async def delete_highlight(index: int):
         data.pop(index)
         _save_json(file_path, data)
     return data
+
+
+@app.post("/api/writings")
+async def create_writing(
+    title: str = Form(...),
+    author: str = Form(...),
+    year: str = Form(...),
+    type: str = Form(...),
+    content: str = Form(...),
+):
+    file_path = _data_file("writings")
+    data = _load_json(file_path)
+    entry = {
+        "id": int(time.time() * 1000),
+        "title": title,
+        "author": author,
+        "year": year,
+        "type": type,
+        "content": content,
+    }
+    data.append(entry)
+    _save_json(file_path, data)
+    return data
+
+
+@app.delete("/api/writings/{index}")
+async def delete_writing(index: int):
+    file_path = _data_file("writings")
+    data = _load_json(file_path)
+    if 0 <= index < len(data):
+        data.pop(index)
+        _save_json(file_path, data)
+    return data

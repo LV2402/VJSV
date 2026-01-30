@@ -25,6 +25,10 @@ const sections = [
     description: "Manage workshop listings and information.",
   },
   {
+    title: "Writings",
+    description: "Manage writings, authors, and year formats.",
+  },
+  {
     title: "Gallery",
     description: "Manage gallery images and highlights.",
   },
@@ -36,6 +40,7 @@ const sections = [
 ];
 
 const Admin = () => {
+  const currentYear = new Date().getFullYear();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -88,6 +93,36 @@ const Admin = () => {
   const [workshopsEntries, setWorkshopsEntries] = useState<
     { year: string; short: string }[]
   >([]);
+  const [writingsModalOpen, setWritingsModalOpen] = useState(false);
+  const [writingStartYear, setWritingStartYear] = useState(
+    String(currentYear)
+  );
+  const [writingEndYear, setWritingEndYear] = useState(
+    String(currentYear % 100).padStart(2, "0")
+  );
+  const [writingTitle, setWritingTitle] = useState("");
+  const [writingAuthor, setWritingAuthor] = useState("");
+  const [writingType, setWritingType] = useState("");
+  const [writingContent, setWritingContent] = useState("");
+  const [writingsError, setWritingsError] = useState("");
+  const [writingEntries, setWritingEntries] = useState<
+    {
+      id?: number;
+      title: string;
+      author: string;
+      year: string;
+      type: string;
+      content: string;
+    }[]
+  >([]);
+
+  const writingEndYearOptions = useMemo(() => {
+    const start = Number(writingStartYear);
+    if (!start || Number.isNaN(start)) return [] as string[];
+    return [start + 3, start + 4].map((year) =>
+      String(year % 100).padStart(2, "0")
+    );
+  }, [writingStartYear]);
 
   const canSubmit = useMemo(
     () => username.trim().length > 0 && password.trim().length > 0,
@@ -128,6 +163,16 @@ const Admin = () => {
     fetchAdminList<{ year: string; short: string }[]>("workshops", []).then(
       setWorkshopsEntries
     );
+    fetchAdminList<
+      {
+        id?: number;
+        title: string;
+        author: string;
+        year: string;
+        type: string;
+        content: string;
+      }[]
+    >("writings", []).then(setWritingEntries);
   }, []);
 
   const handleAddHighlight = (event: React.FormEvent) => {
@@ -373,6 +418,84 @@ const Admin = () => {
       .catch(() => setWorkshopsError("Failed to delete. Try again."));
   };
 
+  const handleAddWritingEntry = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const trimmedTitle = writingTitle.trim();
+    const trimmedAuthor = writingAuthor.trim();
+    const trimmedType = writingType.trim();
+    const trimmedContent = writingContent.trim();
+
+    if (!trimmedTitle) {
+      setWritingsError("Please enter a title.");
+      return;
+    }
+
+    if (!trimmedAuthor) {
+      setWritingsError("Please enter an author.");
+      return;
+    }
+
+    if (!trimmedType) {
+      setWritingsError("Please enter a type.");
+      return;
+    }
+
+    if (!trimmedContent) {
+      setWritingsError("Please enter content.");
+      return;
+    }
+
+    if (!writingStartYear || !writingEndYear) {
+      setWritingsError("Please select a year range.");
+      return;
+    }
+
+    const yearLabel = `${writingStartYear} – ${writingEndYear}`;
+
+    const formData = new FormData();
+    formData.append("title", trimmedTitle);
+    formData.append("author", trimmedAuthor);
+    formData.append("year", yearLabel);
+    formData.append("type", trimmedType);
+    formData.append("content", trimmedContent);
+
+    postForm<
+      {
+        id?: number;
+        title: string;
+        author: string;
+        year: string;
+        type: string;
+        content: string;
+      }[]
+    >("/api/writings", formData)
+      .then((data) => {
+        setWritingEntries(data);
+        setWritingTitle("");
+        setWritingAuthor("");
+        setWritingType("");
+        setWritingContent("");
+        setWritingsError("");
+      })
+      .catch(() => setWritingsError("Failed to save. Try again."));
+  };
+
+  const handleDeleteWritingEntry = (index: number) => {
+    deleteItem<
+      {
+        id?: number;
+        title: string;
+        author: string;
+        year: string;
+        type: string;
+        content: string;
+      }[]
+    >(`/api/writings/${index}`)
+      .then(setWritingEntries)
+      .catch(() => setWritingsError("Failed to delete. Try again."));
+  };
+
   return (
     <div className={`${styles.root} page-fade-in`}>
       <style>{`
@@ -436,7 +559,8 @@ const Admin = () => {
                 animation: "fadeInUp 1.2s ease-out 0.8s both",
               }}
             >
-              Manage Akshara, Sintillashunz, Convergence, Gallery, and Highlights.
+              Manage Akshara, Sintillashunz, Convergence, Workshops, Writings,
+              Gallery, and Highlights.
             </p>
           </div>
 
@@ -512,6 +636,8 @@ const Admin = () => {
                         ? () => setConvergenceModalOpen(true)
                         : section.title === "Workshops"
                         ? () => setWorkshopsModalOpen(true)
+                        : section.title === "Writings"
+                        ? () => setWritingsModalOpen(true)
                         : section.title === "Gallery"
                         ? () => setGalleryModalOpen(true)
                         : undefined
@@ -1084,6 +1210,184 @@ const Admin = () => {
                       <button
                         type="button"
                         onClick={() => handleDeleteWorkshopEntry(index)}
+                        className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
+                        style={{
+                          color: "#811414",
+                          border: "1px solid #811414",
+                          backgroundColor: "#fbeee1",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {writingsModalOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ animation: "fadeIn 0.2s ease-out" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(222, 172, 172, 0.85)" }}
+            onClick={() => setWritingsModalOpen(false)}
+          />
+          <div
+            className="relative w-full max-w-xl max-h-[80vh] overflow-y-auto rounded-xl p-6 mx-4"
+            style={{
+              backgroundColor: "#fbeee1",
+              boxShadow: "0 8px 24px rgba(129, 20, 20, 0.8)",
+              animation: "fadeInUp 0.3s ease-out",
+            }}
+          >
+            <button
+              onClick={() => setWritingsModalOpen(false)}
+              className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: "#811414", color: "#fbeee1" }}
+              title="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-2">Writings Form</h2>
+            <p className="text-sm mb-6" style={{ color: "#9d4545" }}>
+              Add a new writing with title, author, year range, type, and
+              content.
+            </p>
+            <form className="space-y-4" onSubmit={handleAddWritingEntry}>
+              <div>
+                <label className="block text-sm font-medium mb-2">Title</label>
+                <input
+                  type="text"
+                  value={writingTitle}
+                  onChange={(event) => setWritingTitle(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter title"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Author</label>
+                <input
+                  type="text"
+                  value={writingAuthor}
+                  onChange={(event) => setWritingAuthor(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter author name"
+                />
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Start Year
+                  </label>
+                  <select
+                    value={writingStartYear}
+                    onChange={(event) => {
+                      const selectedYear = event.target.value;
+                      setWritingStartYear(selectedYear);
+                      const start = Number(selectedYear);
+                      if (Number.isNaN(start)) {
+                        setWritingEndYear("");
+                        return;
+                      }
+                      const nextOptions = [start + 3, start + 4].map((year) =>
+                        String(year % 100).padStart(2, "0")
+                      );
+                      setWritingEndYear(nextOptions[0] ?? "");
+                    }}
+                    className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  >
+                    {Array.from(
+                      { length: currentYear - 2000 + 1 },
+                      (_, idx) => `${2000 + idx}`
+                    )
+                      .reverse()
+                      .map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    End (YY)
+                  </label>
+                  <select
+                    value={writingEndYear}
+                    onChange={(event) => setWritingEndYear(event.target.value)}
+                    className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  >
+                    {writingEndYearOptions.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <p className="text-xs" style={{ color: "#9d4545" }}>
+                Year format: {writingStartYear} – {writingEndYear}
+              </p>
+              <div>
+                <label className="block text-sm font-medium mb-2">Type</label>
+                <input
+                  type="text"
+                  value={writingType}
+                  onChange={(event) => setWritingType(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="కవిత / కథ / ఇతర"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Content
+                </label>
+                <textarea
+                  value={writingContent}
+                  onChange={(event) => setWritingContent(event.target.value)}
+                  className="w-full rounded-xl border border-[#d4a574] bg-white/70 px-4 py-2.5 text-sm min-h-[160px] focus:outline-none focus:ring-2 focus:ring-[#811414]"
+                  placeholder="Enter full writing content"
+                />
+              </div>
+              {writingsError ? (
+                <p className="text-sm text-[#b3261e] font-medium">
+                  {writingsError}
+                </p>
+              ) : null}
+              <button
+                type="submit"
+                className="rounded-full font-semibold py-2.5 px-6 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: "#811414",
+                  color: "#fbeee1",
+                  boxShadow: "0 4px 10px rgba(129, 20, 20, 0.4)",
+                }}
+              >
+                Add Writing
+              </button>
+            </form>
+
+            {writingEntries.length > 0 ? (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-3">Saved Writings</h3>
+                <ul className="space-y-2 text-sm" style={{ color: "#9d4545" }}>
+                  {writingEntries.map((entry, index) => (
+                    <li
+                      key={`${entry.title}-${entry.author}-${index}`}
+                      className="flex items-center justify-between gap-3"
+                    >
+                      <span>
+                        {entry.title} — {entry.author} ({entry.year})
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteWritingEntry(index)}
                         className="text-xs font-semibold rounded-full px-3 py-1 transition-opacity hover:opacity-80"
                         style={{
                           color: "#811414",

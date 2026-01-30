@@ -2,8 +2,18 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { fetchAdminList } from "@/lib/adminApi";
 
-const writings = [
+type Writing = {
+  id: number;
+  title: string;
+  author: string;
+  year: string;
+  type: string;
+  content: string;
+};
+
+const fallbackWritings: Writing[] = [
   // ... your writings array (same as before)
 {
     id: 1,
@@ -600,7 +610,10 @@ NEET కోసం హైదరాబాద్ లో వాళ్లఇంటి
 ];
 
 const Blogs = () => {
-  const [selectedWriting, setSelectedWriting] = useState(null);
+  const [selectedWriting, setSelectedWriting] = useState<Writing | null>(null);
+  const [writingEntries, setWritingEntries] = useState<Writing[]>(
+    fallbackWritings
+  );
   const [visibleCount, setVisibleCount] = useState(6);
 
   const handleLoadMore = () => {
@@ -614,6 +627,35 @@ const Blogs = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    fetchAdminList<Writing[]>("writings", []).then((data) => {
+      if (!data || data.length === 0) {
+        return;
+      }
+      const normalized = data.map((entry, index) => ({
+        id: entry.id ?? index + 1,
+        title: entry.title ?? "",
+        author: entry.author ?? "",
+        year: entry.year ?? "",
+        type: entry.type ?? "",
+        content: entry.content ?? "",
+      }));
+      const mergedMap = new Map<string, Writing>();
+      const mergeKey = (entry: Writing) =>
+        `${entry.title}__${entry.author}__${entry.year}__${entry.type}`;
+
+      fallbackWritings.forEach((entry) => {
+        mergedMap.set(mergeKey(entry), entry);
+      });
+
+      normalized.forEach((entry) => {
+        mergedMap.set(mergeKey(entry), entry);
+      });
+
+      setWritingEntries(Array.from(mergedMap.values()));
+    });
   }, []);
 
   return (
@@ -633,7 +675,7 @@ const Blogs = () => {
 
         {/* Cards */}
         <section className="mt-16 px-6 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-          {writings.slice(0, visibleCount).map((writing, index) => (
+          {writingEntries.slice(0, visibleCount).map((writing, index) => (
             <motion.div
               key={writing.id}
               initial={{ opacity: 0, y: 30 }}
@@ -672,7 +714,7 @@ const Blogs = () => {
           ))}
 
           {/* Load More */}
-          {visibleCount < writings.length && (
+          {visibleCount < writingEntries.length && (
             <div className="col-span-full text-center mt-10">
               <button
                 onClick={handleLoadMore}
