@@ -2,7 +2,7 @@ import styles from "./Akshara.module.css";
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { fetchAdminList, resolveAdminAssetUrl } from "@/lib/adminApi";
+import { fetchAdminList } from "@/lib/adminApi";
 
 // Modal component
 const Modal = ({ isOpen, onClose, event }) => {
@@ -170,7 +170,7 @@ const Akshara = () => {
       merged[entry.year] = [
         ...list,
         {
-          image: resolveAdminAssetUrl(entry.image),
+          image: entry.image,
           short: entry.short,
           long: entry.registerUrl
             ? `Registration link: ${entry.registerUrl}`

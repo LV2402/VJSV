@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { fetchAdminList, resolveAdminAssetUrl } from "@/lib/adminApi";
+import { fetchAdminList } from "@/lib/adminApi";
 
 const GalleryGrid = () => {
   const baseImages = [
@@ -33,10 +33,7 @@ const GalleryGrid = () => {
   }, []);
 
   const images = useMemo(
-    () => [
-      ...baseImages,
-      ...adminImages.map((entry) => resolveAdminAssetUrl(entry.src)),
-    ],
+    () => [...baseImages, ...adminImages.map((entry) => entry.src)],
     [adminImages]
   );
 
