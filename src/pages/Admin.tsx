@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import styles from "./Admin.module.css";
 import { deleteItem, fetchAdminList, postForm } from "@/lib/adminApi";
 
-
 const ADMIN_USERNAME = "vj.sahitivanam";
 const ADMIN_PASSWORD = "VJSVwebsite";
 
