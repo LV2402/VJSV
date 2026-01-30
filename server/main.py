@@ -8,6 +8,7 @@ from typing import List
 
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PUBLIC_DIR = BASE_DIR / "public" / "assets"
@@ -16,6 +17,8 @@ DATA_DIR = PUBLIC_DIR / "admin-data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI()
+
+app.mount("/assets", StaticFiles(directory=PUBLIC_DIR), name="assets")
 
 app.add_middleware(
     CORSMiddleware,
