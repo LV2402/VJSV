@@ -1,4 +1,11 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, "");
+const ENV_API_BASE = import.meta.env.VITE_API_BASE_URL?.replace(/\/+$/, "");
+const FALLBACK_API_BASE =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "www.vjsahithivanam.in" ||
+    window.location.hostname === "vjsahithivanam.in")
+    ? "https://vjsv-backend.onrender.com"
+    : "";
+const API_BASE = ENV_API_BASE || FALLBACK_API_BASE;
 
 const withBase = (url: string) => {
   if (/^https?:\/\//i.test(url)) return url;
