@@ -261,7 +261,7 @@ async def create_writing(
         "type": type,
         "content": content,
     }
-    data.append(entry)
+    data.insert(0, entry)
     _save_json(file_path, data)
     return data
 
