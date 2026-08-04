@@ -22,10 +22,23 @@ export const resolveAdminAssetUrl = (url: string) => withBase(url);
 
 const fetchJson = async <T,>(url: string, fallback: T): Promise<T> => {
   try {
-    const response = await fetch(withBase(url));
-    if (!response.ok) return fallback;
+    const fullUrl = withBase(url);
+    const response = await fetch(fullUrl);
+    if (!response.ok) {
+      if (fullUrl !== url) {
+        const relResponse = await fetch(url);
+        if (relResponse.ok) return (await relResponse.json()) as T;
+      }
+      return fallback;
+    }
     return (await response.json()) as T;
   } catch {
+    try {
+      const relResponse = await fetch(url);
+      if (relResponse.ok) return (await relResponse.json()) as T;
+    } catch {
+      // fallback
+    }
     return fallback;
   }
 };

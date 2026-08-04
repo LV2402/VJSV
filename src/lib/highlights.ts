@@ -1,4 +1,9 @@
-export const BASE_HIGHLIGHT_URLS: string[] = [];
+export const BASE_HIGHLIGHT_URLS: string[] = [
+  "https://www.instagram.com/p/DBOaWDpOlFV/",
+  "https://www.instagram.com/p/DT-9W9XE_Nb/?img_index=1",
+  "https://www.instagram.com/p/DNLUBNxxkfi/",
+  "https://www.instagram.com/p/DNdXW3TRg-o/",
+];
 
 export const HIGHLIGHTS_STORAGE_KEY = "vjsv_highlight_urls";
 export const HIGHLIGHTS_UPDATED_EVENT = "vjsvHighlightsUpdated";

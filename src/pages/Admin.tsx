@@ -4,8 +4,8 @@ import Footer from "@/components/Footer";
 import styles from "./Admin.module.css";
 import { deleteItem, fetchAdminList, postForm } from "@/lib/adminApi";
 
-const ADMIN_USERNAME = "vj.sahitivanam";
-const ADMIN_PASSWORD = "VJSVwebsite";
+const ADMIN_USERNAME = import.meta.env.VITE_ADMIN_USERNAME || "vj.sahitivanam";
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || "VJSVwebsite";
 
 const sections = [
   {

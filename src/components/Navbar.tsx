@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,8 +39,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity"
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shadow-md shrink-0">
@@ -51,7 +51,7 @@ const Navbar = () => {
                 విజ్ఞానజ్యోతి సాహితీవనం
               </h1>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
@@ -71,28 +71,28 @@ const Navbar = () => {
                   {/* Dropdown */}
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 border border-gray-200 rounded-xl shadow-xl opacity-0 scale-95 invisible group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-300 backdrop-blur-sm">
                     {item.dropdown.map((d) => (
-                      <a
+                      <Link
                         key={d.path}
-                        href={d.path}
+                        to={d.path}
                         className={`block px-3 py-2 text-sm sm:text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
                           isActive(d.path) ? activeLink : inactiveLink
                         }`}
                       >
                         {d.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <a
+                <Link
                   key={item.path}
-                  href={item.path}
+                  to={item.path}
                   className={`${baseLink} ${
                     isActive(item.path) ? activeLink : inactiveLink
                   }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             )}
           </div>
@@ -137,35 +137,36 @@ const Navbar = () => {
                     {(openDropdown === item.label ||
                       isDropdownChildActive(item.dropdown)) &&
                       item.dropdown.map((d) => (
-                        <a
+                        <Link
                           key={d.path}
-                          href={d.path}
+                          to={d.path}
                           onClick={() => setIsOpen(false)}
                           className={`block w-full px-6 py-2 text-sm sm:text-base rounded-md transition-all duration-200 hover:bg-gray-100 ${
                             isActive(d.path) ? activeLink : inactiveLink
                           }`}
                         >
                           {d.label}
-                        </a>
+                        </Link>
                       ))}
                   </div>
                 ) : (
-                  <a
+                  <Link
                     key={item.path}
-                    href={item.path}
+                    to={item.path}
                     onClick={() => setIsOpen(false)}
                     className={`${baseLink} block ${
                       isActive(item.path) ? activeLink : inactiveLink
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )
               )}
             </div>
           </div>
         )}
       </div>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(-5px); }
