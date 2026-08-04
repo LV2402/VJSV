@@ -826,7 +826,7 @@ NEET కోసం హైదరాబాద్ లో వాళ్లఇంటి
 const Blogs = () => {
   const [selectedWriting, setSelectedWriting] = useState<Writing | null>(null);
   const [writingEntries, setWritingEntries] = useState<Writing[]>(
-    fallbackWritings
+    [...fallbackWritings].reverse()
   );
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -844,8 +844,11 @@ const Blogs = () => {
   }, []);
 
   useEffect(() => {
+    const reversedFallback = [...fallbackWritings].reverse();
+
     fetchAdminList<Writing[]>("writings", []).then((data) => {
       if (!data || data.length === 0) {
+        setWritingEntries(reversedFallback);
         return;
       }
       const normalized = data.map((entry, index) => ({
@@ -860,12 +863,17 @@ const Blogs = () => {
       const mergeKey = (entry: Writing) =>
         `${entry.title}__${entry.author}__${entry.year}__${entry.type}`;
 
-      fallbackWritings.forEach((entry) => {
+      // Newly uploaded dynamic entries come FIRST (at top)
+      normalized.forEach((entry) => {
         mergedMap.set(mergeKey(entry), entry);
       });
 
-      normalized.forEach((entry) => {
-        mergedMap.set(mergeKey(entry), entry);
+      // Fallback writings added SECOND in reversed order (newest code additions at top)
+      reversedFallback.forEach((entry) => {
+        const key = mergeKey(entry);
+        if (!mergedMap.has(key)) {
+          mergedMap.set(key, entry);
+        }
       });
 
       setWritingEntries(Array.from(mergedMap.values()));
