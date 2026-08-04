@@ -27,10 +27,11 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      href: "mailto:vjsv@vnrvjiet.ac.in",
+      href: "mailto:vjsv@vnrvjiet.in",
       label: "Email",
       color: "hover:text-primary",
     },
+
   ];
 
   const quickLinks = [
@@ -128,18 +129,19 @@ const Footer = () => {
 <div className="space-y-2">
   <p className="text-sm font-medium">Email Us</p>
   <a
-    href="mailto:vjsv@vnrvjiet.ac.in"
+    href="mailto:vjsv@vnrvjiet.in"
     className="block text-sm opacity-80 hover:opacity-100 hover:text-[#d21421] transition-colors"
   >
     vjsv@vnrvjiet.in
   </a>
   <a
-    href="mailto:contact@vjsv.com"
+    href="mailto:vjsaahitiivanam@gmail.com"
     className="block text-sm opacity-80 hover:opacity-100 hover:text-[#d21421] transition-colors"
   >
     vjsaahitiivanam@gmail.com
   </a>
 </div>
+
 
 
 
