@@ -828,24 +828,11 @@ const Blogs = () => {
   const [writingEntries, setWritingEntries] = useState<Writing[]>(
     fallbackWritings
   );
-  const [selectedAuthor, setSelectedAuthor] = useState<string>("అందరూ");
   const [visibleCount, setVisibleCount] = useState(6);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 3);
   };
-
-  const authors = [
-    "అందరూ",
-    ...Array.from(
-      new Set(writingEntries.map((w) => w.author.trim()).filter(Boolean))
-    ),
-  ];
-
-  const filteredWritings =
-    selectedAuthor === "అందరూ"
-      ? writingEntries
-      : writingEntries.filter((w) => w.author.trim() === selectedAuthor);
 
   // Close modal with ESC key
   useEffect(() => {
@@ -900,50 +887,9 @@ const Blogs = () => {
           <div className="h-1 w-24 bg-[#811414] mx-auto rounded-full"></div>
         </section>
 
-        {/* Writer Filter */}
-        <section className="mt-10 px-6 max-w-5xl mx-auto text-center">
-          <p className="text-sm font-semibold text-[#811414] uppercase tracking-wider mb-4">
-            రచయిత ద్వారా ఎంచుకోండి
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {authors.map((author) => {
-              const isSelected = selectedAuthor === author;
-              const count =
-                author === "అందరూ"
-                  ? writingEntries.length
-                  : writingEntries.filter((w) => w.author.trim() === author).length;
-              return (
-                <button
-                  key={author}
-                  onClick={() => {
-                    setSelectedAuthor(author);
-                    setVisibleCount(6);
-                  }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 shadow-sm flex items-center gap-2 ${
-                    isSelected
-                      ? "bg-[#811414] text-white shadow-md scale-105"
-                      : "bg-[#fff9f4] text-[#4f4f4f] border border-[#e6d4c5] hover:bg-[#811414] hover:text-white"
-                  }`}
-                >
-                  <span>✍ {author}</span>
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${
-                      isSelected
-                        ? "bg-white text-[#811414]"
-                        : "bg-[#e6d4c5] text-[#2d2d2d]"
-                    }`}
-                  >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
         {/* Cards */}
         <section className="mt-12 px-6 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-          {filteredWritings.slice(0, visibleCount).map((writing, index) => (
+          {writingEntries.slice(0, visibleCount).map((writing, index) => (
             <motion.div
               key={writing.id}
               initial={{ opacity: 0, y: 30 }}
@@ -982,7 +928,7 @@ const Blogs = () => {
           ))}
 
           {/* Load More */}
-          {visibleCount < filteredWritings.length && (
+          {visibleCount < writingEntries.length && (
             <div className="col-span-full text-center mt-10">
               <button
                 onClick={handleLoadMore}
