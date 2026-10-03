@@ -85,7 +85,7 @@ const Modal = ({ isOpen, onClose, event }) => {
 };
 
 const Akshara = () => {
-  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedYear, setSelectedYear] = useState("2026");
   // Add these new state variables
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -116,6 +116,34 @@ const Akshara = () => {
   }, []);
 
   const yearlyEventData = {
+    "2026": [
+      {
+        image: "/assets/events/2026/RRR/RRR1.png",
+        short: "RRR - లక్ష్యం",
+        long: "ఆరు విభాగాలు - అలరించే ప్రశ్నలు!\n\nConvergence 2k26 లో RRR (RELAX . RELIEVE . REJOICE) ఆధ్వర్యంలో విజ్ఞానజ్యోతి సాహితీవనం నిర్వహిస్తున్న కార్యక్రమం - లక్ష్యం!!\n\nతేదీ: 18-09-2026\nవేదిక: SAC Stage\nసమయం: 10AM to 4PM\nనగదు బహుమానం: ₹3000/-",
+      },
+      {
+        image: "/assets/events/2026/RRR/RRR2.png",
+        short: "RRR - చెప్పుకోండి చూద్దాం",
+        long: "Convergence 2k26 లో RRR (RELAX . RELIEVE . REJOICE) ఆధ్వర్యంలో విజ్ఞానజ్యోతి సాహితీవనం నిర్వహిస్తున్న కార్యక్రమం - చెప్పుకోండి చూద్దాం!!\n\nతేదీ: 19/09/2026\nవేదిక: SAC Stage\nసమయం: 10am - 4pm\nనగదు బహుమానం: ₹3000/-",
+      },
+      {
+        image: "/assets/events/2026/Saaradhi/saaradhi1.png",
+        short: "సారథి - తెలుగు తావి",
+        long: "Convergence 2k26 లో భాగంగా విజ్ఞానజ్యోతి సాహితీవనం సారథి ఆధ్వర్యంలో ఏర్పాటు చేస్తున్న స్టాల్ - తెలుగు తావి!!\n\nతేదీ: 18-09-2026 నుండి 19-09-2026\nవేదిక: Stall Area\nసమయం: 10AM to 5PM",
+      },
+      {
+        image: "/assets/events/2026/Saaradhi/saaradhi2.png",
+        short: "సారథి - గళం",
+        long: "మనసులో ఉన్న మాట మూడు ముక్కల్లో!\n\nConvergence 2k26 లో సారథి ఆధ్వర్యంలో విజ్ఞానజ్యోతి సాహితీవనం నిర్వహిస్తున్న కార్యక్రమం - గళం!!\n\nతేదీ: 19/09/26\nవేదిక: JSK GREENS\nసమయం: 10am - 4pm\nనగదు బహుమానం: ₹3,000/-",
+      },
+      {
+        image: "/assets/events/2026/Saaradhi/saaradhi3.png",
+        short: "సారథి - బడ్జెట్ సమావేశాలు",
+        long: "Convergence 2k26 లో సారథి ఆధ్వర్యంలో విజ్ఞానజ్యోతి సాహితీవనం నిర్వహిస్తున్న కార్యక్రమం - బడ్జెట్ సమావేశాలు!!\n\nతేదీ: 18th September, 2026\nవేదిక: E-Block, E-038\nసమయం: 1 p.m. Onwards\nనగదు బహుమానం: ₹2000/-",
+      },
+    ],
+
     "2025": [
         {
         image: "/assets/events/2025/RRR/Adugula_Adhipathi.png",

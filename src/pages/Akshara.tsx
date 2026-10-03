@@ -106,59 +106,68 @@ const Akshara = () => {
   }, []);
 
   const yearlyEventData = {
+    "2026": [
+      { image: "/assets/events/2026/Akshara/event1.jpeg", short: "పదశోధన", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+      { image: "/assets/events/2026/Akshara/event2.jpeg", short: "అక్షరచిత్రం", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+      { image: "/assets/events/2026/Akshara/event3.jpeg", short: "అక్షరథాన్", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+      { image: "/assets/events/2026/Akshara/event4.jpeg", short: "పంచాక్షరి", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+      { image: "/assets/events/2026/Akshara/event5.jpeg", short: "శిల్పకళ", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+      { image: "/assets/events/2026/Akshara/event6.jpeg", short: "పుస్తక ప్రదర్శన", registerUrl: "https://beacons.ai/vj.sahitivanam" },
+    ],
+
     "2025": [
-      { image: "/assets/events/2025/guest1.jpg", short: "హసిత్ గోలి", registerUrl: "https://lnk.bio/vjsv_akshara25" },
-      { image: "/assets/events/2025/event1.png", short: "రెండు పావుల చదరంగం", registerUrl: "https://forms.gle/bnirGRkSNXbwnoBt6" },
-      { image: "/assets/events/2025/event2.png", short: "వికీవిహారం", registerUrl: "https://forms.gle/7CQYULRs5L7diX4V9" },
-      { image: "/assets/events/2025/event3.png", short: "గీతం-సంగీతం", registerUrl: "https://forms.gle/gKLWm9DhGMZkuQY26" },
-      { image: "/assets/events/2025/event4.png", short: "అక్షరాన్వేషణ", registerUrl: "https://forms.gle/UHivKXTJzqwiN53R9" },
-      { image: "/assets/events/2025/event5.png", short: "సాహితీవనం వారి పాట", registerUrl: "https://forms.gle/HeGfY7b1TiB86a1E7" },
-      { image: "/assets/events/2025/event6.png", short: "వాదం-ప్రతివాదం", registerUrl: "https://forms.gle/EVVfGaekmPqhwP6w9" },
-      { image: "/assets/events/2025/event7.png", short: "పుస్తక ప్రదర్శన", registerUrl: "" },
-      { image: "/assets/events/2025/event8.png", short: "ఆటవిడుపు", registerUrl: "" },
+      { image: "/assets/events/2025/Akshara/guest1.jpg", short: "హసిత్ గోలి", registerUrl: "https://lnk.bio/vjsv_akshara25" },
+      { image: "/assets/events/2025/Akshara/event1.png", short: "రెండు పావుల చదరంగం", registerUrl: "https://forms.gle/bnirGRkSNXbwnoBt6" },
+      { image: "/assets/events/2025/Akshara/event2.png", short: "వికీవిహారం", registerUrl: "https://forms.gle/7CQYULRs5L7diX4V9" },
+      { image: "/assets/events/2025/Akshara/event3.png", short: "గీతం-సంగీతం", registerUrl: "https://forms.gle/gKLWm9DhGMZkuQY26" },
+      { image: "/assets/events/2025/Akshara/event4.png", short: "అక్షరాన్వేషణ", registerUrl: "https://forms.gle/UHivKXTJzqwiN53R9" },
+      { image: "/assets/events/2025/Akshara/event5.png", short: "సాహితీవనం వారి పాట", registerUrl: "https://forms.gle/HeGfY7b1TiB86a1E7" },
+      { image: "/assets/events/2025/Akshara/event6.png", short: "వాదం-ప్రతివాదం", registerUrl: "https://forms.gle/EVVfGaekmPqhwP6w9" },
+      { image: "/assets/events/2025/Akshara/event7.png", short: "పుస్తక ప్రదర్శన", registerUrl: "" },
+      { image: "/assets/events/2025/Akshara/event8.png", short: "ఆటవిడుపు", registerUrl: "" },
     ],
 
     "2024": [
-      { image: "/assets/events/2024/first.png", short: "ప్రారంభ వేడుక", long: "ప్రారంభ వేడుక" },
-      { image: "/assets/events/2024/guest1.png", short: "ముఖ్య అతిథి - డా || తనికెళ్ళ భరణి", long: "సాహితీలోకంలో ఆయన రచనా శైలితో..." },
-      { image: "/assets/events/2024/guest2.png", short: "ముఖ్య అతిథులు - కృష్ణ చైతన్య, ప్రవర్ష్ చిత్రక", long: "“కృష్ణుడి వారసులంతా...”" },
-      { image: "/assets/events/2024/event1.png", short: "వైకుంఠపాళి", long: "ఈ ఆటలో ఒక జట్టు మాత్రమే..." },
-      { image: "/assets/events/2024/event2.png", short: "సిత్రలహరి", long: "ఈ ఆట రెండు రౌండ్లుగా..." },
-      { image: "/assets/events/2024/event3.png", short: "రెండు పావుల చదరంగం", long: "ఈ ఆట ఒకేసారి రెండు జట్లు..." },
-      { image: "/assets/events/2024/event4.png", short: "వాఙ్మయం", long: "ఈ పోటీలో పాల్గొనేవారు..." },
-      { image: "/assets/events/2024/event5.png", short: "ఘుంగ్రూ(Ghungroo)", long: "అన్ని జట్లు కలిసి..." },
-      { image: "/assets/events/2024/event6.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
-      { image: "/assets/events/2024/event7.png", short: "'అ ఆ!' (అక్షరాలతో ఆటవిడుపు)", long: "సాహిత్యం మరియు విజ్ఞానం నుంచి..." },
-      { image: "/assets/events/2024/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
+      { image: "/assets/events/2024/Akshara/first.png", short: "ప్రారంభ వేడుక", long: "ప్రారంభ వేడుక" },
+      { image: "/assets/events/2024/Akshara/guest1.png", short: "ముఖ్య అతిథి - డా || తనికెళ్ళ భరణి", long: "సాహితీలోకంలో ఆయన రచనా శైలితో..." },
+      { image: "/assets/events/2024/Akshara/guest2.png", short: "ముఖ్య అతిథులు - కృష్ణ చైతన్య, ప్రవర్ష్ చిత్రక", long: "“కృష్ణుడి వారసులంతా...”" },
+      { image: "/assets/events/2024/Akshara/event1.png", short: "వైకుంఠపాళి", long: "ఈ ఆటలో ఒక జట్టు మాత్రమే..." },
+      { image: "/assets/events/2024/Akshara/event2.png", short: "సిత్రలహరి", long: "ఈ ఆట రెండు రౌండ్లుగా..." },
+      { image: "/assets/events/2024/Akshara/event3.png", short: "రెండు పావుల చదరంగం", long: "ఈ ఆట ఒకేసారి రెండు జట్లు..." },
+      { image: "/assets/events/2024/Akshara/event4.png", short: "వాఙ్మయం", long: "ఈ పోటీలో పాల్గొనేవారు..." },
+      { image: "/assets/events/2024/Akshara/event5.png", short: "ఘుంగ్రూ(Ghungroo)", long: "అన్ని జట్లు కలిసి..." },
+      { image: "/assets/events/2024/Akshara/event6.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
+      { image: "/assets/events/2024/Akshara/event7.png", short: "'అ ఆ!' (అక్షరాలతో ఆటవిడుపు)", long: "సాహిత్యం మరియు విజ్ఞానం నుంచి..." },
+      { image: "/assets/events/2024/Akshara/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
     ],
 
     "2023": [
-      { image: "/assets/events/2023/first.png", short: "ప్రారంభ వేడుక", long: "ప్రారంభ వేడుక" },
-      { image: "/assets/events/2023/guest1.png", short: "ముఖ్య అతిథి - కడలి సత్యనారాయణ", long: "'కడలి' అంత లోతైన భావాలతో..." },
-      { image: "/assets/events/2023/guest2.png", short: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు", long: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు" },
-      { image: "/assets/events/2023/event1.png", short: "గమ్యం", long: "వైకుంఠపాళి.. అదే snake and ladder.." },
-      { image: "/assets/events/2023/event2.png", short: "సాహితీవనం X డ్రమాట్రిక్స్", long: "ఎన్నో యాసల సమ్మేళనం..." },
-      { image: "/assets/events/2023/event3.png", short: "గీతం సంగీతం", long: "మనం తరచూ ఏదో ఒక పాటకు..." },
-      { image: "/assets/events/2023/event4.png", short: "ఇతిహాసం", long: "మన భారతదేశ ఇతిహాసం గురించి..." },
-      { image: "/assets/events/2023/event5.png", short: "సాహితీవనం వారి పాట", long: "వేలంపాట గురించి తెలిసిందే..." },
-      { image: "/assets/events/2023/event6.png", short: "కవితా పటిమ", long: "మీ సాహిత్యాన్ని ప్రదర్శించాలని..." },
-      { image: "/assets/events/2023/event7.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
-      { image: "/assets/events/2023/event8.png", short: "ఆటవిడుపు", long: "ఆటవిడుపు సాహిత్యం మరియు విజ్ఞానం..." },
-      { image: "/assets/events/2023/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
+      { image: "/assets/events/2023/Akshara/first.png", short: "ప్రారంభ వేడుక", long: "ప్రారంభ వేడుక" },
+      { image: "/assets/events/2023/Akshara/guest1.png", short: "ముఖ్య అతిథి - కడలి సత్యనారాయణ", long: "'కడలి' అంత లోతైన భావాలతో..." },
+      { image: "/assets/events/2023/Akshara/guest2.png", short: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు", long: "కవనమాలి గారు, ఆకెళ్ళ రాఘవేంద్ర గారు" },
+      { image: "/assets/events/2023/Akshara/event1.png", short: "గమ్యం", long: "వైకుంఠపాళి.. అదే snake and ladder.." },
+      { image: "/assets/events/2023/Akshara/event2.png", short: "సాహితీవనం X డ్రమాట్రిక్స్", long: "ఎన్నో యాసల సమ్మేళనం..." },
+      { image: "/assets/events/2023/Akshara/event3.png", short: "గీతం సంగీతం", long: "మనం తరచూ ఏదో ఒక పాటకు..." },
+      { image: "/assets/events/2023/Akshara/event4.png", short: "ఇతిహాసం", long: "మన భారతదేశ ఇతిహాసం గురించి..." },
+      { image: "/assets/events/2023/Akshara/event5.png", short: "సాహితీవనం వారి పాట", long: "వేలంపాట గురించి తెలిసిందే..." },
+      { image: "/assets/events/2023/Akshara/event6.png", short: "కవితా పటిమ", long: "మీ సాహిత్యాన్ని ప్రదర్శించాలని..." },
+      { image: "/assets/events/2023/Akshara/event7.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
+      { image: "/assets/events/2023/Akshara/event8.png", short: "ఆటవిడుపు", long: "ఆటవిడుపు సాహిత్యం మరియు విజ్ఞానం..." },
+      { image: "/assets/events/2023/Akshara/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
     ],
 
     "2022": [
-      { image: "/assets/events/2022/guest1.png", short: "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)", long: "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)" },
-      { image: "/assets/events/2022/event1.png", short: "కవితా పటిమ", long: "కవితా పటిమ" },
-      { image: "/assets/events/2022/event2.png", short: "రంగస్థలం", long: "సాహితీవనం X డ్రమాట్రిక్స్" },
-      { image: "/assets/events/2022/event3.png", short: "ఇతిహాసం", long: "ఇతిహాసం" },
-      { image: "/assets/events/2022/event4.png", short: "రారండోయ్ వంటలు చేద్దాం", long: "రారండోయ్ వంటలు చేద్దాం" },
-      { image: "/assets/events/2022/event5.png", short: "వర్ణన", long: "వర్ణన" },
-      { image: "/assets/events/2022/event6.png", short: "డిజిటల్ మాధ్యమాలలో తెలుగు", long: "డిజిటల్ మాధ్యమాలలో తెలుగు" },
-      { image: "/assets/events/2022/event7.png", short: "సృజనాత్మక రచన", long: "సృజనాత్మక రచన" },
-      { image: "/assets/events/2022/event8.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
-      { image: "/assets/events/2022/event9.png", short: "సాహితీవనం వారి పాట", long: "సాహితీవనం వారి పాట" },
-      { image: "/assets/events/2022/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
+      { image: "/assets/events/2022/Akshara/guest1.png", short: "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)", long: "ముఖ్య అతిథి - అజయ్ (ఏయ్ జూడ్)" },
+      { image: "/assets/events/2022/Akshara/event1.png", short: "కవితా పటిమ", long: "కవితా పటిమ" },
+      { image: "/assets/events/2022/Akshara/event2.png", short: "రంగస్థలం", long: "సాహితీవనం X డ్రమాట్రిక్స్" },
+      { image: "/assets/events/2022/Akshara/event3.png", short: "ఇతిహాసం", long: "ఇతిహాసం" },
+      { image: "/assets/events/2022/Akshara/event4.png", short: "రారండోయ్ వంటలు చేద్దాం", long: "రారండోయ్ వంటలు చేద్దాం" },
+      { image: "/assets/events/2022/Akshara/event5.png", short: "వర్ణన", long: "వర్ణన" },
+      { image: "/assets/events/2022/Akshara/event6.png", short: "డిజిటల్ మాధ్యమాలలో తెలుగు", long: "డిజిటల్ మాధ్యమాలలో తెలుగు" },
+      { image: "/assets/events/2022/Akshara/event7.png", short: "సృజనాత్మక రచన", long: "సృజనాత్మక రచన" },
+      { image: "/assets/events/2022/Akshara/event8.png", short: "పుస్తక ప్రదర్శన", long: "ఒక మంచి పుస్తకం మీతో ఉంటే..." },
+      { image: "/assets/events/2022/Akshara/event9.png", short: "సాహితీవనం వారి పాట", long: "సాహితీవనం వారి పాట" },
+      { image: "/assets/events/2022/Akshara/last.png", short: "ముగింపు వేడుక", long: "ముగింపు వేడుక" },
     ],
   };
 
@@ -219,22 +228,22 @@ const Akshara = () => {
         {/* Main Poster */}
         <div className="flex justify-center gap-6 mb-6">
           <div
-            className="rounded-xl p-5 overflow-hidden flex flex-col items-center"
+            className="rounded-xl p-3 overflow-hidden flex flex-col items-center"
             style={{
               backgroundColor: "#fbeee1",
               boxShadow: "0 4px 8px rgba(129, 20, 20, 0.6)",
-              maxWidth: "400px",
+              maxWidth: "340px",
             }}
           >
             <img
-              src={`/assets/events/${selectedYear}/mainposter.png`}
+              src={`/assets/events/${selectedYear}/Akshara/mainposter${selectedYear === "2026" ? ".jpeg" : ".png"}`}
               alt={`Akshara ${selectedYear}`}
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain rounded-lg"
             />
             <div className="w-full flex justify-center py-4">
               <button className="px-6 py-2 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition">
                 <a
-                  href="https://lnk.bio/vjsv_akshara25"
+                  href={selectedYear === "2026" ? "https://beacons.ai/vj.sahitivanam" : "https://lnk.bio/vjsv_akshara25"}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ textDecoration: "none" }}
@@ -247,11 +256,11 @@ const Akshara = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4">
           {events.map((event, i) => (
             <div
               key={i}
-              className="rounded-xl p-4 w-full sm:w-[45%] lg:w-[30%] transform transition-transform duration-300 hover:scale-105"
+              className={`rounded-xl p-3 w-full sm:w-[45%] ${selectedYear === "2026" ? "lg:w-[23%]" : "lg:w-[28%]"} transform transition-transform duration-300 hover:scale-105`}
               style={{
                 backgroundColor: "#fbeee1",
                 boxShadow: "0 4px 8px rgba(129, 20, 20, 0.6)",
@@ -260,9 +269,9 @@ const Akshara = () => {
               <img
                 src={event.image}
                 alt={`Event ${i + 1}`}
-                className="w-full object-contain rounded-md mb-4"
+                className={`w-full ${selectedYear === "2026" ? "h-96" : "h-64"} object-contain rounded-md mb-2`}
               />
-              <p className="mb-2 font-bold text-xl" style={{ color: "#811414" }}>
+              <p className="mb-1 font-bold text-base" style={{ color: "#811414" }}>
                 {event.short}
               </p>
               <div className="flex justify-end w-full">
