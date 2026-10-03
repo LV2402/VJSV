@@ -96,6 +96,8 @@ const Akshara = () => {
   >([]);
 
   const yearlyEventData = {
+    "2026": [],
+
     "2025": [
       {
         image: "/assets/events/workshops/rachanaku.png",

@@ -116,6 +116,8 @@ const Akshara = () => {
   }, []);
 
   const yearlyEventData = {
+    "2026": [],
+
     "2025": [
       {
         image: "/assets/events/2025/Sinti/mainposter.png",

@@ -8,13 +8,13 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center font-telugu overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center text-center font-telugu overflow-hidden pt-14 sm:pt-16">
       {/* Background Image with Ken Burns Effect */}
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/akshara.jpg"
           alt="VJSV Group"
-          className="w-full h-full object-cover object-center transform scale-105 animate-[kenBurns_20s_ease-in-out_infinite_alternate]"
+          className="w-full h-full object-cover object-top transform scale-105 animate-[kenBurns_20s_ease-in-out_infinite_alternate]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 animate-[fadeIn_1.5s_ease-out]" />
       </div>
